@@ -205,7 +205,7 @@ class EntryPageViewController: UIViewController {
   // TODO: SIgn In
   
   func signUserIn() {
-    let ref = FIRDatabase.database().reference()
+    //    let ref = FIRDatabase.database().reference()
     let currentEmail = bottomTextFieldOne.text ?? ""
     let currentPassword = bottomTextFieldTwo.text ?? ""
     
@@ -233,13 +233,17 @@ class EntryPageViewController: UIViewController {
         }
         alertController.addAction(OKAction)
       } else {
-//        ref.child("test").setValue("worked")
+        
+        // TODO: Segue Somewhere
+        
+        // self.performSegue(withIdentifier: "", sender: self)
+        
       }
     })
   }
   
   
-  // MARK: Create User
+  // TODO: Create User
   
   func createNewUser() {
     
@@ -274,16 +278,19 @@ class EntryPageViewController: UIViewController {
           // TODO: Segue Somewhere
           
           // self.performSegue(withIdentifier: "", sender: self)
+          
         }
       })
     }
   }
   
   
-  // TODO: IB Actions
+  // TODO: IB Actions - Whatever is on left...
   
   @IBAction func questionMarkButtonTapped(_ sender: UIButton) {
-    // Lost Password
+    
+    // TODO: Lost Password
+
   }
   
   @IBAction func addButtonTapped(_ sender: UIButton) {
@@ -307,7 +314,8 @@ class EntryPageViewController: UIViewController {
     addLabel.isHidden = true
     addButton.isHidden = true
     addButton.isEnabled = false
-    // whatever is on left
+    
+    // TODO: Whatever is on left
   }
   
   
@@ -317,7 +325,9 @@ class EntryPageViewController: UIViewController {
     addLabel.isHidden = false
     addButton.isHidden = false
     addButton.isEnabled = true
-    // whatever is on left
+    
+    // TODO: Whatever is on left
+    
   }
   
   
