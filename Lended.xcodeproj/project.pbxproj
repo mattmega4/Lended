@@ -11,8 +11,8 @@
 		1D17F20E1E431645008B3216 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D17F20C1E431645008B3216 /* Main.storyboard */; };
 		1D17F2101E431645008B3216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D17F20F1E431645008B3216 /* Assets.xcassets */; };
 		1D17F2131E431645008B3216 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D17F2111E431645008B3216 /* LaunchScreen.storyboard */; };
-		1D17F21F1E432868008B3216 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17F21E1E432868008B3216 /* LandingPageViewController.swift */; };
 		1D1CF0D61E43DE340030B4BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D1CF0D51E43DE340030B4BB /* GoogleService-Info.plist */; };
+		1DD487121E513C03004E0172 /* EntryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD487111E513C03004E0172 /* EntryPageViewController.swift */; };
 		A522C647E26F70704CDD3B08 /* Pods_Lended.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2DCBDE1BB27DAC133483DC /* Pods_Lended.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,8 +23,8 @@
 		1D17F20F1E431645008B3216 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D17F2121E431645008B3216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D17F2141E431645008B3216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1D17F21E1E432868008B3216 /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		1D1CF0D51E43DE340030B4BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1DD487111E513C03004E0172 /* EntryPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryPageViewController.swift; sourceTree = "<group>"; };
 		55923053DDF9A7FD133627DB /* Pods-Lended.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lended.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lended/Pods-Lended.debug.xcconfig"; sourceTree = "<group>"; };
 		7A2DCBDE1BB27DAC133483DC /* Pods_Lended.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lended.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C29C91CC0DB2238DDBF65B3 /* Pods-Lended.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lended.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lended/Pods-Lended.release.xcconfig"; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		1D17F21B1E4327F3008B3216 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1D17F21E1E432868008B3216 /* LandingPageViewController.swift */,
+				1DD487111E513C03004E0172 /* EntryPageViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -262,8 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DD487121E513C03004E0172 /* EntryPageViewController.swift in Sources */,
 				1D17F2091E431645008B3216 /* AppDelegate.swift in Sources */,
-				1D17F21F1E432868008B3216 /* LandingPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
