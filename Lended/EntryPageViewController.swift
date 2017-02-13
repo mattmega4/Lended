@@ -14,6 +14,8 @@ class EntryPageViewController: UIViewController {
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var contentView: UIView!
   
+  @IBOutlet weak var questionMarkButton: UIButton!
+  
   @IBOutlet weak var topContainerView: UIView!
   @IBOutlet weak var leftContainerView: UIView!
   
@@ -30,6 +32,8 @@ class EntryPageViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    questionMarkButton.createRoundView()
     
     bottomTextFieldDelegateAndAutoCorrectAndPlaceholderColorSetup()
     keyboardMethods()

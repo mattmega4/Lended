@@ -30,7 +30,22 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XuJ-OW-SMe">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="376.33333333333331"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wv6-un-EKP">
+                                                        <rect key="frame" x="354" y="45" width="35" height="35"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="cMN-i9-tZA"/>
+                                                            <constraint firstAttribute="width" constant="35" id="sPW-Ps-j0P"/>
+                                                        </constraints>
+                                                        <state key="normal" image="whiteQuestionMark"/>
+                                                    </button>
+                                                </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="0.96883370535714286" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="Wv6-un-EKP" firstAttribute="top" secondItem="XuJ-OW-SMe" secondAttribute="top" constant="45" id="ip2-Gd-o7g"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Wv6-un-EKP" secondAttribute="trailing" constant="25" id="rht-Th-cuY"/>
+                                                </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K3q-Jf-3Fo">
                                                 <rect key="frame" x="0.0" y="376.33333333333337" width="207" height="165.00000000000011"/>
@@ -72,7 +87,7 @@
                                                 <rect key="frame" x="0.0" y="541.33333333333348" width="414" height="194.66666666666663"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T4b-mV-epQ">
-                                                        <rect key="frame" x="75" y="25" width="264" height="39.666666666666629"/>
+                                                        <rect key="frame" x="50" y="25" width="314" height="39.666666666666629"/>
                                                         <color key="backgroundColor" red="0.75788218975067134" green="0.51088512245654527" blue="0.4428841336148378" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
@@ -82,7 +97,7 @@
                                                         </connections>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qaH-PS-Gh8">
-                                                        <rect key="frame" x="75" y="74.666666666666629" width="264" height="39.666666666666629"/>
+                                                        <rect key="frame" x="50" y="74.666666666666629" width="314" height="39.666666666666629"/>
                                                         <color key="backgroundColor" red="0.75788218979999999" green="0.51088512249999996" blue="0.44288413360000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
@@ -92,10 +107,10 @@
                                                         </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5e-cC-Bpy">
-                                                        <rect key="frame" x="75" y="129.33333333333326" width="264" height="40.333333333333371"/>
+                                                        <rect key="frame" x="50" y="129.33333333333326" width="314" height="40.333333333333371"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZw-NG-zMR">
-                                                                <rect key="frame" x="2" y="2" width="260" height="36.333333333333371"/>
+                                                                <rect key="frame" x="2" y="2" width="310" height="36.333333333333371"/>
                                                                 <color key="backgroundColor" red="0.78664588928222656" green="0.48777267336845398" blue="0.39216765761375427" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
                                                                 <state key="normal" title="SIGN IN">
@@ -118,9 +133,9 @@
                                                     <constraint firstItem="qaH-PS-Gh8" firstAttribute="centerX" secondItem="T4b-mV-epQ" secondAttribute="centerX" id="2ak-9O-Xhw"/>
                                                     <constraint firstAttribute="bottom" secondItem="M5e-cC-Bpy" secondAttribute="bottom" constant="25" id="ELG-Oq-IJk"/>
                                                     <constraint firstItem="qaH-PS-Gh8" firstAttribute="height" secondItem="T4b-mV-epQ" secondAttribute="height" id="Keh-V8-q5q"/>
-                                                    <constraint firstAttribute="trailing" secondItem="T4b-mV-epQ" secondAttribute="trailing" constant="75" id="MH1-gk-ytH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="T4b-mV-epQ" secondAttribute="trailing" constant="50" id="MH1-gk-ytH"/>
                                                     <constraint firstItem="qaH-PS-Gh8" firstAttribute="top" secondItem="T4b-mV-epQ" secondAttribute="bottom" constant="10" id="Q8k-Xp-8la"/>
-                                                    <constraint firstItem="T4b-mV-epQ" firstAttribute="leading" secondItem="l9g-Vb-dkF" secondAttribute="leading" constant="75" id="Ufx-FO-Rvy"/>
+                                                    <constraint firstItem="T4b-mV-epQ" firstAttribute="leading" secondItem="l9g-Vb-dkF" secondAttribute="leading" constant="50" id="Ufx-FO-Rvy"/>
                                                     <constraint firstItem="M5e-cC-Bpy" firstAttribute="width" secondItem="T4b-mV-epQ" secondAttribute="width" id="dF2-IC-7RE"/>
                                                     <constraint firstItem="qaH-PS-Gh8" firstAttribute="width" secondItem="T4b-mV-epQ" secondAttribute="width" id="e5w-oP-arH"/>
                                                     <constraint firstItem="qaH-PS-Gh8" firstAttribute="leading" secondItem="M5e-cC-Bpy" secondAttribute="leading" id="qjl-7W-hLI"/>
@@ -176,6 +191,7 @@
                         <outlet property="emailTextField" destination="T4b-mV-epQ" id="0Jw-tV-zUc"/>
                         <outlet property="leftContainerView" destination="K3q-Jf-3Fo" id="rgB-Ld-HEy"/>
                         <outlet property="passwordTextField" destination="qaH-PS-Gh8" id="8Pj-wN-a1m"/>
+                        <outlet property="questionMarkButton" destination="Wv6-un-EKP" id="ai7-lC-n3b"/>
                         <outlet property="rightContainerView" destination="Zax-9L-Kr2" id="EQl-38-uvJ"/>
                         <outlet property="scrollView" destination="sd3-Eh-O6n" id="CIq-Tx-fPZ"/>
                         <outlet property="signInOrUpButton" destination="DZw-NG-zMR" id="wbF-ug-oUx"/>
@@ -190,5 +206,6 @@
     </scenes>
     <resources>
         <image name="Plus" width="125" height="125"/>
+        <image name="whiteQuestionMark" width="53" height="52"/>
     </resources>
 </document>
