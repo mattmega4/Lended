@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EntryPageViewController: UIViewController {
   
@@ -15,7 +16,10 @@ class EntryPageViewController: UIViewController {
   
   @IBOutlet weak var topContainerView: UIView!
   @IBOutlet weak var leftContainerView: UIView!
+  
   @IBOutlet weak var rightContainerView: UIView!
+  @IBOutlet weak var addButton: UIButton!
+  @IBOutlet weak var addLabel: UILabel!
   
   @IBOutlet weak var bottomContainerView: UIView!
   @IBOutlet weak var emailTextField: UITextField!
@@ -32,6 +36,10 @@ class EntryPageViewController: UIViewController {
     
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+  }
 
   
   

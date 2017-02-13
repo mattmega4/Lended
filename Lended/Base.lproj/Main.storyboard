@@ -41,7 +41,32 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zax-9L-Kr2">
                                                 <rect key="frame" x="207" y="376.33333333333337" width="207" height="165.00000000000011"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTg-DE-q9c">
+                                                        <rect key="frame" x="56" y="15" width="95" height="95"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="lTg-DE-q9c" secondAttribute="height" multiplier="1:1" id="g8n-1G-UbU"/>
+                                                        </constraints>
+                                                        <state key="normal" image="Plus"/>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OhG-c7-TUh">
+                                                        <rect key="frame" x="50.333333333333314" y="115" width="105.33333333333337" height="35.000000000000057"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="b90-MK-CYE"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" red="0.49741187691688538" green="0.59082520008087158" blue="0.66672968864440918" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstItem="OhG-c7-TUh" firstAttribute="centerX" secondItem="Zax-9L-Kr2" secondAttribute="centerX" id="JV6-wA-cb8"/>
+                                                    <constraint firstItem="OhG-c7-TUh" firstAttribute="top" secondItem="lTg-DE-q9c" secondAttribute="bottom" constant="5" id="aHG-gi-iKq"/>
+                                                    <constraint firstItem="lTg-DE-q9c" firstAttribute="centerX" secondItem="Zax-9L-Kr2" secondAttribute="centerX" id="k6w-4s-WYv"/>
+                                                    <constraint firstItem="lTg-DE-q9c" firstAttribute="top" secondItem="Zax-9L-Kr2" secondAttribute="top" constant="15" id="tZP-rf-fwa"/>
+                                                    <constraint firstAttribute="bottom" secondItem="OhG-c7-TUh" secondAttribute="bottom" constant="15" id="uyp-s9-db7"/>
+                                                </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9g-Vb-dkF">
                                                 <rect key="frame" x="0.0" y="541.33333333333348" width="414" height="194.66666666666663"/>
@@ -50,7 +75,7 @@
                                                         <rect key="frame" x="75" y="25" width="264" height="39.666666666666629"/>
                                                         <color key="backgroundColor" red="0.75788218975067134" green="0.51088512245654527" blue="0.4428841336148378" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="BYZ-38-t0r" id="xZ0-X1-4di"/>
@@ -60,7 +85,7 @@
                                                         <rect key="frame" x="75" y="74.666666666666629" width="264" height="39.666666666666629"/>
                                                         <color key="backgroundColor" red="0.75788218979999999" green="0.51088512249999996" blue="0.44288413360000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="BYZ-38-t0r" id="IFA-83-61J"/>
@@ -144,6 +169,8 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
+                        <outlet property="addButton" destination="lTg-DE-q9c" id="WUT-hE-1zH"/>
+                        <outlet property="addLabel" destination="OhG-c7-TUh" id="Kjl-qu-4cJ"/>
                         <outlet property="bottomContainerView" destination="l9g-Vb-dkF" id="j38-WQ-zsu"/>
                         <outlet property="contentView" destination="WAM-Me-e4A" id="dJo-SN-AdH"/>
                         <outlet property="emailTextField" destination="T4b-mV-epQ" id="0Jw-tV-zUc"/>
@@ -161,4 +188,7 @@
             <point key="canvasLocation" x="428.98550724637687" y="151.63043478260872"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Plus" width="125" height="125"/>
+    </resources>
 </document>
