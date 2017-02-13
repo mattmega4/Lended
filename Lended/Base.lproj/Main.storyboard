@@ -39,6 +39,9 @@
                                                             <constraint firstAttribute="width" constant="35" id="sPW-Ps-j0P"/>
                                                         </constraints>
                                                         <state key="normal" image="whiteQuestionMark"/>
+                                                        <connections>
+                                                            <action selector="questionMarkButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZTc-Sx-sOO"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="0.96883370535714286" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,6 +66,9 @@
                                                             <constraint firstAttribute="width" secondItem="lTg-DE-q9c" secondAttribute="height" multiplier="1:1" id="g8n-1G-UbU"/>
                                                         </constraints>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="addButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3eE-6D-t0g"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OhG-c7-TUh">
                                                         <rect key="frame" x="50.333333333333314" y="115" width="105.33333333333337" height="35.000000000000057"/>
@@ -116,6 +122,9 @@
                                                                 <state key="normal" title="SIGN IN">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="signInOrUpTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JcK-Gb-4n5"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -187,10 +196,10 @@
                         <outlet property="addButton" destination="lTg-DE-q9c" id="WUT-hE-1zH"/>
                         <outlet property="addLabel" destination="OhG-c7-TUh" id="Kjl-qu-4cJ"/>
                         <outlet property="bottomContainerView" destination="l9g-Vb-dkF" id="j38-WQ-zsu"/>
+                        <outlet property="bottomTextFieldOne" destination="T4b-mV-epQ" id="30w-D9-eKE"/>
+                        <outlet property="bottomTextFieldTwo" destination="qaH-PS-Gh8" id="DR8-xP-LvO"/>
                         <outlet property="contentView" destination="WAM-Me-e4A" id="dJo-SN-AdH"/>
-                        <outlet property="emailTextField" destination="T4b-mV-epQ" id="0Jw-tV-zUc"/>
                         <outlet property="leftContainerView" destination="K3q-Jf-3Fo" id="rgB-Ld-HEy"/>
-                        <outlet property="passwordTextField" destination="qaH-PS-Gh8" id="8Pj-wN-a1m"/>
                         <outlet property="questionMarkButton" destination="Wv6-un-EKP" id="ai7-lC-n3b"/>
                         <outlet property="rightContainerView" destination="Zax-9L-Kr2" id="EQl-38-uvJ"/>
                         <outlet property="scrollView" destination="sd3-Eh-O6n" id="CIq-Tx-fPZ"/>
