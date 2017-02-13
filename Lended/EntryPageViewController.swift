@@ -233,11 +233,7 @@ class EntryPageViewController: UIViewController {
         }
         alertController.addAction(OKAction)
       } else {
-        
-        // TODO: Segue Somewhere
-        
-        // self.performSegue(withIdentifier: "", sender: self)
-        
+        self.performSegue(withIdentifier: "fromEntryToTBC", sender: self)
       }
     })
   }
@@ -274,11 +270,7 @@ class EntryPageViewController: UIViewController {
         } else {
           FIRAuth.auth()!.signIn(withEmail: self.newUserEmail!,
                                  password: self.newUserPassword!)
-          
-          // TODO: Segue Somewhere
-          
-          // self.performSegue(withIdentifier: "", sender: self)
-          
+          self.performSegue(withIdentifier: "fromEntryToTBC", sender: self)
         }
       })
     }
@@ -290,7 +282,7 @@ class EntryPageViewController: UIViewController {
   @IBAction func questionMarkButtonTapped(_ sender: UIButton) {
     
     // TODO: Lost Password
-
+    
   }
   
   @IBAction func addButtonTapped(_ sender: UIButton) {

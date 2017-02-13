@@ -244,7 +244,7 @@
                         <outlet property="signInOrUpButton" destination="DZw-NG-zMR" id="wbF-ug-oUx"/>
                         <outlet property="signInOrUpButtonContainerView" destination="M5e-cC-Bpy" id="dJH-nU-EMd"/>
                         <outlet property="topContainerView" destination="XuJ-OW-SMe" id="eJX-8v-NRN"/>
-                        <segue destination="UAI-f7-suE" kind="show" id="NTD-y1-eWW"/>
+                        <segue destination="UAI-f7-suE" kind="show" identifier="fromEntryToTBC" id="NTD-y1-eWW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
