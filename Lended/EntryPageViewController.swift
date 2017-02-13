@@ -30,6 +30,7 @@ class EntryPageViewController: UIViewController {
   @IBOutlet weak var signInOrUpButtonContainerView: UIView!
   @IBOutlet weak var signInOrUpButton: UIButton!
   
+  
   var topFieldIsSatisfied: Bool?
   var bottomFieldIsSatisfied: Bool?
   var nextButtonRequirementsHaveBeenMet: Bool?
@@ -204,14 +205,78 @@ class EntryPageViewController: UIViewController {
   // TODO: SIgn In
   
   func signUserIn() {
+    let ref = FIRDatabase.database().reference()
+    let currentEmail = bottomTextFieldOne.text ?? ""
+    let currentPassword = bottomTextFieldTwo.text ?? ""
     
+    FIRAuth.auth()?.signIn(withEmail: currentEmail, password: currentPassword, completion: { (user, error) in
+      
+      var errMessage = ""
+      if (error != nil) {
+        if let errCode = FIRAuthErrorCode(rawValue: (error?._code)!) {
+          switch errCode {
+          case .errorCodeInvalidEmail:
+            errMessage = "The entered email does not meet requirements."
+          case .errorCodeEmailAlreadyInUse:
+            errMessage = "The entered email has already been registered."
+          case .errorCodeWeakPassword:
+            errMessage = "The entered password does not meet minimum requirements."
+          case .errorCodeWrongPassword:
+            errMessage = "The entered password is not correct."
+          default:
+            errMessage = "Please try again."
+          }
+        }
+        let alertController = UIAlertController(title: "Sorry, Something went wrong!", message: "\(errMessage)", preferredStyle: .alert)
+        self.present(alertController, animated: true, completion:nil)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
+        }
+        alertController.addAction(OKAction)
+      } else {
+//        ref.child("test").setValue("worked")
+      }
+    })
   }
   
   
-  // TODO: Create User
+  // MARK: Create User
   
   func createNewUser() {
     
+    if bottomTextFieldOne.text == bottomTextFieldTwo.text {
+      
+      newUserPassword = bottomTextFieldTwo.text ?? ""
+      
+      FIRAuth.auth()?.createUser(withEmail: newUserEmail!, password: newUserPassword!, completion: { (user, error) in
+        var errMessage = ""
+        if (error != nil) {
+          if let errCode = FIRAuthErrorCode(rawValue: (error?._code)!) {
+            switch errCode {
+            case .errorCodeInvalidEmail:
+              errMessage = "The entered email does not meet requirements."
+            case .errorCodeEmailAlreadyInUse:
+              errMessage = "The entered email has already been registered."
+            case .errorCodeWeakPassword:
+              errMessage = "The entered password does not meet minimum requirements."
+            default:
+              errMessage = "Please try again."
+            }
+          }
+          let alertController = UIAlertController(title: "Sorry, Something went wrong!", message: "\(errMessage)", preferredStyle: .alert)
+          self.present(alertController, animated: true, completion:nil)
+          let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
+          }
+          alertController.addAction(OKAction)
+        } else {
+          FIRAuth.auth()!.signIn(withEmail: self.newUserEmail!,
+                                 password: self.newUserPassword!)
+          
+          // TODO: Segue Somewhere
+          
+          // self.performSegue(withIdentifier: "", sender: self)
+        }
+      })
+    }
   }
   
   
@@ -239,12 +304,20 @@ class EntryPageViewController: UIViewController {
     var contentInset: UIEdgeInsets = self.scrollView.contentInset
     contentInset.bottom = keyboardFrame.size.height + 30
     self.scrollView.contentInset = contentInset
+    addLabel.isHidden = true
+    addButton.isHidden = true
+    addButton.isEnabled = false
+    // whatever is on left
   }
   
   
   func keyboardWillHide(notification:NSNotification) {
     let contentInset:UIEdgeInsets = UIEdgeInsets.zero
     self.scrollView.contentInset = contentInset
+    addLabel.isHidden = false
+    addButton.isHidden = false
+    addButton.isEnabled = true
+    // whatever is on left
   }
   
   
