@@ -16,7 +16,6 @@
 		1DD487121E513C03004E0172 /* EntryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD487111E513C03004E0172 /* EntryPageViewController.swift */; };
 		1DD487151E515172004E0172 /* General+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD487141E515172004E0172 /* General+Extensions.swift */; };
 		1DE843311E51A7D000D06ED9 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE843301E51A7D000D06ED9 /* LandingPageViewController.swift */; };
-		1DE843331E51A80800D06ED9 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE843321E51A80800D06ED9 /* OverviewViewController.swift */; };
 		A522C647E26F70704CDD3B08 /* Pods_Lended.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2DCBDE1BB27DAC133483DC /* Pods_Lended.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 		1DD487111E513C03004E0172 /* EntryPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryPageViewController.swift; sourceTree = "<group>"; };
 		1DD487141E515172004E0172 /* General+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "General+Extensions.swift"; sourceTree = "<group>"; };
 		1DE843301E51A7D000D06ED9 /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
-		1DE843321E51A80800D06ED9 /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		55923053DDF9A7FD133627DB /* Pods-Lended.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lended.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lended/Pods-Lended.debug.xcconfig"; sourceTree = "<group>"; };
 		7A2DCBDE1BB27DAC133483DC /* Pods_Lended.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lended.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C29C91CC0DB2238DDBF65B3 /* Pods-Lended.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lended.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lended/Pods-Lended.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				1DE843301E51A7D000D06ED9 /* LandingPageViewController.swift */,
-				1DE843321E51A80800D06ED9 /* OverviewViewController.swift */,
 			);
 			name = "Top Level";
 			sourceTree = "<group>";
@@ -306,7 +303,6 @@
 			files = (
 				1DD487121E513C03004E0172 /* EntryPageViewController.swift in Sources */,
 				1D17F2091E431645008B3216 /* AppDelegate.swift in Sources */,
-				1DE843331E51A80800D06ED9 /* OverviewViewController.swift in Sources */,
 				1DD487151E515172004E0172 /* General+Extensions.swift in Sources */,
 				1DE843311E51A7D000D06ED9 /* LandingPageViewController.swift in Sources */,
 			);
