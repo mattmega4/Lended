@@ -226,6 +226,7 @@
                         <outlet property="signInOrUpButtonContainerView" destination="M5e-cC-Bpy" id="dJH-nU-EMd"/>
                         <outlet property="topContainerView" destination="XuJ-OW-SMe" id="eJX-8v-NRN"/>
                         <segue destination="tUf-Ex-RoO" kind="show" identifier="fromEntryToLandingPage" animates="NO" id="rJb-Oo-b0r"/>
+                        <segue destination="wqu-q5-gB8" kind="show" identifier="fromEntryToAddCard" animates="NO" id="Hri-iF-2q5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -249,11 +250,54 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bW1-1K-ULj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="429" y="1042"/>
+            <point key="canvasLocation" x="429" y="1043"/>
+        </scene>
+        <!--Add Account View Controller-->
+        <scene sceneID="y4X-RL-sIa">
+            <objects>
+                <viewController id="Jus-Vw-Fd7" customClass="AddAccountViewController" customModule="Lended" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G7N-tb-A4c"/>
+                        <viewControllerLayoutGuide type="bottom" id="n5Z-KF-AQB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Br-bh-XMA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LVd-gb-JyF"/>
+                    <connections>
+                        <segue destination="tUf-Ex-RoO" kind="show" identifier="fromAddAccountToLandingPage" animates="NO" id="NQj-YI-Z2E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wDs-Xu-toP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-716" y="1926"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="832-ly-51V">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wqu-q5-gB8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="55J-Q9-5tW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Jus-Vw-Fd7" kind="relationship" relationship="rootViewController" id="EJ0-2J-dbn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Cf-cd-xda" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-717" y="1043"/>
         </scene>
     </scenes>
     <resources>
         <image name="Plus" width="125" height="125"/>
         <image name="whiteQuestionMark" width="53" height="52"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="NQj-YI-Z2E"/>
+    </inferredMetricsTieBreakers>
 </document>
