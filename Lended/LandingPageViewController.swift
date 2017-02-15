@@ -11,14 +11,18 @@ import Firebase
 
 class LandingPageViewController: UIViewController {
   
-  // IB Outlets
+  @IBOutlet weak var rightNavBarButton: UIBarButtonItem!
+  @IBOutlet weak var tableView: UITableView!
   
+  var accountArray: [AccountClass] = []
   let ref = FIRDatabase.database().reference()
   let user = FIRAuth.auth()?.currentUser
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.tableView.dataSource = self
+    self.tableView.delegate = self
     setNavBar()
   }
   
@@ -39,4 +43,46 @@ class LandingPageViewController: UIViewController {
   
   
   
+  
+  // TODO: IB Actions
+  
+  @IBAction func rightNavBarButtonTapped(_ sender: UIBarButtonItem) {
+    performSegue(withIdentifier: "fromLandingPageToAddCard", sender: self)
+  }
+  
+  
+  
 } // End of LandingPageViewController Class
+
+
+// TODO: UITableViewDataSource Methods
+
+extension LandingPageViewController: UITableViewDataSource {
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+  
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return accountArray.count
+  }
+  
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath as IndexPath) as! AccountCellTableViewCell
+    let row = indexPath.row
+    
+    ///
+    
+    return cell
+  }
+  
+}
+
+
+// TODO: UITableViewDelegate Methods
+
+extension LandingPageViewController: UITableViewDelegate {
+  
+}

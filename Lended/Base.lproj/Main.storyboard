@@ -21,9 +21,47 @@
                     <view key="view" contentMode="scaleToFill" id="XNC-rg-pdZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FPv-uu-Bm3">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accountCell" id="ht0-l4-Vi1">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ht0-l4-Vi1" id="TUJ-CO-3oL">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="NQ6-l5-BmQ" id="EH2-pi-Drk"/>
+                                    <outlet property="delegate" destination="NQ6-l5-BmQ" id="evr-4p-Ll9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FPv-uu-Bm3" firstAttribute="leading" secondItem="XNC-rg-pdZ" secondAttribute="leading" id="BhD-DW-wBH"/>
+                            <constraint firstAttribute="trailing" secondItem="FPv-uu-Bm3" secondAttribute="trailing" id="K2z-Y0-2Kt"/>
+                            <constraint firstItem="FPv-uu-Bm3" firstAttribute="top" secondItem="7er-uW-Qz5" secondAttribute="bottom" id="WNV-5h-lBe"/>
+                            <constraint firstItem="44Z-yS-xhE" firstAttribute="top" secondItem="FPv-uu-Bm3" secondAttribute="bottom" id="lkB-yk-g0q"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="y3M-JO-1uf"/>
+                    <navigationItem key="navigationItem" id="y3M-JO-1uf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="HJ5-Tl-TT0">
+                            <color key="tintColor" red="1" green="1" blue="0.96883370540000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="rightNavBarButtonTapped:" destination="NQ6-l5-BmQ" id="gQe-Qt-CDQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="rightNavBarButton" destination="HJ5-Tl-TT0" id="vTl-5B-zId"/>
+                        <outlet property="tableView" destination="FPv-uu-Bm3" id="wrx-wo-Ni9"/>
+                        <segue destination="wqu-q5-gB8" kind="show" identifier="fromLandingPageToAddCard" id="B3Q-CC-j6s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xgU-5z-2mv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -298,6 +336,7 @@
         <image name="whiteQuestionMark" width="53" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NQj-YI-Z2E"/>
+        <segue reference="rJb-Oo-b0r"/>
+        <segue reference="B3Q-CC-j6s"/>
     </inferredMetricsTieBreakers>
 </document>
