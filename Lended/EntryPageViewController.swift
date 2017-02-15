@@ -202,10 +202,9 @@ class EntryPageViewController: UIViewController {
   }
   
   
-  // TODO: SIgn In
+  // MARK: SIgn In
   
   func signUserIn() {
-    //    let ref = FIRDatabase.database().reference()
     let currentEmail = bottomTextFieldOne.text ?? ""
     let currentPassword = bottomTextFieldTwo.text ?? ""
     
@@ -233,20 +232,18 @@ class EntryPageViewController: UIViewController {
         }
         alertController.addAction(OKAction)
       } else {
-        self.performSegue(withIdentifier: "fromEntryToTBC", sender: self)
+        self.performSegue(withIdentifier: "fromEntryToLandingPage", sender: self)
       }
     })
   }
   
   
-  // TODO: Create User
+  // MARK: Create User
   
   func createNewUser() {
     
     if bottomTextFieldOne.text == bottomTextFieldTwo.text {
-      
       newUserPassword = bottomTextFieldTwo.text ?? ""
-      
       FIRAuth.auth()?.createUser(withEmail: newUserEmail!, password: newUserPassword!, completion: { (user, error) in
         var errMessage = ""
         if (error != nil) {
@@ -270,7 +267,7 @@ class EntryPageViewController: UIViewController {
         } else {
           FIRAuth.auth()!.signIn(withEmail: self.newUserEmail!,
                                  password: self.newUserPassword!)
-          self.performSegue(withIdentifier: "fromEntryToTBC", sender: self)
+          self.performSegue(withIdentifier: "fromEntryToLandingPage", sender: self)
         }
       })
     }
@@ -360,7 +357,7 @@ extension EntryPageViewController: UITextFieldDelegate {
   }
   
   
-  // TODO: Bottom Text Field Targets
+  // MARK: Bottom Text Field Targets
   
   func checkIfTopTextFieldIsSatisfiedForLogin(textField: UITextField) {
     if textField == bottomTextFieldOne {

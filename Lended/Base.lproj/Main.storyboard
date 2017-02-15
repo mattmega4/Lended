@@ -225,7 +225,7 @@
                         <outlet property="signInOrUpButton" destination="DZw-NG-zMR" id="wbF-ug-oUx"/>
                         <outlet property="signInOrUpButtonContainerView" destination="M5e-cC-Bpy" id="dJH-nU-EMd"/>
                         <outlet property="topContainerView" destination="XuJ-OW-SMe" id="eJX-8v-NRN"/>
-                        <segue destination="tUf-Ex-RoO" kind="show" id="rJb-Oo-b0r"/>
+                        <segue destination="tUf-Ex-RoO" kind="show" identifier="fromEntryToLandingPage" animates="NO" id="rJb-Oo-b0r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
