@@ -12,7 +12,8 @@ import Firebase
 class LandingPageViewController: UIViewController {
   
   @IBOutlet weak var rightNavBarButton: UIBarButtonItem!
-  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var collectionView: UICollectionView!
+  
   
   var accountArray: [AccountClass] = []
   let ref = FIRDatabase.database().reference()
@@ -21,8 +22,8 @@ class LandingPageViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.tableView.dataSource = self
-    self.tableView.delegate = self
+    self.collectionView.dataSource = self
+    self.collectionView.delegate = self
     setNavBar()
   }
   
@@ -44,6 +45,17 @@ class LandingPageViewController: UIViewController {
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   // TODO: IB Actions
   
   @IBAction func rightNavBarButtonTapped(_ sender: UIBarButtonItem) {
@@ -55,34 +67,57 @@ class LandingPageViewController: UIViewController {
 } // End of LandingPageViewController Class
 
 
-// TODO: UITableViewDataSource Methods
+// TODO: UICollectionViewDataSource Methods
 
-extension LandingPageViewController: UITableViewDataSource {
+extension LandingPageViewController: UICollectionViewDataSource {
   
-  func numberOfSections(in tableView: UITableView) -> Int {
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
   
   
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return accountArray.count
   }
   
   
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath as IndexPath) as! AccountCellTableViewCell
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "accountCell", for: indexPath as IndexPath) as! AccountCollectionViewCell
     let row = indexPath.row
     
-    ///
+    //
     
     return cell
+    
+  }
+  
+  
+}
+
+
+// TODO: UICollectionViewDelegate Methods
+
+extension LandingPageViewController: UICollectionViewDelegate {
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    //
   }
   
 }
 
 
-// TODO: UITableViewDelegate Methods
+// MARK: UICollectionViewDelegateFlowLayout Methods
 
-extension LandingPageViewController: UITableViewDelegate {
+extension LandingPageViewController: UICollectionViewDelegateFlowLayout {
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    
+    let padding: CGFloat = 25
+    let collectionCellSize = collectionView.frame.size.width - padding
+    
+    return CGSize(width: collectionCellSize/2, height: collectionCellSize/2)
+    
+  }
   
 }

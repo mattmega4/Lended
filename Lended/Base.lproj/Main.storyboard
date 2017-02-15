@@ -13,7 +13,7 @@
         <!--Landing Page View Controller-->
         <scene sceneID="MKy-29-9eQ">
             <objects>
-                <viewController id="NQ6-l5-BmQ" customClass="LandingPageViewController" customModule="Lended" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="NQ6-l5-BmQ" customClass="LandingPageViewController" customModule="Lended" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7er-uW-Qz5"/>
                         <viewControllerLayoutGuide type="bottom" id="44Z-yS-xhE"/>
@@ -22,31 +22,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FPv-uu-Bm3">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zsb-Gb-QAR">
+                                <rect key="frame" x="25" y="89" width="364" height="622"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accountCell" id="ht0-l4-Vi1">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ht0-l4-Vi1" id="TUJ-CO-3oL">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="86q-LR-8dd">
+                                    <size key="itemSize" width="211" height="211"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="accountCell" id="woJ-uD-moW" customClass="AccountCollectionViewCell" customModule="Lended" customModuleProvider="target">
+                                        <rect key="frame" x="77" y="0.0" width="211" height="211"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="211" height="211"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iF8-Aj-7sK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="211" height="211"/>
+                                                    <color key="backgroundColor" red="0.78664588930000001" green="0.48777267340000002" blue="0.3921676576" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="iF8-Aj-7sK" firstAttribute="leading" secondItem="woJ-uD-moW" secondAttribute="leading" id="CGm-Ze-hRK"/>
+                                            <constraint firstAttribute="trailing" secondItem="iF8-Aj-7sK" secondAttribute="trailing" id="M1e-of-uFS"/>
+                                            <constraint firstItem="iF8-Aj-7sK" firstAttribute="top" secondItem="woJ-uD-moW" secondAttribute="top" id="Ps0-Kf-oTy"/>
+                                            <constraint firstAttribute="bottom" secondItem="iF8-Aj-7sK" secondAttribute="bottom" id="dAq-nN-A6I"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="NQ6-l5-BmQ" id="EH2-pi-Drk"/>
-                                    <outlet property="delegate" destination="NQ6-l5-BmQ" id="evr-4p-Ll9"/>
+                                    <outlet property="dataSource" destination="NQ6-l5-BmQ" id="ZTs-mR-CLn"/>
+                                    <outlet property="delegate" destination="NQ6-l5-BmQ" id="v2c-8U-lt2"/>
                                 </connections>
-                            </tableView>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FPv-uu-Bm3" firstAttribute="leading" secondItem="XNC-rg-pdZ" secondAttribute="leading" id="BhD-DW-wBH"/>
-                            <constraint firstAttribute="trailing" secondItem="FPv-uu-Bm3" secondAttribute="trailing" id="K2z-Y0-2Kt"/>
-                            <constraint firstItem="FPv-uu-Bm3" firstAttribute="top" secondItem="7er-uW-Qz5" secondAttribute="bottom" id="WNV-5h-lBe"/>
-                            <constraint firstItem="44Z-yS-xhE" firstAttribute="top" secondItem="FPv-uu-Bm3" secondAttribute="bottom" id="lkB-yk-g0q"/>
+                            <constraint firstItem="44Z-yS-xhE" firstAttribute="top" secondItem="Zsb-Gb-QAR" secondAttribute="bottom" constant="25" id="BdL-Ub-Cs5"/>
+                            <constraint firstItem="Zsb-Gb-QAR" firstAttribute="top" secondItem="7er-uW-Qz5" secondAttribute="bottom" constant="25" id="FPc-gr-L2P"/>
+                            <constraint firstItem="Zsb-Gb-QAR" firstAttribute="leading" secondItem="XNC-rg-pdZ" secondAttribute="leading" constant="25" id="kDU-2m-TWs"/>
+                            <constraint firstAttribute="trailing" secondItem="Zsb-Gb-QAR" secondAttribute="trailing" constant="25" id="zVz-PC-43f"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y3M-JO-1uf">
@@ -58,14 +76,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="collectionView" destination="Zsb-Gb-QAR" id="9HW-Po-aHb"/>
                         <outlet property="rightNavBarButton" destination="HJ5-Tl-TT0" id="vTl-5B-zId"/>
-                        <outlet property="tableView" destination="FPv-uu-Bm3" id="wrx-wo-Ni9"/>
                         <segue destination="wqu-q5-gB8" kind="show" identifier="fromLandingPageToAddCard" id="B3Q-CC-j6s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xgU-5z-2mv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="429" y="1926"/>
+            <point key="canvasLocation" x="428.98550724637687" y="1925.5434782608697"/>
         </scene>
         <!--Entry Page View Controller-->
         <scene sceneID="tne-QT-ifu">
