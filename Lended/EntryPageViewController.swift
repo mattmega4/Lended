@@ -113,6 +113,8 @@ class EntryPageViewController: UIViewController {
     bottomTextFieldTwo.placeholder = "Password"
     bottomTextFieldOne.keyboardType = .emailAddress
     bottomTextFieldTwo.keyboardType = .default
+    bottomTextFieldOne.isSecureTextEntry = false
+    bottomTextFieldTwo.isSecureTextEntry = true
     bottomTextFieldOne.addTarget(self, action: #selector(checkIfTopTextFieldIsSatisfiedForLogin(textField:)), for: .editingChanged)
     bottomTextFieldTwo.addTarget(self, action: #selector(checkIfBottomTextFieldIsSatisfiedForLogin(textField:)), for: .editingChanged)
     signInOrUpButton.setTitle("SIGN IN", for: UIControlState())
@@ -133,6 +135,8 @@ class EntryPageViewController: UIViewController {
     bottomTextFieldTwo.isEnabled = false
     bottomTextFieldOne.placeholder = "Email"
     bottomTextFieldOne.keyboardType = .emailAddress
+    bottomTextFieldOne.isSecureTextEntry = false
+    bottomTextFieldTwo.isSecureTextEntry = true
     bottomTextFieldOne.addTarget(self, action: #selector(checkIfTopTextFieldIsSatisfiedForCreatePartOne(textField:)), for: .editingChanged)
     signInOrUpButton.setTitle("CONTINUE", for: UIControlState())
     
@@ -154,6 +158,8 @@ class EntryPageViewController: UIViewController {
     bottomTextFieldTwo.placeholder = "Confirm Password"
     bottomTextFieldOne.keyboardType = .default
     bottomTextFieldTwo.keyboardType = .default
+    bottomTextFieldOne.isSecureTextEntry = true
+    bottomTextFieldTwo.isSecureTextEntry = true
     bottomTextFieldOne.addTarget(self, action: #selector(checkIfTopTextFieldIsSatisfiedForCreatePartTwo(textField:)), for: .editingChanged)
     bottomTextFieldTwo.addTarget(self, action: #selector(checkIfBottomTextFieldIsSatisfiedForCreatePartTwo(textField:)), for: .editingChanged)
     signInOrUpButton.setTitle("CREATE ACCOUNT", for: UIControlState())
