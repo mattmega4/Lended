@@ -33,7 +33,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="accountCell" id="woJ-uD-moW" customClass="AccountCollectionViewCell" customModule="Lended" customModuleProvider="target">
-                                        <rect key="frame" x="77" y="0.0" width="211" height="211"/>
+                                        <rect key="frame" x="76.666666666666671" y="0.0" width="211" height="211"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="211" height="211"/>
@@ -75,6 +75,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="collectionView" destination="Zsb-Gb-QAR" id="9HW-Po-aHb"/>
                         <outlet property="rightNavBarButton" destination="HJ5-Tl-TT0" id="vTl-5B-zId"/>
