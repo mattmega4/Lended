@@ -21,7 +21,10 @@ class AddAccountViewController: UIViewController {
   
   func setNavBar() {
     title = "Add Account"
-    navigationController?.navigationBar.barTintColor = UIColor(red: 229.0/255.0, green: 112.0/255.0, blue: 85.0/255.0, alpha: 1.0)
+    navigationController?.navigationBar.barTintColor = UIColor(red: 229.0/255.0,
+                                                               green: 112.0/255.0,
+                                                               blue: 85.0/255.0,
+                                                               alpha: 1.0)
     UINavigationBar.appearance().tintColor = .white
     UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
     navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white,
