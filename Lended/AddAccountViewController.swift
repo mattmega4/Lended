@@ -10,10 +10,31 @@ import UIKit
 
 class AddAccountViewController: UIViewController {
   
+  @IBOutlet weak var leftNavBarButton: UIBarButtonItem!
+  
+  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var contentView: UIView!
+  
+  @IBOutlet weak var mainImageView: UIImageView!
+  
+  @IBOutlet weak var firstTextField: UITextField!
+  @IBOutlet weak var secondTextField: UITextField!
+  @IBOutlet weak var thirdTextField: UITextField!
+  @IBOutlet weak var fourthTextField: UITextField!
+  
+  @IBOutlet weak var firstUnderlineView: UIView!
+  @IBOutlet weak var secondUnderlineView: UIView!
+  @IBOutlet weak var thirdUnderlineView: UIView!
+  @IBOutlet weak var fourthUnerlineView: UIView!
+  
+  @IBOutlet weak var addAccountButton: UIButton!
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     setNavBar()
+    setTextFieldDelegates()
   }
   
   
@@ -33,5 +54,28 @@ class AddAccountViewController: UIViewController {
   }
   
   
+  // MARK: Setting Delegates
+  
+  func setTextFieldDelegates() {
+    self.firstTextField.delegate = self
+    self.secondTextField.delegate = self
+    self.thirdTextField.delegate = self
+    self.fourthTextField.delegate = self
+  }
+  
+  
+  
+  
+  
+  //....
+  
+  
+  
+} // End of AddAccountView Controller Class
+
+
+// TODO: UITextField Delegate Methods
+
+extension AddAccountViewController: UITextFieldDelegate {
   
 }
