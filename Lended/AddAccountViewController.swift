@@ -28,6 +28,11 @@ class AddAccountViewController: UIViewController {
   @IBOutlet weak var thirdUnderlineView: UIView!
   @IBOutlet weak var fourthUnerlineView: UIView!
   
+  @IBOutlet weak var firstIndicatorImageView: UIImageView!
+  @IBOutlet weak var secondIndicatorImageView: NSLayoutConstraint!
+  @IBOutlet weak var thirdIndicatorImageView: NSLayoutConstraint!
+  @IBOutlet weak var fourthIndicatorImageView: UIImageView!
+  
   @IBOutlet weak var addAccountButton: UIButton!
   
   let ref = FIRDatabase.database().reference()
@@ -38,13 +43,24 @@ class AddAccountViewController: UIViewController {
   var accountEmail: String?
   var accountPhone: String?
   
+  var nameSatisfied: Bool?
+  var relationshipSatisfied: Bool?
+  var emailSatisfied: Bool?
+  var phoneSatisfied: Bool?
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     setNavBar()
     setTextFieldDelegates()
+    resetRequirements()
+    checkAllRequirements()
     keyboardMethods()
+    
+    
+    thirdTextField.addTarget(self, action: #selector(checkIfAccountEmailTextFieldIsSatisfied(textField:)), for: .editingChanged)
+    
   }
   
   
@@ -84,9 +100,34 @@ class AddAccountViewController: UIViewController {
   }
   
   
+  // TODO: Reset & Check Requirements & Act On it
+  
+  func resetRequirements() {
+    nameSatisfied = false
+    relationshipSatisfied = false
+    emailSatisfied = false
+    phoneSatisfied = false
+  }
+  
+  func checkAllRequirements() {
+    if nameSatisfied == true &&
+      relationshipSatisfied == true &&
+      emailSatisfied == true &&
+      phoneSatisfied == true {
+      // good
+    } else {
+      // bad
+    }
+    actOnRequirements()
+  }
   
   
+  func actOnRequirements() {
+    
+  }
 
+  
+  
   
   // TODO: Add to Firebase
   
@@ -103,15 +144,21 @@ class AddAccountViewController: UIViewController {
     accountPhone = phone.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     
     let account = ref.child("accounts").childByAutoId()
-    if let tAccountName = accountName, let tAccountRelationship = accountRelationship, let tAccountEmail = accountEmail, let tAccountPhone = accountPhone {
-      account.setValue(["accountName": tAccountName, "accountRelationship": tAccountRelationship, "accountEmail": tAccountEmail, "accountPhone": tAccountPhone])
+    if let tAccountName = accountName,
+      let tAccountRelationship = accountRelationship,
+      let tAccountEmail = accountEmail,
+      let tAccountPhone = accountPhone {
+      account.setValue(["accountName": tAccountName,
+                        "accountRelationship": tAccountRelationship,
+                        "accountEmail": tAccountEmail,
+                        "accountPhone": tAccountPhone])
     }
     ref.child("users").child((user?.uid)!).child("accounts").child(account.key).setValue(true)
     performSegue(withIdentifier: "fromAddAccountToLandingPage", sender: self)
   }
   
   
-  // TODO: IB Actions
+  // MARK: IB Actions
   
   @IBAction func leftNavBarButtonTapped(_ sender: UIBarButtonItem) {
     performSegue(withIdentifier: "fromAddAccountToLandingPage", sender: self)
@@ -165,5 +212,54 @@ class AddAccountViewController: UIViewController {
 // TODO: UITextField Delegate Methods
 
 extension AddAccountViewController: UITextFieldDelegate {
+  
+  func checkIfAccountnameTextFieldIsSatisfied(textField: UITextField) {
+    if textField == firstTextField {
+      if (textField.text?.isEmpty)! {
+        nameSatisfied = false
+      } else {
+        nameSatisfied = true
+      }
+    }
+    checkAllRequirements()
+  }
+  
+  
+  func checkIfAccountRelationshipTextFieldIsSatisfied(textField: UITextField) {
+    if textField == secondTextField {
+      if (textField.text?.isEmpty)! {
+        relationshipSatisfied = false
+      } else {
+       relationshipSatisfied = true
+      }
+    }
+    checkAllRequirements()
+  }
+  
+  
+  func checkIfAccountEmailTextFieldIsSatisfied(textField: UITextField) {
+    if textField == thirdTextField {
+      
+      if (textField.text?.isEmpty)! {
+        emailSatisfied = true
+      } else if !(textField.text?.isEmpty)! && textField.text?.validateEmail() == false {
+        emailSatisfied = false
+      } else if !(textField.text?.isEmpty)! && textField.text?.validateEmail() == true {
+        emailSatisfied = true
+      }
+    }
+    checkAllRequirements()
+  }
+  
+  
+  func checkIfAccountPhoneTextFieldIsSatisfied(textField: UITextField) {
+    if textField == fourthTextField {
+      
+    }
+    checkAllRequirements()
+  }
+  
+  
+  
   
 }
