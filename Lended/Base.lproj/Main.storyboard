@@ -357,7 +357,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoAlt" translatesAutoresizingMaskIntoConstraints="NO" id="o90-G3-8GC">
-                                                <rect key="frame" x="115.5" y="25" width="144" height="144"/>
+                                                <rect key="frame" x="116" y="25" width="144" height="144"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="o90-G3-8GC" secondAttribute="height" multiplier="1:1" id="mtw-uP-gCh"/>
                                                 </constraints>
@@ -567,10 +567,10 @@
                         <outlet property="leftNavBarButton" destination="gjo-gl-WH4" id="oYE-y3-qcC"/>
                         <outlet property="mainImageView" destination="o90-G3-8GC" id="LSl-hs-f5O"/>
                         <outlet property="scrollView" destination="e7H-3g-eVe" id="6hH-CF-04H"/>
-                        <outlet property="secondIndicatorImageView" destination="FIJ-ti-IqB" id="gQB-iX-9nc"/>
+                        <outlet property="secondIndicatorImageView" destination="rN3-H2-rz7" id="bhg-JW-EOc"/>
                         <outlet property="secondTextField" destination="POb-Zt-sbd" id="lVx-lc-Q09"/>
                         <outlet property="secondUnderlineView" destination="I7E-lF-tgg" id="9DV-oC-KWU"/>
-                        <outlet property="thirdIndicatorImageView" destination="gXs-KU-1w2" id="Z2F-WR-YeO"/>
+                        <outlet property="thirdIndicatorImageView" destination="he0-A5-hUE" id="WHk-lT-fvN"/>
                         <outlet property="thirdTextField" destination="Hkk-cD-04f" id="Qes-NE-Cg1"/>
                         <outlet property="thirdUnderlineView" destination="ESb-L9-27K" id="gBp-do-EAZ"/>
                         <segue destination="tUf-Ex-RoO" kind="show" identifier="fromAddAccountToLandingPage" animates="NO" id="NQj-YI-Z2E"/>

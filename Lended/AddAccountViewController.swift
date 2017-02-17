@@ -29,8 +29,8 @@ class AddAccountViewController: UIViewController {
   @IBOutlet weak var fourthUnerlineView: UIView!
   
   @IBOutlet weak var firstIndicatorImageView: UIImageView!
-  @IBOutlet weak var secondIndicatorImageView: NSLayoutConstraint!
-  @IBOutlet weak var thirdIndicatorImageView: NSLayoutConstraint!
+  @IBOutlet weak var secondIndicatorImageView: UIImageView!
+  @IBOutlet weak var thirdIndicatorImageView: UIImageView!
   @IBOutlet weak var fourthIndicatorImageView: UIImageView!
   
   @IBOutlet weak var addAccountButton: UIButton!
@@ -100,7 +100,7 @@ class AddAccountViewController: UIViewController {
   }
   
   
-  // TODO: Reset & Check Requirements & Act On it
+  // TODO: Reset & Check Requirements
   
   func resetRequirements() {
     nameSatisfied = false
@@ -118,13 +118,10 @@ class AddAccountViewController: UIViewController {
     } else {
       // bad
     }
-    actOnRequirements()
   }
   
   
-  func actOnRequirements() {
-    
-  }
+
 
   
   
@@ -242,9 +239,12 @@ extension AddAccountViewController: UITextFieldDelegate {
       
       if (textField.text?.isEmpty)! {
         emailSatisfied = true
+        thirdIndicatorImageView.image = nil
       } else if !(textField.text?.isEmpty)! && textField.text?.validateEmail() == false {
+        thirdIndicatorImageView.image = UIImage.init(named: "yellowCaution.png")
         emailSatisfied = false
       } else if !(textField.text?.isEmpty)! && textField.text?.validateEmail() == true {
+        thirdIndicatorImageView.image = UIImage.init(named: "greenCheck.png")
         emailSatisfied = true
       }
     }
