@@ -46,7 +46,6 @@ class EntryPageViewController: UIViewController {
     super.viewDidLoad()
     
     questionMarkButton.createRoundView()
-    
     bottomTextFieldDelegateAndAutoCorrectAndPlaceholderColorSetup()
     keyboardMethods()
     
@@ -55,7 +54,7 @@ class EntryPageViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    setStatusToDefaultWhichIsSignIn()
+    setStatusToDefaultWhichIsSignIn()    
     checkIfBothSignInRequirementsAreMet()
   }
   

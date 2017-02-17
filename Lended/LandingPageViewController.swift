@@ -14,7 +14,6 @@ class LandingPageViewController: UIViewController {
   @IBOutlet weak var rightNavBarButton: UIBarButtonItem!
   @IBOutlet weak var collectionView: UICollectionView!
   
-  
   var accountArray: [AccountClass] = []
   let ref = FIRDatabase.database().reference()
   let user = FIRAuth.auth()?.currentUser
@@ -32,7 +31,10 @@ class LandingPageViewController: UIViewController {
   
   func setNavBar() {
     title = "Accounts"
-    navigationController?.navigationBar.barTintColor = UIColor(red: 229.0/255.0, green: 112.0/255.0, blue: 85.0/255.0, alpha: 1.0)
+    navigationController?.navigationBar.barTintColor = UIColor(red: 214.0/255.0,
+                                                               green: 118.0/255.0,
+                                                               blue: 92.0/255.0,
+                                                               alpha: 1.0)
     UINavigationBar.appearance().tintColor = .white
     UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
     navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white,
