@@ -15,23 +15,18 @@ class AddAccountViewController: UIViewController {
   
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var contentView: UIView!
-  
-  @IBOutlet weak var mainImageView: UIImageView!
+
+  @IBOutlet weak var accountImageView: UIImageView!
+  @IBOutlet weak var addImageButton: UIButton!
   
   @IBOutlet weak var firstTextField: UITextField!
   @IBOutlet weak var secondTextField: UITextField!
-  @IBOutlet weak var thirdTextField: UITextField!
-  @IBOutlet weak var fourthTextField: UITextField!
   
   @IBOutlet weak var firstUnderlineView: UIView!
   @IBOutlet weak var secondUnderlineView: UIView!
-  @IBOutlet weak var thirdUnderlineView: UIView!
-  @IBOutlet weak var fourthUnerlineView: UIView!
   
   @IBOutlet weak var firstIndicatorImageView: UIImageView!
   @IBOutlet weak var secondIndicatorImageView: UIImageView!
-  @IBOutlet weak var thirdIndicatorImageView: UIImageView!
-  @IBOutlet weak var fourthIndicatorImageView: UIImageView!
   
   @IBOutlet weak var addAccountButton: UIButton!
   
@@ -39,14 +34,10 @@ class AddAccountViewController: UIViewController {
   let user = FIRAuth.auth()?.currentUser
   
   var accountName: String?
-  var accountRelationship: String?
   var accountEmail: String?
-  var accountPhone: String?
   
   var nameSatisfied: Bool?
-  var relationshipSatisfied: Bool?
   var emailSatisfied: Bool?
-  var phoneSatisfied: Bool?
   
   
   override func viewDidLoad() {
@@ -58,9 +49,8 @@ class AddAccountViewController: UIViewController {
     checkAllRequirements()
     keyboardMethods()
     
-    
-    thirdTextField.addTarget(self, action: #selector(checkIfAccountEmailTextFieldIsSatisfied(textField:)), for: .editingChanged)
-    
+    firstTextField.addTarget(self, action: #selector(checkIfAccountnameTextFieldIsSatisfied(textField:)), for: .editingChanged)
+    secondTextField.addTarget(self, action: #selector(checkIfAccountEmailTextFieldIsSatisfied(textField:)), for: .editingChanged)
   }
   
   
@@ -85,8 +75,6 @@ class AddAccountViewController: UIViewController {
   func setTextFieldDelegates() {
     self.firstTextField.delegate = self
     self.secondTextField.delegate = self
-    self.thirdTextField.delegate = self
-    self.fourthTextField.delegate = self
   }
   
   
@@ -103,27 +91,22 @@ class AddAccountViewController: UIViewController {
   // TODO: Reset & Check Requirements
   
   func resetRequirements() {
+    firstTextField.text = ""
+    secondTextField.text = ""
     nameSatisfied = false
-    relationshipSatisfied = false
-    emailSatisfied = false
-    phoneSatisfied = false
+    emailSatisfied = true
   }
   
   func checkAllRequirements() {
     if nameSatisfied == true &&
-      relationshipSatisfied == true &&
-      emailSatisfied == true &&
-      phoneSatisfied == true {
-      // good
+      emailSatisfied == true {
+      addAccountButton.isEnabled = true
+      addAccountButton.isHidden = false
     } else {
-      // bad
+      addAccountButton.isEnabled = false
+      addAccountButton.isHidden = true
     }
   }
-  
-  
-
-
-  
   
   
   // TODO: Add to Firebase
@@ -131,24 +114,16 @@ class AddAccountViewController: UIViewController {
   func addDataToFirebase() {
     
     let name = firstTextField.text ?? ""
-    let relationship = secondTextField.text ?? ""
-    let email = thirdTextField.text ?? ""
-    let phone = fourthTextField.text ?? ""
+    let email = secondTextField.text ?? ""
     
     accountName = (name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)).capitalized
-    accountRelationship = (relationship.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)).capitalized
     accountEmail = email.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-    accountPhone = phone.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     
     let account = ref.child("accounts").childByAutoId()
     if let tAccountName = accountName,
-      let tAccountRelationship = accountRelationship,
-      let tAccountEmail = accountEmail,
-      let tAccountPhone = accountPhone {
-      account.setValue(["accountName": tAccountName,
-                        "accountRelationship": tAccountRelationship,
-                        "accountEmail": tAccountEmail,
-                        "accountPhone": tAccountPhone])
+      let tAccountEmail = accountEmail {
+      account.setValue(["accountName": tAccountName, //// picture somehow?
+                        "accountEmail": tAccountEmail])
     }
     ref.child("users").child((user?.uid)!).child("accounts").child(account.key).setValue(true)
     performSegue(withIdentifier: "fromAddAccountToLandingPage", sender: self)
@@ -206,15 +181,17 @@ class AddAccountViewController: UIViewController {
 } // End of AddAccountView Controller Class
 
 
-// TODO: UITextField Delegate Methods
+// MARK: UITextField Delegate Methods
 
 extension AddAccountViewController: UITextFieldDelegate {
   
   func checkIfAccountnameTextFieldIsSatisfied(textField: UITextField) {
     if textField == firstTextField {
       if (textField.text?.isEmpty)! {
+        firstIndicatorImageView.image = UIImage.init(named: "redEx.png")
         nameSatisfied = false
       } else {
+        firstIndicatorImageView.image = UIImage.init(named: "greenCheck.png")
         nameSatisfied = true
       }
     }
@@ -222,43 +199,26 @@ extension AddAccountViewController: UITextFieldDelegate {
   }
   
   
-  func checkIfAccountRelationshipTextFieldIsSatisfied(textField: UITextField) {
+  func checkIfAccountEmailTextFieldIsSatisfied(textField: UITextField) {
     if textField == secondTextField {
       if (textField.text?.isEmpty)! {
-        relationshipSatisfied = false
-      } else {
-       relationshipSatisfied = true
-      }
-    }
-    checkAllRequirements()
-  }
-  
-  
-  func checkIfAccountEmailTextFieldIsSatisfied(textField: UITextField) {
-    if textField == thirdTextField {
-      
-      if (textField.text?.isEmpty)! {
         emailSatisfied = true
-        thirdIndicatorImageView.image = nil
+        secondIndicatorImageView.image = nil
       } else if !(textField.text?.isEmpty)! && textField.text?.validateEmail() == false {
-        thirdIndicatorImageView.image = UIImage.init(named: "yellowCaution.png")
+        secondIndicatorImageView.image = UIImage.init(named: "yellowCaution.png")
         emailSatisfied = false
       } else if !(textField.text?.isEmpty)! && textField.text?.validateEmail() == true {
-        thirdIndicatorImageView.image = UIImage.init(named: "greenCheck.png")
+        secondIndicatorImageView.image = UIImage.init(named: "greenCheck.png")
         emailSatisfied = true
       }
     }
     checkAllRequirements()
   }
   
-  
-  func checkIfAccountPhoneTextFieldIsSatisfied(textField: UITextField) {
-    if textField == fourthTextField {
-      
-    }
-    checkAllRequirements()
-  }
-  
+
+} // End of UITextField Delegate Extension
+
+extension AddAccountViewController: UIImagePickerControllerDelegate {
   
   
   

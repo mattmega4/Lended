@@ -15,14 +15,17 @@ class EntryPageViewController: UIViewController {
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var contentView: UIView!
   
+  @IBOutlet weak var topContainerView: UIView!
+  @IBOutlet weak var mainLogoImageView: UIImageView!
   @IBOutlet weak var questionMarkButton: UIButton!
   
-  @IBOutlet weak var topContainerView: UIView!
   @IBOutlet weak var leftContainerView: UIView!
+  @IBOutlet weak var leftContainerButton: UIButton!
+  @IBOutlet weak var leftContainerLabel: UILabel!
   
   @IBOutlet weak var rightContainerView: UIView!
-  @IBOutlet weak var addButton: UIButton!
-  @IBOutlet weak var addLabel: UILabel!
+  @IBOutlet weak var rightContainerButton: UIButton!
+  @IBOutlet weak var rightContainerLabel: UILabel!
   
   @IBOutlet weak var bottomContainerView: UIView!
   @IBOutlet weak var bottomTextFieldOne: UITextField!
@@ -54,7 +57,7 @@ class EntryPageViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    setStatusToDefaultWhichIsSignIn()    
+    leftButtonWasTappedAlsoIsDefault()
     checkIfBothSignInRequirementsAreMet()
   }
   
@@ -69,17 +72,6 @@ class EntryPageViewController: UIViewController {
   }
   
   
-  // MARK: Switch Logic For Sign In or Create Button in Right Container View
-  
-  func rightContaienrStateSwitcher() {
-    if userStateIsOnSignIn == true {
-      setStatusToSignUpStageOne()
-    } else if userStateIsOnSignIn == false {
-      setStatusToDefaultWhichIsSignIn()
-    }
-  }
-  
-  
   // MARK: Switch Logic For Sign In or Create Button in Bottom Container View
   
   func bottomContainerStateSwitcher() {
@@ -87,63 +79,71 @@ class EntryPageViewController: UIViewController {
       signUserIn()
     } else if userStateIsOnSignIn == false && createUserStepOneFinished == false {
       newUserEmail = bottomTextFieldOne.text ?? ""
-      setStatusToSignUpStateTwo()
+      continueTappedAfterStageOneRegisterAccountActive()
     } else if userStateIsOnSignIn == false && createUserStepOneFinished == true {
-      createNewUser()
+      registerNewUser()
     }
   }
   
   
-  // MARK: Logic For State Switching
+  // MARK: Hide and Show Left and Right Container View Contents
   
-  func setStatusToDefaultWhichIsSignIn() {
+  func hideLeftContainerViewContents() {
+    leftContainerButton.isHidden = true
+    leftContainerButton.isEnabled = false
+    leftContainerLabel.isHidden = true
+  }
+  
+  
+  func showLeftContainerViewContents() {
+    leftContainerButton.isHidden = false
+    leftContainerButton.isEnabled = true
+    leftContainerLabel.isHidden = false
+  }
+  
+  
+  func hideRightContainerViewContents() {
+    rightContainerButton.isHidden = true
+    rightContainerButton.isEnabled = false
+    rightContainerLabel.isHidden = true
+  }
+  
+  
+  func showRightContainerViewContents() {
+    rightContainerButton.isHidden = false
+    rightContainerButton.isEnabled = true
+    rightContainerLabel.isHidden = false
+  }
+  
+  
+  // MARK: Reset Text Fields
+  
+  func resetTextFieldText() {
+    bottomTextFieldOne.text = ""
+    bottomTextFieldTwo.text = ""
+  }
+  
+  
+  // MARK: Reset Requirements
+  
+  func resetLoginRequirements() {
     createUserStepOneFinished = false
     userStateIsOnSignIn = true
     topFieldIsSatisfied = false
     bottomFieldIsSatisfied = false
     nextButtonRequirementsHaveBeenMet = false
-    addButton.setImage(UIImage.init(named: "Plus.png"), for: UIControlState())
-    addLabel.text = "Create Account"
-    bottomTextFieldTwo.isHidden = false
-    bottomTextFieldTwo.isEnabled = true
-    bottomTextFieldOne.text = ""
-    bottomTextFieldTwo.text = ""
-    bottomTextFieldOne.placeholder = "Email"
-    bottomTextFieldTwo.placeholder = "Password"
-    bottomTextFieldOne.keyboardType = .emailAddress
-    bottomTextFieldTwo.keyboardType = .default
-    bottomTextFieldOne.isSecureTextEntry = false
-    bottomTextFieldTwo.isSecureTextEntry = true
-    bottomTextFieldOne.addTarget(self, action: #selector(checkIfTopTextFieldIsSatisfiedForLogin(textField:)), for: .editingChanged)
-    bottomTextFieldTwo.addTarget(self, action: #selector(checkIfBottomTextFieldIsSatisfiedForLogin(textField:)), for: .editingChanged)
-    signInOrUpButton.setTitle("SIGN IN", for: UIControlState())
   }
   
   
-  func setStatusToSignUpStageOne() {
-    checkIfBothCreateRequirementsAreMet()
+  func resetRegisterRequirementsForStageOne() {
     userStateIsOnSignIn = false
     topFieldIsSatisfied = false
     bottomFieldIsSatisfied = false
     nextButtonRequirementsHaveBeenMet = false
-    addButton.setImage(UIImage.init(named: "Lock.png"), for: UIControlState())
-    addLabel.text = "I Have An Account"
-    bottomTextFieldOne.text = ""
-    bottomTextFieldTwo.text = ""
-    bottomTextFieldTwo.isHidden = true
-    bottomTextFieldTwo.isEnabled = false
-    bottomTextFieldOne.placeholder = "Email"
-    bottomTextFieldOne.keyboardType = .emailAddress
-    bottomTextFieldOne.isSecureTextEntry = false
-    bottomTextFieldTwo.isSecureTextEntry = true
-    bottomTextFieldOne.addTarget(self, action: #selector(checkIfTopTextFieldIsSatisfiedForCreatePartOne(textField:)), for: .editingChanged)
-    signInOrUpButton.setTitle("CONTINUE", for: UIControlState())
-    
   }
   
   
-  func setStatusToSignUpStateTwo() {
-    checkIfBothCreateRequirementsAreMet()
+  func resetRegisterRequirementsForStageTwo() {
     createUserStepOneFinished = true
     userStateIsOnSignIn = false
     topFieldIsSatisfied = false
@@ -151,9 +151,42 @@ class EntryPageViewController: UIViewController {
     nextButtonRequirementsHaveBeenMet = false
     bottomTextFieldTwo.isHidden = false
     bottomTextFieldTwo.isEnabled = true
+  }
+  
+  
+  // MARK: Login TextField Details
+  
+  func setupLoginTextFields() {
+    bottomTextFieldTwo.isHidden = false
+    bottomTextFieldTwo.isEnabled = true
+    bottomTextFieldOne.placeholder = "Enter Email"
+    bottomTextFieldTwo.placeholder = "Enter Password"
+    bottomTextFieldOne.keyboardType = .emailAddress
+    bottomTextFieldTwo.keyboardType = .default
+    bottomTextFieldOne.isSecureTextEntry = false
+    bottomTextFieldTwo.isSecureTextEntry = true
+    bottomTextFieldOne.addTarget(self, action: #selector(checkIfTopTextFieldIsSatisfiedForLogin(textField:)), for: .editingChanged)
+    bottomTextFieldTwo.addTarget(self, action: #selector(checkIfBottomTextFieldIsSatisfiedForLogin(textField:)), for: .editingChanged)
+  }
+  
+  
+  func setupRegisterTextFieldsForStageOne() {
     bottomTextFieldOne.text = ""
     bottomTextFieldTwo.text = ""
-    bottomTextFieldOne.placeholder = "Password"
+    bottomTextFieldTwo.isHidden = true
+    bottomTextFieldTwo.isEnabled = false
+    bottomTextFieldOne.placeholder = "Enter Email"
+    bottomTextFieldOne.keyboardType = .emailAddress
+    bottomTextFieldOne.isSecureTextEntry = false
+    bottomTextFieldTwo.isSecureTextEntry = true
+    bottomTextFieldOne.addTarget(self, action: #selector(checkIfTopTextFieldIsSatisfiedForCreatePartOne(textField:)), for: .editingChanged)
+  }
+  
+  
+  func setupRegisterTextFieldsForStageTwo() {
+    bottomTextFieldOne.text = ""
+    bottomTextFieldTwo.text = ""
+    bottomTextFieldOne.placeholder = "Enter Password"
     bottomTextFieldTwo.placeholder = "Confirm Password"
     bottomTextFieldOne.keyboardType = .default
     bottomTextFieldTwo.keyboardType = .default
@@ -161,8 +194,39 @@ class EntryPageViewController: UIViewController {
     bottomTextFieldTwo.isSecureTextEntry = true
     bottomTextFieldOne.addTarget(self, action: #selector(checkIfTopTextFieldIsSatisfiedForCreatePartTwo(textField:)), for: .editingChanged)
     bottomTextFieldTwo.addTarget(self, action: #selector(checkIfBottomTextFieldIsSatisfiedForCreatePartTwo(textField:)), for: .editingChanged)
-    signInOrUpButton.setTitle("CREATE ACCOUNT", for: UIControlState())
     
+  }
+  
+  
+  // MARK: Logic For State Switching
+  
+  func leftButtonWasTappedAlsoIsDefault() {
+    hideLeftContainerViewContents()
+    showRightContainerViewContents()
+    resetTextFieldText()
+    resetLoginRequirements()
+    checkIfBothSignInRequirementsAreMet() // ?
+    setupLoginTextFields()
+    signInOrUpButton.setTitle("SIGN IN", for: UIControlState())
+  }
+  
+  
+  func rightButtonWasTapped() {
+    showLeftContainerViewContents()
+    hideRightContainerViewContents()
+    resetTextFieldText()
+    resetRegisterRequirementsForStageOne()
+    checkIfBothRegisterRequirementsAreMet() // ?
+    setupRegisterTextFieldsForStageOne()
+    signInOrUpButton.setTitle("CONTINUE", for: UIControlState())
+  }
+  
+  
+  func continueTappedAfterStageOneRegisterAccountActive() {
+    resetRegisterRequirementsForStageTwo()
+    checkIfBothRegisterRequirementsAreMet()
+    setupRegisterTextFieldsForStageTwo()
+    signInOrUpButton.setTitle("CREATE ACCOUNT", for: UIControlState())
   }
   
   
@@ -194,7 +258,7 @@ class EntryPageViewController: UIViewController {
   }
   
   
-  func checkIfBothCreateRequirementsAreMet() {
+  func checkIfBothRegisterRequirementsAreMet() {
     if topFieldIsSatisfied == true && bottomFieldIsSatisfied == true && bottomTextFieldOne.text == bottomTextFieldTwo.text {
       signInOrUpButton.isEnabled = true
       signInOrUpButton.isHidden = false
@@ -207,7 +271,7 @@ class EntryPageViewController: UIViewController {
   }
   
   
-  // MARK: SIgn In
+  // MARK: Sign In
   
   func signUserIn() {
     let currentEmail = bottomTextFieldOne.text ?? ""
@@ -243,9 +307,9 @@ class EntryPageViewController: UIViewController {
   }
   
   
-  // MARK: Create User
+  // MARK: Register User
   
-  func createNewUser() {
+  func registerNewUser() {
     
     if bottomTextFieldOne.text == bottomTextFieldTwo.text {
       newUserPassword = bottomTextFieldTwo.text ?? ""
@@ -279,7 +343,7 @@ class EntryPageViewController: UIViewController {
   }
   
   
-  // TODO: IB Actions - Whatever is on left...
+  // MARK: IB Actions
   
   @IBAction func questionMarkButtonTapped(_ sender: UIButton) {
     
@@ -287,12 +351,13 @@ class EntryPageViewController: UIViewController {
     
   }
   
-  @IBAction func addButtonTapped(_ sender: UIButton) {
-    rightContaienrStateSwitcher()
+  @IBAction func leftContainerButtonTapped(_ sender: UIButton) {
+    leftButtonWasTappedAlsoIsDefault()
+    
   }
   
-  @IBAction func signInOrUpTapped(_ sender: UIButton) {
-    bottomContainerStateSwitcher()
+  @IBAction func rightContainerButtonTapped(_ sender: UIButton) {
+    rightButtonWasTapped()
   }
   
   
@@ -305,22 +370,17 @@ class EntryPageViewController: UIViewController {
     var contentInset: UIEdgeInsets = self.scrollView.contentInset
     contentInset.bottom = keyboardFrame.size.height + 30
     self.scrollView.contentInset = contentInset
-    addLabel.isHidden = true
-    addButton.isHidden = true
-    addButton.isEnabled = false
     
-    // TODO: Whatever is on left
+    hideLeftContainerViewContents()
+    hideRightContainerViewContents()
   }
   
   
   func keyboardWillHide(notification:NSNotification) {
     let contentInset:UIEdgeInsets = UIEdgeInsets.zero
     self.scrollView.contentInset = contentInset
-    addLabel.isHidden = false
-    addButton.isHidden = false
-    addButton.isEnabled = true
-    
-    // TODO: Whatever is on left
+    showLeftContainerViewContents()
+    showRightContainerViewContents()
     
   }
   
@@ -408,7 +468,7 @@ extension EntryPageViewController: UITextFieldDelegate {
         topFieldIsSatisfied = true
       }
     }
-    checkIfBothCreateRequirementsAreMet()
+    checkIfBothRegisterRequirementsAreMet()
   }
   
   
@@ -420,7 +480,7 @@ extension EntryPageViewController: UITextFieldDelegate {
         bottomFieldIsSatisfied = true
       }
     }
-    checkIfBothCreateRequirementsAreMet()
+    checkIfBothRegisterRequirementsAreMet()
   }
   
   

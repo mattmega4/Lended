@@ -10,7 +10,7 @@ target 'Lended' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Crash'
-
+  pod 'Firebase/Storage'
 
 end
 

@@ -19,10 +19,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Protobuf.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>43E261F5E3E44ACDFEE29A9C93B3BE47</key>
+		<key>593BBF4F5ABA5012BE136F619386B622</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5A40DC47449278DF2819F1686DFBA70F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
