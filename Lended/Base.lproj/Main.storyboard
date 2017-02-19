@@ -174,16 +174,25 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lod-m9-Mzg">
+                                                        <rect key="frame" x="72.5" y="135" width="15" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="15" id="BWr-QF-bwz"/>
+                                                            <constraint firstAttribute="width" constant="15" id="qYw-ba-rUn"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.34718981385231018" green="0.51570582389831543" blue="0.78047454357147217" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstItem="GO8-94-ehz" firstAttribute="width" secondItem="GO8-94-ehz" secondAttribute="height" multiplier="1:1" id="DCc-eX-HDX"/>
+                                                    <constraint firstItem="Lod-m9-Mzg" firstAttribute="centerX" secondItem="K3q-Jf-3Fo" secondAttribute="centerX" id="O1s-X8-bF8"/>
                                                     <constraint firstAttribute="trailing" secondItem="uf5-Ma-esm" secondAttribute="trailing" constant="25" id="Ono-u9-c83"/>
                                                     <constraint firstItem="GO8-94-ehz" firstAttribute="top" secondItem="K3q-Jf-3Fo" secondAttribute="top" constant="15" id="Ybj-ah-8Bw"/>
                                                     <constraint firstItem="uf5-Ma-esm" firstAttribute="leading" secondItem="K3q-Jf-3Fo" secondAttribute="leading" constant="25" id="bua-Ci-elo"/>
                                                     <constraint firstItem="uf5-Ma-esm" firstAttribute="top" secondItem="GO8-94-ehz" secondAttribute="bottom" constant="5" id="e3z-Tf-yFU"/>
                                                     <constraint firstAttribute="bottom" secondItem="uf5-Ma-esm" secondAttribute="bottom" constant="15" id="egP-Rx-fMR"/>
                                                     <constraint firstAttribute="height" constant="150" id="f5w-VI-v6I"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Lod-m9-Mzg" secondAttribute="bottom" id="nH3-2B-YBp"/>
                                                     <constraint firstItem="GO8-94-ehz" firstAttribute="centerX" secondItem="K3q-Jf-3Fo" secondAttribute="centerX" id="uG7-km-57w"/>
                                                 </constraints>
                                             </view>
@@ -209,13 +218,22 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9W6-zS-gSE">
+                                                        <rect key="frame" x="73" y="135" width="15" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="15" id="leG-s6-qfs"/>
+                                                            <constraint firstAttribute="width" constant="15" id="sRK-V8-FLZ"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.49741187691688538" green="0.59082520008087158" blue="0.66672968864440918" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstItem="OhG-c7-TUh" firstAttribute="top" secondItem="lTg-DE-q9c" secondAttribute="bottom" constant="5" id="aHG-gi-iKq"/>
                                                     <constraint firstItem="OhG-c7-TUh" firstAttribute="leading" secondItem="Zax-9L-Kr2" secondAttribute="leading" constant="25" id="bfQ-pz-P6j"/>
+                                                    <constraint firstAttribute="bottom" secondItem="9W6-zS-gSE" secondAttribute="bottom" id="cbf-Ic-7VL"/>
                                                     <constraint firstAttribute="trailing" secondItem="OhG-c7-TUh" secondAttribute="trailing" constant="25" id="hk9-Gi-hnF"/>
                                                     <constraint firstItem="lTg-DE-q9c" firstAttribute="centerX" secondItem="Zax-9L-Kr2" secondAttribute="centerX" id="k6w-4s-WYv"/>
+                                                    <constraint firstItem="9W6-zS-gSE" firstAttribute="centerX" secondItem="Zax-9L-Kr2" secondAttribute="centerX" id="lkY-Wr-0Yz"/>
                                                     <constraint firstItem="lTg-DE-q9c" firstAttribute="top" secondItem="Zax-9L-Kr2" secondAttribute="top" constant="15" id="tZP-rf-fwa"/>
                                                     <constraint firstAttribute="bottom" secondItem="OhG-c7-TUh" secondAttribute="bottom" constant="15" id="uyp-s9-db7"/>
                                                 </constraints>
@@ -226,7 +244,7 @@
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T4b-mV-epQ">
                                                         <rect key="frame" x="50" y="25" width="220" height="29.5"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                         <connections>
@@ -236,7 +254,7 @@
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qaH-PS-Gh8">
                                                         <rect key="frame" x="50" y="64.5" width="220" height="29"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
@@ -253,6 +271,9 @@
                                                                 <state key="normal" title="SIGN IN">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="signInOrUpButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aHh-2h-Ujd"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -326,11 +347,13 @@
                         <outlet property="bottomTextFieldTwo" destination="qaH-PS-Gh8" id="DR8-xP-LvO"/>
                         <outlet property="contentView" destination="WAM-Me-e4A" id="dJo-SN-AdH"/>
                         <outlet property="leftContainerButton" destination="GO8-94-ehz" id="dPQ-rd-tbN"/>
+                        <outlet property="leftContainerIndicatorImageView" destination="Lod-m9-Mzg" id="5J2-jo-wu5"/>
                         <outlet property="leftContainerLabel" destination="uf5-Ma-esm" id="dec-P6-WGO"/>
                         <outlet property="leftContainerView" destination="K3q-Jf-3Fo" id="rgB-Ld-HEy"/>
                         <outlet property="mainLogoImageView" destination="Uh5-Lx-uhx" id="uCw-h8-5nK"/>
                         <outlet property="questionMarkButton" destination="Wv6-un-EKP" id="ai7-lC-n3b"/>
                         <outlet property="rightContainerButton" destination="lTg-DE-q9c" id="lCo-qt-JXf"/>
+                        <outlet property="rightContainerIndicatorImageView" destination="9W6-zS-gSE" id="BKj-1u-dRh"/>
                         <outlet property="rightContainerLabel" destination="OhG-c7-TUh" id="tXb-sV-k6K"/>
                         <outlet property="rightContainerView" destination="Zax-9L-Kr2" id="EQl-38-uvJ"/>
                         <outlet property="scrollView" destination="sd3-Eh-O6n" id="CIq-Tx-fPZ"/>
@@ -343,7 +366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="428" y="151.57421289355324"/>
+            <point key="canvasLocation" x="427.5" y="151.05633802816902"/>
         </scene>
         <!--Item-->
         <scene sceneID="gsg-vr-q7D">
@@ -588,7 +611,7 @@
         <image name="whiteQuestionMark" width="53" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B3Q-CC-j6s"/>
+        <segue reference="Hri-iF-2q5"/>
         <segue reference="rJb-Oo-b0r"/>
     </inferredMetricsTieBreakers>
 </document>

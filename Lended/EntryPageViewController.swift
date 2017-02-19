@@ -22,10 +22,12 @@ class EntryPageViewController: UIViewController {
   @IBOutlet weak var leftContainerView: UIView!
   @IBOutlet weak var leftContainerButton: UIButton!
   @IBOutlet weak var leftContainerLabel: UILabel!
+  @IBOutlet weak var leftContainerIndicatorImageView: UIImageView!
   
   @IBOutlet weak var rightContainerView: UIView!
   @IBOutlet weak var rightContainerButton: UIButton!
   @IBOutlet weak var rightContainerLabel: UILabel!
+  @IBOutlet weak var rightContainerIndicatorImageView: UIImageView!
   
   @IBOutlet weak var bottomContainerView: UIView!
   @IBOutlet weak var bottomTextFieldOne: UITextField!
@@ -33,6 +35,8 @@ class EntryPageViewController: UIViewController {
   @IBOutlet weak var signInOrUpButtonContainerView: UIView!
   @IBOutlet weak var signInOrUpButton: UIButton!
   
+  var leftOn: Bool?
+  var rightOn: Bool?
   
   var topFieldIsSatisfied: Bool?
   var bottomFieldIsSatisfied: Bool?
@@ -51,14 +55,13 @@ class EntryPageViewController: UIViewController {
     questionMarkButton.createRoundView()
     bottomTextFieldDelegateAndAutoCorrectAndPlaceholderColorSetup()
     keyboardMethods()
-    
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    leftButtonWasTappedAlsoIsDefault()
     checkIfBothSignInRequirementsAreMet()
+    leftButtonWasTappedWhichIsDefault()
   }
   
   
@@ -89,30 +92,46 @@ class EntryPageViewController: UIViewController {
   // MARK: Hide and Show Left and Right Container View Contents
   
   func hideLeftContainerViewContents() {
-    leftContainerButton.isHidden = true
+    leftContainerButton.alpha = 0.3
     leftContainerButton.isEnabled = false
-    leftContainerLabel.isHidden = true
+    leftContainerLabel.alpha = 0.3
+    leftContainerIndicatorImageView.image = UIImage.init(named: "indicatorTriangle.png")
+
   }
   
   
   func showLeftContainerViewContents() {
-    leftContainerButton.isHidden = false
+    leftContainerButton.alpha = 1.0
     leftContainerButton.isEnabled = true
-    leftContainerLabel.isHidden = false
+    leftContainerLabel.alpha = 1.0
+    leftContainerIndicatorImageView.image = nil
   }
   
   
   func hideRightContainerViewContents() {
-    rightContainerButton.isHidden = true
+    rightContainerButton.alpha = 0.3
     rightContainerButton.isEnabled = false
-    rightContainerLabel.isHidden = true
+    rightContainerLabel.alpha = 0.3
+    rightContainerIndicatorImageView.image = UIImage.init(named: "indicatorTriangle.png")
   }
   
   
   func showRightContainerViewContents() {
-    rightContainerButton.isHidden = false
+    rightContainerButton.alpha = 1.0
     rightContainerButton.isEnabled = true
-    rightContainerLabel.isHidden = false
+    rightContainerLabel.alpha = 1.0
+    rightContainerIndicatorImageView.image = nil
+  }
+  
+  
+  // MARK: Keyboard Show Logic
+  
+  func hideShowKeyboardLogicLeftVsRight() {
+    if leftOn == true && rightOn == false {
+      showLeftContainerViewContents()
+    } else if leftOn == false && rightOn == true {
+      showRightContainerViewContents()
+    }
   }
   
   
@@ -179,7 +198,7 @@ class EntryPageViewController: UIViewController {
     bottomTextFieldOne.keyboardType = .emailAddress
     bottomTextFieldOne.isSecureTextEntry = false
     bottomTextFieldTwo.isSecureTextEntry = true
-    bottomTextFieldOne.addTarget(self, action: #selector(checkIfTopTextFieldIsSatisfiedForCreatePartOne(textField:)), for: .editingChanged)
+    bottomTextFieldOne.addTarget(self, action: #selector(checkIfTopTextFieldIsSatisfiedForRegisterPartOne(textField:)), for: .editingChanged)
   }
   
   
@@ -192,26 +211,28 @@ class EntryPageViewController: UIViewController {
     bottomTextFieldTwo.keyboardType = .default
     bottomTextFieldOne.isSecureTextEntry = true
     bottomTextFieldTwo.isSecureTextEntry = true
-    bottomTextFieldOne.addTarget(self, action: #selector(checkIfTopTextFieldIsSatisfiedForCreatePartTwo(textField:)), for: .editingChanged)
-    bottomTextFieldTwo.addTarget(self, action: #selector(checkIfBottomTextFieldIsSatisfiedForCreatePartTwo(textField:)), for: .editingChanged)
-    
+    bottomTextFieldOne.addTarget(self, action: #selector(checkIfTopTextFieldIsSatisfiedForRegisterPartTwo(textField:)), for: .editingChanged)
+    bottomTextFieldTwo.addTarget(self, action: #selector(checkIfBottomTextFieldIsSatisfiedForRegisterPartTwo(textField:)), for: .editingChanged)
   }
   
   
   // MARK: Logic For State Switching
   
-  func leftButtonWasTappedAlsoIsDefault() {
+  func leftButtonWasTappedWhichIsDefault() {
+    leftOn = true
+    rightOn = false
     hideLeftContainerViewContents()
     showRightContainerViewContents()
     resetTextFieldText()
     resetLoginRequirements()
-    checkIfBothSignInRequirementsAreMet() // ?
     setupLoginTextFields()
     signInOrUpButton.setTitle("SIGN IN", for: UIControlState())
   }
   
   
   func rightButtonWasTapped() {
+    leftOn = false
+    rightOn = true
     showLeftContainerViewContents()
     hideRightContainerViewContents()
     resetTextFieldText()
@@ -223,6 +244,8 @@ class EntryPageViewController: UIViewController {
   
   
   func continueTappedAfterStageOneRegisterAccountActive() {
+    leftOn = false
+    rightOn = true
     resetRegisterRequirementsForStageTwo()
     checkIfBothRegisterRequirementsAreMet()
     setupRegisterTextFieldsForStageTwo()
@@ -242,6 +265,7 @@ class EntryPageViewController: UIViewController {
       signInOrUpButton.isHidden = true
       signInOrUpButtonContainerView.isHidden = true
     }
+      
   }
   
   
@@ -346,18 +370,20 @@ class EntryPageViewController: UIViewController {
   // MARK: IB Actions
   
   @IBAction func questionMarkButtonTapped(_ sender: UIButton) {
-    
     // TODO: Lost Password
-    
   }
   
   @IBAction func leftContainerButtonTapped(_ sender: UIButton) {
-    leftButtonWasTappedAlsoIsDefault()
+    leftButtonWasTappedWhichIsDefault()
     
   }
   
   @IBAction func rightContainerButtonTapped(_ sender: UIButton) {
     rightButtonWasTapped()
+  }
+  
+  @IBAction func signInOrUpButtonTapped(_ sender: UIButton) {
+    bottomContainerStateSwitcher()
   }
   
   
@@ -379,9 +405,8 @@ class EntryPageViewController: UIViewController {
   func keyboardWillHide(notification:NSNotification) {
     let contentInset:UIEdgeInsets = UIEdgeInsets.zero
     self.scrollView.contentInset = contentInset
-    showLeftContainerViewContents()
-    showRightContainerViewContents()
     
+    hideShowKeyboardLogicLeftVsRight()
   }
   
   
@@ -424,6 +449,18 @@ extension EntryPageViewController: UITextFieldDelegate {
   
   // MARK: Bottom Text Field Targets
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   func checkIfTopTextFieldIsSatisfiedForLogin(textField: UITextField) {
     if textField == bottomTextFieldOne {
       if textField.text?.validateEmail() == true {
@@ -433,6 +470,7 @@ extension EntryPageViewController: UITextFieldDelegate {
       }
     }
     checkIfBothSignInRequirementsAreMet()
+    hideLeftContainerViewContents()
   }
   
   
@@ -445,10 +483,11 @@ extension EntryPageViewController: UITextFieldDelegate {
       }
     }
     checkIfBothSignInRequirementsAreMet()
+    hideLeftContainerViewContents()
   }
   
   
-  func checkIfTopTextFieldIsSatisfiedForCreatePartOne(textField: UITextField) {
+  func checkIfTopTextFieldIsSatisfiedForRegisterPartOne(textField: UITextField) {
     if textField == bottomTextFieldOne {
       if textField.text?.validateEmail() == true {
         topFieldIsSatisfied = true
@@ -457,10 +496,11 @@ extension EntryPageViewController: UITextFieldDelegate {
       }
     }
     checkIfTopContinueRequirementIsMet()
+    hideRightContainerViewContents()
   }
   
   
-  func checkIfTopTextFieldIsSatisfiedForCreatePartTwo(textField: UITextField) {
+  func checkIfTopTextFieldIsSatisfiedForRegisterPartTwo(textField: UITextField) {
     if textField == bottomTextFieldOne {
       if textField.text?.isEmpty == true {
         topFieldIsSatisfied = false
@@ -469,10 +509,11 @@ extension EntryPageViewController: UITextFieldDelegate {
       }
     }
     checkIfBothRegisterRequirementsAreMet()
+    hideRightContainerViewContents()
   }
   
   
-  func checkIfBottomTextFieldIsSatisfiedForCreatePartTwo(textField: UITextField) {
+  func checkIfBottomTextFieldIsSatisfiedForRegisterPartTwo(textField: UITextField) {
     if textField == bottomTextFieldTwo {
       if textField.text?.isEmpty == true {
         bottomFieldIsSatisfied = false
@@ -481,6 +522,7 @@ extension EntryPageViewController: UITextFieldDelegate {
       }
     }
     checkIfBothRegisterRequirementsAreMet()
+    hideRightContainerViewContents()
   }
   
   
