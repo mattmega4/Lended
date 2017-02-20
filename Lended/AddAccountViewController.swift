@@ -33,17 +33,21 @@ class AddAccountViewController: UIViewController {
   
   @IBOutlet weak var addAccountButton: UIButton!
   
+  let storage = FIRStorage.storage()
   let ref = FIRDatabase.database().reference()
   let user = FIRAuth.auth()?.currentUser
   
   var selectedImageFromPicker: UIImage?
+  var accountMetadata: URL?
+  var imageData: Data?
+  
   var accountName: String?
   var accountEmail: String?
-  var accountMetadata: URL?
+  
   var nameSatisfied: Bool?
   var emailSatisfied: Bool?
   
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -149,31 +153,50 @@ class AddAccountViewController: UIViewController {
     accountEmail = email.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     
     
-    
-    let storgeRef = FIRStorage.storage().reference().child("accountImage.png")
-    
-    let uploadData = UIImagePNGRepresentation(selectedImageFromPicker!)
-    
-    storgeRef.put(uploadData!, metadata: nil) { (metadata, error) in
-      if error != nil {
-        print(error!)
-        return
-      }
-      
-      self.accountMetadata = metadata?.downloadURL()
-      
-      print(metadata!)
-    }
-    
     let account = ref.child("accounts").childByAutoId()
+    let imageName = NSUUID().uuidString
+    let storageRef = storage.reference().child("users").child((user?.uid)!).child("accounts").child(account.key).child("\(imageName).png")
     
-    if let tAccountName = accountName,
-      let tAccountEmail = accountEmail,
-      let tAccountImage = accountMetadata {
-      account.setValue(["accountName": tAccountName,
-                        "accountEmail": tAccountEmail,
-                        "accountImage": tAccountImage])
+    
+    if selectedImageFromPicker != nil {
+      
+      if let tempData = UIImagePNGRepresentation(selectedImageFromPicker!) {
+        
+        storageRef.put(tempData, metadata: nil) { (metadata, error) in
+          if error != nil {
+            print(error!)
+            return
+          }
+          
+          self.accountMetadata = metadata?.downloadURL()
+          
+          
+          
+          if let tAccountName = self.accountName,
+            let tAccountEmail = self.accountEmail,
+            let profileImageUrl = metadata?.downloadURL()?.absoluteString {
+            
+            account.setValue(["accountName": tAccountName,
+                              "accountEmail": tAccountEmail,
+                              "accountImage": profileImageUrl])
+
+          
+            
+          }
+
+          print(metadata!)
+        }
+      }
+    } else {
+      
+      if let tAccountName = accountName,
+        let tAccountEmail = accountEmail {
+        account.setValue(["accountName": tAccountName,
+                          "accountEmail": tAccountEmail])
+      }
     }
+    
+    
     ref.child("users").child((user?.uid)!).child("accounts").child(account.key).setValue(true)
     performSegue(withIdentifier: "fromAddAccountToLandingPage", sender: self)
   }
@@ -296,9 +319,9 @@ extension AddAccountViewController: UIImagePickerControllerDelegate {
       
     }
     
-
     
-//
+    
+    //
     
     if let selectedImage = selectedImageFromPicker {
       accountImageView.image = selectedImage
