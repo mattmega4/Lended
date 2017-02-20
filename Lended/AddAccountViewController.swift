@@ -16,9 +16,12 @@ class AddAccountViewController: UIViewController {
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var contentView: UIView!
 
+  @IBOutlet weak var accountImageOuterView: UIView!
+  @IBOutlet weak var accountImageInnerView: UIView!
   @IBOutlet weak var accountImageView: UIImageView!
-  @IBOutlet weak var addImageButton: UIButton!
-  
+  @IBOutlet weak var imageTopButton: UIButton!
+  @IBOutlet weak var imageLeftButton: UIButton!
+
   @IBOutlet weak var firstTextField: UITextField!
   @IBOutlet weak var secondTextField: UITextField!
   
@@ -35,9 +38,12 @@ class AddAccountViewController: UIViewController {
   
   var accountName: String?
   var accountEmail: String?
+  var accountMetadata: URL?
   
   var nameSatisfied: Bool?
   var emailSatisfied: Bool?
+  
+  
   
   
   override func viewDidLoad() {
@@ -45,12 +51,15 @@ class AddAccountViewController: UIViewController {
     
     setNavBar()
     setTextFieldDelegates()
+    keyboardMethods()
+    addTextFieldTargets()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
     resetRequirements()
     checkAllRequirements()
-    keyboardMethods()
-    
-    firstTextField.addTarget(self, action: #selector(checkIfAccountnameTextFieldIsSatisfied(textField:)), for: .editingChanged)
-    secondTextField.addTarget(self, action: #selector(checkIfAccountEmailTextFieldIsSatisfied(textField:)), for: .editingChanged)
   }
   
   
@@ -88,6 +97,13 @@ class AddAccountViewController: UIViewController {
   }
   
   
+  // MARK: Add TextField Targets
+  
+  func addTextFieldTargets() {
+    firstTextField.addTarget(self, action: #selector(checkIfAccountnameTextFieldIsSatisfied(textField:)), for: .editingChanged)
+    secondTextField.addTarget(self, action: #selector(checkIfAccountEmailTextFieldIsSatisfied(textField:)), for: .editingChanged)
+  }
+  
   // TODO: Reset & Check Requirements
   
   func resetRequirements() {
@@ -96,6 +112,7 @@ class AddAccountViewController: UIViewController {
     nameSatisfied = false
     emailSatisfied = true
   }
+  
   
   func checkAllRequirements() {
     if nameSatisfied == true &&
@@ -109,6 +126,20 @@ class AddAccountViewController: UIViewController {
   }
   
   
+  // TODO: From YouTUbe Tutorial
+  
+  func pickAccountImage() {
+    
+    let picker = UIImagePickerController()
+    
+    picker.delegate = self
+    picker.allowsEditing = true
+    
+    present(picker, animated: true, completion: nil)
+  }
+
+  
+  
   // TODO: Add to Firebase
   
   func addDataToFirebase() {
@@ -120,10 +151,13 @@ class AddAccountViewController: UIViewController {
     accountEmail = email.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     
     let account = ref.child("accounts").childByAutoId()
+    
     if let tAccountName = accountName,
-      let tAccountEmail = accountEmail {
-      account.setValue(["accountName": tAccountName, //// picture somehow?
-                        "accountEmail": tAccountEmail])
+      let tAccountEmail = accountEmail,
+      let tAccountImage = accountMetadata {
+      account.setValue(["accountName": tAccountName,
+                        "accountEmail": tAccountEmail,
+                        "accountImage": tAccountImage])
     }
     ref.child("users").child((user?.uid)!).child("accounts").child(account.key).setValue(true)
     performSegue(withIdentifier: "fromAddAccountToLandingPage", sender: self)
@@ -137,10 +171,18 @@ class AddAccountViewController: UIViewController {
   }
   
   
-  @IBAction func addAccountTapped(_ sender: UIButton) {
-    addDataToFirebase()
+  @IBAction func imageTopButtonTapped(_ sender: UIButton) {
+    accountImageView.image = nil
   }
   
+  @IBAction func imageLeftButtonTapped(_ sender: UIButton) {
+    pickAccountImage()
+  }
+  
+  @IBAction func addAccountButtonTapped(_ sender: UIButton) {
+    addDataToFirebase()
+  }
+
   
   // MARK: Keyboard Methods
   
@@ -220,6 +262,68 @@ extension AddAccountViewController: UITextFieldDelegate {
 
 extension AddAccountViewController: UIImagePickerControllerDelegate {
   
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    dismiss(animated: true, completion: nil)
+  }
+  
+  
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    
+    var selectedImageFromPicker: UIImage?
+    
+    if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+      print(editedImage)
+      selectedImageFromPicker = editedImage
+      
+    } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+      print(originalImage)
+      selectedImageFromPicker = originalImage
+      
+    }
+
+    let storgeRef = FIRStorage.storage().reference().child("accountImage.png")
+    
+    let uploadData = UIImagePNGRepresentation(accountImageView.image!)
+   
+    storgeRef.put(uploadData!, metadata: nil) { (metadata, error) in
+      if error != nil {
+        print(error!)
+        return
+      }
+      
+      self.accountMetadata = metadata?.downloadURL()
+      
+      print(metadata!)
+    }
+    
+    if let selectedImage = selectedImageFromPicker {
+      accountImageView.image = selectedImage
+    }
+    dismiss(animated: true, completion: nil)
+  }
+  
+} // End of UIImagePickerControllerDelegate 
+
+
+extension AddAccountViewController: UINavigationControllerDelegate {
+  
   
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

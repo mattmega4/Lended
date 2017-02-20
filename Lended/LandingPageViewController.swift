@@ -45,11 +45,7 @@ class LandingPageViewController: UIViewController {
   
   
   
-  
-  
-  
-  
-  
+   
   
   
   
@@ -63,6 +59,8 @@ class LandingPageViewController: UIViewController {
   @IBAction func rightNavBarButtonTapped(_ sender: UIBarButtonItem) {
     performSegue(withIdentifier: "fromLandingPageToAddCard", sender: self)
   }
+  
+  
   
   
   
@@ -93,7 +91,6 @@ extension LandingPageViewController: UICollectionViewDataSource {
     return cell
     
   }
-  
   
 }
 

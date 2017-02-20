@@ -105,7 +105,6 @@ class EntryPageViewController: UIViewController {
     leftContainerButton.isEnabled = false
     leftContainerLabel.alpha = 0.3
     leftContainerIndicatorImageView.image = UIImage.init(named: "indicatorTriangle.png")
-    
   }
   
   
@@ -269,7 +268,6 @@ class EntryPageViewController: UIViewController {
       signInOrUpButton.isHidden = true
       signInOrUpButtonContainerView.isHidden = true
     }
-    
   }
   
   
@@ -432,7 +430,6 @@ class EntryPageViewController: UIViewController {
   }
   
   
-  
 } // End of EntryPageViewController
 
 extension EntryPageViewController: UITextFieldDelegate {
@@ -451,7 +448,7 @@ extension EntryPageViewController: UITextFieldDelegate {
   }
   
   
-  // MARK: Bottom Text Field Targets
+  // MARK: Text Field Targets
   
   func checkIfTopTextFIeldIsSatisfied(textField: UITextField) {
     if textField == textFieldOne {
