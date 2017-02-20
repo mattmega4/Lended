@@ -15,13 +15,13 @@ class AddAccountViewController: UIViewController {
   
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var contentView: UIView!
-
+  
   @IBOutlet weak var accountImageOuterView: UIView!
   @IBOutlet weak var accountImageInnerView: UIView!
   @IBOutlet weak var accountImageView: UIImageView!
   @IBOutlet weak var imageTopButton: UIButton!
   @IBOutlet weak var imageLeftButton: UIButton!
-
+  
   @IBOutlet weak var firstTextField: UITextField!
   @IBOutlet weak var secondTextField: UITextField!
   
@@ -36,16 +36,14 @@ class AddAccountViewController: UIViewController {
   let ref = FIRDatabase.database().reference()
   let user = FIRAuth.auth()?.currentUser
   
+  var selectedImageFromPicker: UIImage?
   var accountName: String?
   var accountEmail: String?
   var accountMetadata: URL?
-  
   var nameSatisfied: Bool?
   var emailSatisfied: Bool?
   
-  
-  
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -137,7 +135,7 @@ class AddAccountViewController: UIViewController {
     
     present(picker, animated: true, completion: nil)
   }
-
+  
   
   
   // TODO: Add to Firebase
@@ -149,6 +147,23 @@ class AddAccountViewController: UIViewController {
     
     accountName = (name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)).capitalized
     accountEmail = email.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    
+    
+    
+    let storgeRef = FIRStorage.storage().reference().child("accountImage.png")
+    
+    let uploadData = UIImagePNGRepresentation(selectedImageFromPicker!)
+    
+    storgeRef.put(uploadData!, metadata: nil) { (metadata, error) in
+      if error != nil {
+        print(error!)
+        return
+      }
+      
+      self.accountMetadata = metadata?.downloadURL()
+      
+      print(metadata!)
+    }
     
     let account = ref.child("accounts").childByAutoId()
     
@@ -182,7 +197,7 @@ class AddAccountViewController: UIViewController {
   @IBAction func addAccountButtonTapped(_ sender: UIButton) {
     addDataToFirebase()
   }
-
+  
   
   // MARK: Keyboard Methods
   
@@ -257,7 +272,7 @@ extension AddAccountViewController: UITextFieldDelegate {
     checkAllRequirements()
   }
   
-
+  
 } // End of UITextField Delegate Extension
 
 extension AddAccountViewController: UIImagePickerControllerDelegate {
@@ -269,7 +284,7 @@ extension AddAccountViewController: UIImagePickerControllerDelegate {
   
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
     
-    var selectedImageFromPicker: UIImage?
+    
     
     if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
       print(editedImage)
@@ -280,21 +295,10 @@ extension AddAccountViewController: UIImagePickerControllerDelegate {
       selectedImageFromPicker = originalImage
       
     }
-
-    let storgeRef = FIRStorage.storage().reference().child("accountImage.png")
     
-    let uploadData = UIImagePNGRepresentation(accountImageView.image!)
-   
-    storgeRef.put(uploadData!, metadata: nil) { (metadata, error) in
-      if error != nil {
-        print(error!)
-        return
-      }
-      
-      self.accountMetadata = metadata?.downloadURL()
-      
-      print(metadata!)
-    }
+
+    
+//
     
     if let selectedImage = selectedImageFromPicker {
       accountImageView.image = selectedImage
@@ -302,7 +306,7 @@ extension AddAccountViewController: UIImagePickerControllerDelegate {
     dismiss(animated: true, completion: nil)
   }
   
-} // End of UIImagePickerControllerDelegate 
+} // End of UIImagePickerControllerDelegate
 
 
 extension AddAccountViewController: UINavigationControllerDelegate {
