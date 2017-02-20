@@ -30,8 +30,8 @@ class EntryPageViewController: UIViewController {
   @IBOutlet weak var rightContainerIndicatorImageView: UIImageView!
   
   @IBOutlet weak var bottomContainerView: UIView!
-  @IBOutlet weak var bottomTextFieldOne: UITextField!
-  @IBOutlet weak var bottomTextFieldTwo: UITextField!
+  @IBOutlet weak var textFieldOne: UITextField!
+  @IBOutlet weak var textFieldTwo: UITextField!
   @IBOutlet weak var signInOrUpButtonContainerView: UIView!
   @IBOutlet weak var signInOrUpButton: UIButton!
   
@@ -54,6 +54,7 @@ class EntryPageViewController: UIViewController {
     
     questionMarkButton.createRoundView()
     bottomTextFieldDelegateAndAutoCorrectAndPlaceholderColorSetup()
+    addTextFieldTargets()
     keyboardMethods()
   }
   
@@ -75,13 +76,21 @@ class EntryPageViewController: UIViewController {
   }
   
   
+  // MARK: Add TextField Targets
+  
+  func addTextFieldTargets() {
+    textFieldOne.addTarget(self, action: #selector(checkIfTopTextFIeldIsSatisfied(textField:)), for: .editingChanged)
+    textFieldTwo.addTarget(self, action: #selector(checkIfBottomTextFieldIsSatisfied(textField:)), for: .editingChanged)
+  }
+  
+  
   // MARK: Switch Logic For Sign In or Create Button in Bottom Container View
   
   func bottomContainerStateSwitcher() {
     if userStateIsOnSignIn == true {
       signUserIn()
     } else if userStateIsOnSignIn == false && createUserStepOneFinished == false {
-      newUserEmail = bottomTextFieldOne.text ?? ""
+      newUserEmail = textFieldOne.text ?? ""
       continueTappedAfterStageOneRegisterAccountActive()
     } else if userStateIsOnSignIn == false && createUserStepOneFinished == true {
       registerNewUser()
@@ -96,7 +105,7 @@ class EntryPageViewController: UIViewController {
     leftContainerButton.isEnabled = false
     leftContainerLabel.alpha = 0.3
     leftContainerIndicatorImageView.image = UIImage.init(named: "indicatorTriangle.png")
-
+    
   }
   
   
@@ -128,9 +137,9 @@ class EntryPageViewController: UIViewController {
   
   func hideShowKeyboardLogicLeftVsRight() {
     if leftOn == true && rightOn == false {
-      showLeftContainerViewContents()
-    } else if leftOn == false && rightOn == true {
       showRightContainerViewContents()
+    } else if leftOn == false && rightOn == true {
+      showLeftContainerViewContents()
     }
   }
   
@@ -138,8 +147,8 @@ class EntryPageViewController: UIViewController {
   // MARK: Reset Text Fields
   
   func resetTextFieldText() {
-    bottomTextFieldOne.text = ""
-    bottomTextFieldTwo.text = ""
+    textFieldOne.text = ""
+    textFieldTwo.text = ""
   }
   
   
@@ -168,51 +177,46 @@ class EntryPageViewController: UIViewController {
     topFieldIsSatisfied = false
     bottomFieldIsSatisfied = false
     nextButtonRequirementsHaveBeenMet = false
-    bottomTextFieldTwo.isHidden = false
-    bottomTextFieldTwo.isEnabled = true
+    textFieldTwo.isHidden = false
+    textFieldTwo.isEnabled = true
   }
   
   
   // MARK: Login TextField Details
   
   func setupLoginTextFields() {
-    bottomTextFieldTwo.isHidden = false
-    bottomTextFieldTwo.isEnabled = true
-    bottomTextFieldOne.placeholder = "Enter Email"
-    bottomTextFieldTwo.placeholder = "Enter Password"
-    bottomTextFieldOne.keyboardType = .emailAddress
-    bottomTextFieldTwo.keyboardType = .default
-    bottomTextFieldOne.isSecureTextEntry = false
-    bottomTextFieldTwo.isSecureTextEntry = true
-    bottomTextFieldOne.addTarget(self, action: #selector(checkIfTopTextFieldIsSatisfiedForLogin(textField:)), for: .editingChanged)
-    bottomTextFieldTwo.addTarget(self, action: #selector(checkIfBottomTextFieldIsSatisfiedForLogin(textField:)), for: .editingChanged)
+    textFieldTwo.isHidden = false
+    textFieldTwo.isEnabled = true
+    textFieldOne.placeholder = "Enter Email"
+    textFieldTwo.placeholder = "Enter Password"
+    textFieldOne.keyboardType = .emailAddress
+    textFieldTwo.keyboardType = .default
+    textFieldOne.isSecureTextEntry = false
+    textFieldTwo.isSecureTextEntry = true
   }
   
   
   func setupRegisterTextFieldsForStageOne() {
-    bottomTextFieldOne.text = ""
-    bottomTextFieldTwo.text = ""
-    bottomTextFieldTwo.isHidden = true
-    bottomTextFieldTwo.isEnabled = false
-    bottomTextFieldOne.placeholder = "Enter Email"
-    bottomTextFieldOne.keyboardType = .emailAddress
-    bottomTextFieldOne.isSecureTextEntry = false
-    bottomTextFieldTwo.isSecureTextEntry = true
-    bottomTextFieldOne.addTarget(self, action: #selector(checkIfTopTextFieldIsSatisfiedForRegisterPartOne(textField:)), for: .editingChanged)
+    textFieldOne.text = ""
+    textFieldTwo.text = ""
+    textFieldTwo.isHidden = true
+    textFieldTwo.isEnabled = false
+    textFieldOne.placeholder = "Enter Email"
+    textFieldOne.keyboardType = .emailAddress
+    textFieldOne.isSecureTextEntry = false
+    textFieldTwo.isSecureTextEntry = true
   }
   
   
   func setupRegisterTextFieldsForStageTwo() {
-    bottomTextFieldOne.text = ""
-    bottomTextFieldTwo.text = ""
-    bottomTextFieldOne.placeholder = "Enter Password"
-    bottomTextFieldTwo.placeholder = "Confirm Password"
-    bottomTextFieldOne.keyboardType = .default
-    bottomTextFieldTwo.keyboardType = .default
-    bottomTextFieldOne.isSecureTextEntry = true
-    bottomTextFieldTwo.isSecureTextEntry = true
-    bottomTextFieldOne.addTarget(self, action: #selector(checkIfTopTextFieldIsSatisfiedForRegisterPartTwo(textField:)), for: .editingChanged)
-    bottomTextFieldTwo.addTarget(self, action: #selector(checkIfBottomTextFieldIsSatisfiedForRegisterPartTwo(textField:)), for: .editingChanged)
+    textFieldOne.text = ""
+    textFieldTwo.text = ""
+    textFieldOne.placeholder = "Enter Password"
+    textFieldTwo.placeholder = "Confirm Password"
+    textFieldOne.keyboardType = .default
+    textFieldTwo.keyboardType = .default
+    textFieldOne.isSecureTextEntry = true
+    textFieldTwo.isSecureTextEntry = true
   }
   
   
@@ -265,7 +269,7 @@ class EntryPageViewController: UIViewController {
       signInOrUpButton.isHidden = true
       signInOrUpButtonContainerView.isHidden = true
     }
-      
+    
   }
   
   
@@ -283,7 +287,7 @@ class EntryPageViewController: UIViewController {
   
   
   func checkIfBothRegisterRequirementsAreMet() {
-    if topFieldIsSatisfied == true && bottomFieldIsSatisfied == true && bottomTextFieldOne.text == bottomTextFieldTwo.text {
+    if topFieldIsSatisfied == true && bottomFieldIsSatisfied == true && textFieldOne.text == textFieldTwo.text {
       signInOrUpButton.isEnabled = true
       signInOrUpButton.isHidden = false
       signInOrUpButtonContainerView.isHidden = false
@@ -298,8 +302,8 @@ class EntryPageViewController: UIViewController {
   // MARK: Sign In
   
   func signUserIn() {
-    let currentEmail = bottomTextFieldOne.text ?? ""
-    let currentPassword = bottomTextFieldTwo.text ?? ""
+    let currentEmail = textFieldOne.text ?? ""
+    let currentPassword = textFieldTwo.text ?? ""
     
     FIRAuth.auth()?.signIn(withEmail: currentEmail, password: currentPassword, completion: { (user, error) in
       
@@ -335,8 +339,8 @@ class EntryPageViewController: UIViewController {
   
   func registerNewUser() {
     
-    if bottomTextFieldOne.text == bottomTextFieldTwo.text {
-      newUserPassword = bottomTextFieldTwo.text ?? ""
+    if textFieldOne.text == textFieldTwo.text {
+      newUserPassword = textFieldTwo.text ?? ""
       FIRAuth.auth()?.createUser(withEmail: newUserEmail!, password: newUserPassword!, completion: { (user, error) in
         var errMessage = ""
         if (error != nil) {
@@ -437,7 +441,7 @@ extension EntryPageViewController: UITextFieldDelegate {
   
   func bottomTextFieldDelegateAndAutoCorrectAndPlaceholderColorSetup() {
     var bottomTextFields: [UITextField] = []
-    bottomTextFields+=[bottomTextFieldOne, bottomTextFieldTwo]
+    bottomTextFields+=[textFieldOne, textFieldTwo]
     let placeHolderLightColor = UIColor.lightText
     for fields in bottomTextFields {
       fields.autocorrectionType = .no
@@ -449,80 +453,54 @@ extension EntryPageViewController: UITextFieldDelegate {
   
   // MARK: Bottom Text Field Targets
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  func checkIfTopTextFieldIsSatisfiedForLogin(textField: UITextField) {
-    if textField == bottomTextFieldOne {
-      if textField.text?.validateEmail() == true {
-        topFieldIsSatisfied = true
-      } else {
-        topFieldIsSatisfied = false
+  func checkIfTopTextFIeldIsSatisfied(textField: UITextField) {
+    if textField == textFieldOne {
+      if leftOn == true && rightOn == false {
+        if textField.text?.validateEmail() == true {
+          topFieldIsSatisfied = true
+        } else {
+          topFieldIsSatisfied = false
+        }
+        checkIfBothSignInRequirementsAreMet()
+      } else if leftOn == false && rightOn == true {
+        if createUserStepOneFinished == true {
+          if textField.text?.validateEmail() == true {
+            topFieldIsSatisfied = true
+          } else {
+            topFieldIsSatisfied = false
+          }
+          checkIfTopContinueRequirementIsMet()
+        } else {
+          if textField.text?.isEmpty == true {
+            topFieldIsSatisfied = false
+          } else {
+            topFieldIsSatisfied = true
+          }
+          checkIfBothRegisterRequirementsAreMet()
+        }
       }
     }
-    checkIfBothSignInRequirementsAreMet()
-    hideLeftContainerViewContents()
   }
   
   
-  func checkIfBottomTextFieldIsSatisfiedForLogin(textField: UITextField) {
-    if textField == bottomTextFieldTwo {
-      if textField.text?.isEmpty == true {
-        bottomFieldIsSatisfied = false
-      } else {
-        bottomFieldIsSatisfied = true
+  func checkIfBottomTextFieldIsSatisfied(textField: UITextField) {
+    if textField == textFieldTwo {
+      if leftOn == true && rightOn == false {
+        if textField.text?.isEmpty == true {
+          bottomFieldIsSatisfied = false
+        } else {
+          bottomFieldIsSatisfied = true
+        }
+        checkIfBothSignInRequirementsAreMet()
+      } else if leftOn == false && rightOn == false {
+        if textField.text?.isEmpty == true {
+          bottomFieldIsSatisfied = false
+        } else {
+          bottomFieldIsSatisfied = true
+        }
+        checkIfBothRegisterRequirementsAreMet()
       }
     }
-    checkIfBothSignInRequirementsAreMet()
-    hideLeftContainerViewContents()
-  }
-  
-  
-  func checkIfTopTextFieldIsSatisfiedForRegisterPartOne(textField: UITextField) {
-    if textField == bottomTextFieldOne {
-      if textField.text?.validateEmail() == true {
-        topFieldIsSatisfied = true
-      } else {
-        topFieldIsSatisfied = false
-      }
-    }
-    checkIfTopContinueRequirementIsMet()
-    hideRightContainerViewContents()
-  }
-  
-  
-  func checkIfTopTextFieldIsSatisfiedForRegisterPartTwo(textField: UITextField) {
-    if textField == bottomTextFieldOne {
-      if textField.text?.isEmpty == true {
-        topFieldIsSatisfied = false
-      } else {
-        topFieldIsSatisfied = true
-      }
-    }
-    checkIfBothRegisterRequirementsAreMet()
-    hideRightContainerViewContents()
-  }
-  
-  
-  func checkIfBottomTextFieldIsSatisfiedForRegisterPartTwo(textField: UITextField) {
-    if textField == bottomTextFieldTwo {
-      if textField.text?.isEmpty == true {
-        bottomFieldIsSatisfied = false
-      } else {
-        bottomFieldIsSatisfied = true
-      }
-    }
-    checkIfBothRegisterRequirementsAreMet()
-    hideRightContainerViewContents()
   }
   
   

@@ -343,8 +343,6 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="bottomContainerView" destination="l9g-Vb-dkF" id="j38-WQ-zsu"/>
-                        <outlet property="bottomTextFieldOne" destination="T4b-mV-epQ" id="30w-D9-eKE"/>
-                        <outlet property="bottomTextFieldTwo" destination="qaH-PS-Gh8" id="DR8-xP-LvO"/>
                         <outlet property="contentView" destination="WAM-Me-e4A" id="dJo-SN-AdH"/>
                         <outlet property="leftContainerButton" destination="GO8-94-ehz" id="dPQ-rd-tbN"/>
                         <outlet property="leftContainerIndicatorImageView" destination="Lod-m9-Mzg" id="5J2-jo-wu5"/>
@@ -359,6 +357,8 @@
                         <outlet property="scrollView" destination="sd3-Eh-O6n" id="CIq-Tx-fPZ"/>
                         <outlet property="signInOrUpButton" destination="DZw-NG-zMR" id="wbF-ug-oUx"/>
                         <outlet property="signInOrUpButtonContainerView" destination="M5e-cC-Bpy" id="dJH-nU-EMd"/>
+                        <outlet property="textFieldOne" destination="T4b-mV-epQ" id="VHM-Rz-eWV"/>
+                        <outlet property="textFieldTwo" destination="qaH-PS-Gh8" id="cbT-t4-i8e"/>
                         <outlet property="topContainerView" destination="XuJ-OW-SMe" id="eJX-8v-NRN"/>
                         <segue destination="tUf-Ex-RoO" kind="show" identifier="fromEntryToLandingPage" animates="NO" id="rJb-Oo-b0r"/>
                         <segue destination="wqu-q5-gB8" kind="show" identifier="fromEntryToAddCard" animates="NO" id="Hri-iF-2q5"/>
