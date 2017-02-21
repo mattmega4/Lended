@@ -78,7 +78,7 @@
                     <connections>
                         <outlet property="collectionView" destination="Zsb-Gb-QAR" id="9HW-Po-aHb"/>
                         <outlet property="rightNavBarButton" destination="HJ5-Tl-TT0" id="vTl-5B-zId"/>
-                        <segue destination="wqu-q5-gB8" kind="show" identifier="fromLandingPageToAddCard" id="B3Q-CC-j6s"/>
+                        <segue destination="wqu-q5-gB8" kind="show" identifier="fromLandingPageToAddCard" animates="NO" id="B3Q-CC-j6s"/>
                         <segue destination="qHt-rs-bK3" kind="show" identifier="fromLandingPageToSpecificAccount" animates="NO" id="N2c-tb-K6K"/>
                     </connections>
                 </viewController>
@@ -448,6 +448,32 @@
                                                     <action selector="imageTopButtonTapped:" destination="Jus-Vw-Fd7" eventType="touchUpInside" id="KpA-C9-77z"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilc-Vg-1Jv">
+                                                <rect key="frame" x="74.999999999999986" y="176" width="119.66666666666664" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="3V3-a6-WCR"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <state key="normal" title="Choose Image">
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="imageLeftButtonTapped:" destination="Jus-Vw-Fd7" eventType="touchUpInside" id="Z1A-3L-wIt"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYM-sz-hW1">
+                                                <rect key="frame" x="218.99999999999997" y="176" width="119.33333333333329" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="2r9-Yb-k76"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <state key="normal" title="Take Photo">
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="imageRightButtonTapped:" destination="Jus-Vw-Fd7" eventType="touchUpInside" id="2eb-Xz-Agg"/>
+                                                </connections>
+                                            </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UMq-cB-4OC">
                                                 <rect key="frame" x="50" y="216" width="314" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -514,33 +540,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="addAccountButtonTapped:" destination="Jus-Vw-Fd7" eventType="touchUpInside" id="6p6-YJ-s8y"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilc-Vg-1Jv">
-                                                <rect key="frame" x="74.999999999999986" y="176" width="119.66666666666664" height="15"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="15" id="3V3-a6-WCR"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                                <state key="normal" title="Choose Image">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="imageLeftButtonTapped:" destination="Jus-Vw-Fd7" eventType="touchUpInside" id="oIH-3R-Ztw"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYM-sz-hW1">
-                                                <rect key="frame" x="219.66666666666663" y="176" width="119.33333333333337" height="15"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="15" id="2r9-Yb-k76"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                                <state key="normal" title="Take Photo">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="imageLeftButtonTapped:" destination="Jus-Vw-Fd7" eventType="touchUpInside" id="oxg-ba-wCD"/>
-                                                    <action selector="imageRightButtonTapped:" destination="Jus-Vw-Fd7" eventType="touchUpInside" id="1bz-hU-1pY"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -616,8 +615,8 @@
                         <outlet property="firstIndicatorImageView" destination="hlx-4d-hwd" id="gno-W5-GMk"/>
                         <outlet property="firstTextField" destination="UMq-cB-4OC" id="HbV-j5-dWx"/>
                         <outlet property="firstUnderlineView" destination="4KE-HF-g4g" id="vef-24-kRo"/>
-                        <outlet property="imageLeftButton" destination="ilc-Vg-1Jv" id="u3T-HB-TKP"/>
-                        <outlet property="imageRightButton" destination="hYM-sz-hW1" id="qpn-uN-pVd"/>
+                        <outlet property="imageLeftButton" destination="ilc-Vg-1Jv" id="nu3-fc-9JT"/>
+                        <outlet property="imageRightButton" destination="hYM-sz-hW1" id="IS4-Fl-E6Q"/>
                         <outlet property="imageTopButton" destination="Kbx-KN-fvS" id="8Oa-9L-dah"/>
                         <outlet property="leftNavBarButton" destination="gjo-gl-WH4" id="oYE-y3-qcC"/>
                         <outlet property="scrollView" destination="e7H-3g-eVe" id="6hH-CF-04H"/>
@@ -629,7 +628,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wDs-Xu-toP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-514.49275362318849" y="1665.4891304347827"/>
+            <point key="canvasLocation" x="-693" y="1730"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="832-ly-51V">
@@ -676,6 +675,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NQj-YI-Z2E"/>
-        <segue reference="B3Q-CC-j6s"/>
+        <segue reference="Hri-iF-2q5"/>
     </inferredMetricsTieBreakers>
 </document>

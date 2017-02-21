@@ -22,7 +22,7 @@ class AddAccountViewController: UIViewController {
   @IBOutlet weak var imageTopButton: UIButton!
   @IBOutlet weak var imageLeftButton: UIButton!
   @IBOutlet weak var imageRightButton: UIButton!
-  
+
   @IBOutlet weak var firstTextField: UITextField!
   @IBOutlet weak var secondTextField: UITextField!
   
@@ -34,7 +34,7 @@ class AddAccountViewController: UIViewController {
   
   @IBOutlet weak var addAccountButton: UIButton!
   
-
+  
   let storage = FIRStorage.storage()
   let ref = FIRDatabase.database().reference()
   let user = FIRAuth.auth()?.currentUser
@@ -141,19 +141,19 @@ class AddAccountViewController: UIViewController {
     present(picker, animated: true, completion: nil)
   }
   
-  
-  // TODO: Camera
+ 
+  // Mark: Use Camera
   
   func useCamera() {
     if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-    let picker = UIImagePickerController()
-    picker.delegate = self
-    picker.allowsEditing = false
-    picker.sourceType = .camera
-    present(picker, animated: true, completion: nil)
-  }
-  }
-  
+      let picker = UIImagePickerController()
+      picker.delegate = self
+      picker.allowsEditing = true
+      picker.sourceType = .camera
+      present(picker, animated: true, completion: nil)
+    }
+}
+
   
   // MARK: Add to Firebase
   
@@ -209,11 +209,11 @@ class AddAccountViewController: UIViewController {
   @IBAction func imageLeftButtonTapped(_ sender: UIButton) {
     pickAccountImage()
   }
-  
+
   @IBAction func imageRightButtonTapped(_ sender: UIButton) {
     useCamera()
   }
- 
+  
   @IBAction func addAccountButtonTapped(_ sender: UIButton) {
     addDataToFirebase()
   }
@@ -304,6 +304,7 @@ extension AddAccountViewController: UITextFieldDelegate {
 // MARK: UIImagePickerControllerDelegate Methods
 
 extension AddAccountViewController: UIImagePickerControllerDelegate {
+
   
   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
     dismiss(animated: true, completion: nil)
