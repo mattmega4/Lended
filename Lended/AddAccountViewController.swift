@@ -21,6 +21,7 @@ class AddAccountViewController: UIViewController {
   @IBOutlet weak var accountImageView: UIImageView!
   @IBOutlet weak var imageTopButton: UIButton!
   @IBOutlet weak var imageLeftButton: UIButton!
+  @IBOutlet weak var imageRightButton: UIButton!
   
   @IBOutlet weak var firstTextField: UITextField!
   @IBOutlet weak var secondTextField: UITextField!
@@ -33,6 +34,7 @@ class AddAccountViewController: UIViewController {
   
   @IBOutlet weak var addAccountButton: UIButton!
   
+
   let storage = FIRStorage.storage()
   let ref = FIRDatabase.database().reference()
   let user = FIRAuth.auth()?.currentUser
@@ -52,7 +54,7 @@ class AddAccountViewController: UIViewController {
     super.viewDidLoad()
     
     setNavBar()
-    setTextFieldDelegates()
+    setDelegates()
     keyboardMethods()
     addTextFieldTargets()
   }
@@ -83,7 +85,7 @@ class AddAccountViewController: UIViewController {
   
   // MARK: Setting Delegates
   
-  func setTextFieldDelegates() {
+  func setDelegates() {
     self.firstTextField.delegate = self
     self.secondTextField.delegate = self
   }
@@ -106,7 +108,8 @@ class AddAccountViewController: UIViewController {
     secondTextField.addTarget(self, action: #selector(checkIfAccountEmailTextFieldIsSatisfied(textField:)), for: .editingChanged)
   }
   
-  // TODO: Reset & Check Requirements
+  
+  // MARK: Reset & Check Requirements
   
   func resetRequirements() {
     firstTextField.text = ""
@@ -128,50 +131,48 @@ class AddAccountViewController: UIViewController {
   }
   
   
-  // TODO: From YouTUbe Tutorial
+  // MARK: Call UIImagePickerController
   
   func pickAccountImage() {
-    
     let picker = UIImagePickerController()
-    
     picker.delegate = self
     picker.allowsEditing = true
-    
+    picker.sourceType = .photoLibrary
     present(picker, animated: true, completion: nil)
   }
   
   
+  // TODO: Camera
   
-  // TODO: Add to Firebase
+  func useCamera() {
+    if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+    let picker = UIImagePickerController()
+    picker.delegate = self
+    picker.allowsEditing = false
+    picker.sourceType = .camera
+    present(picker, animated: true, completion: nil)
+  }
+  }
+  
+  
+  // MARK: Add to Firebase
   
   func addDataToFirebase() {
-    
     let name = firstTextField.text ?? ""
     let email = secondTextField.text ?? ""
-    
     accountName = (name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)).capitalized
     accountEmail = email.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-    
-    
     let account = ref.child("accounts").childByAutoId()
     let imageName = NSUUID().uuidString
     let storageRef = storage.reference().child("users").child((user?.uid)!).child("accounts").child(account.key).child("\(imageName).png")
-    
-    
     if selectedImageFromPicker != nil {
-      
       if let tempData = UIImagePNGRepresentation(selectedImageFromPicker!) {
-        
         storageRef.put(tempData, metadata: nil) { (metadata, error) in
           if error != nil {
             print(error!)
             return
           }
-          
           self.accountMetadata = metadata?.downloadURL()
-          
-          
-          
           if let tAccountName = self.accountName,
             let tAccountEmail = self.accountEmail,
             let profileImageUrl = metadata?.downloadURL()?.absoluteString {
@@ -179,35 +180,27 @@ class AddAccountViewController: UIViewController {
             account.setValue(["accountName": tAccountName,
                               "accountEmail": tAccountEmail,
                               "accountImage": profileImageUrl])
-
-          
-            
           }
-
           print(metadata!)
         }
       }
     } else {
-      
       if let tAccountName = accountName,
         let tAccountEmail = accountEmail {
         account.setValue(["accountName": tAccountName,
                           "accountEmail": tAccountEmail])
       }
     }
-    
-    
     ref.child("users").child((user?.uid)!).child("accounts").child(account.key).setValue(true)
     performSegue(withIdentifier: "fromAddAccountToLandingPage", sender: self)
   }
   
-  
+
   // MARK: IB Actions
-  
+
   @IBAction func leftNavBarButtonTapped(_ sender: UIBarButtonItem) {
     performSegue(withIdentifier: "fromAddAccountToLandingPage", sender: self)
   }
-  
   
   @IBAction func imageTopButtonTapped(_ sender: UIButton) {
     accountImageView.image = nil
@@ -217,6 +210,10 @@ class AddAccountViewController: UIViewController {
     pickAccountImage()
   }
   
+  @IBAction func imageRightButtonTapped(_ sender: UIButton) {
+    useCamera()
+  }
+ 
   @IBAction func addAccountButtonTapped(_ sender: UIButton) {
     addDataToFirebase()
   }
@@ -231,12 +228,16 @@ class AddAccountViewController: UIViewController {
     var contentInset: UIEdgeInsets = self.scrollView.contentInset
     contentInset.bottom = keyboardFrame.size.height + 30
     self.scrollView.contentInset = contentInset
+    
+    // Hide stuff
   }
   
   
   func keyboardWillHide(notification:NSNotification) {
     let contentInset:UIEdgeInsets = UIEdgeInsets.zero
     self.scrollView.contentInset = contentInset
+    
+    // Show stuff
   }
   
   
@@ -259,6 +260,7 @@ class AddAccountViewController: UIViewController {
   
   
 } // End of AddAccountView Controller Class
+
 
 
 // MARK: UITextField Delegate Methods
@@ -298,6 +300,9 @@ extension AddAccountViewController: UITextFieldDelegate {
   
 } // End of UITextField Delegate Extension
 
+
+// MARK: UIImagePickerControllerDelegate Methods
+
 extension AddAccountViewController: UIImagePickerControllerDelegate {
   
   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -306,35 +311,26 @@ extension AddAccountViewController: UIImagePickerControllerDelegate {
   
   
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-    
-    
-    
     if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
       print(editedImage)
       selectedImageFromPicker = editedImage
-      
     } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
       print(originalImage)
       selectedImageFromPicker = originalImage
-      
     }
-    
-    
-    
-    //
-    
     if let selectedImage = selectedImageFromPicker {
       accountImageView.image = selectedImage
     }
     dismiss(animated: true, completion: nil)
   }
   
+  
 } // End of UIImagePickerControllerDelegate
 
 
+// MARK: UINavigationControllerDelegate Methods
+
 extension AddAccountViewController: UINavigationControllerDelegate {
-  
-  
   
 }
 

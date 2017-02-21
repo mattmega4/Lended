@@ -4,6 +4,8 @@
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Lended requests permission of the camera roll to allow saving a profile picture to account.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Lended requests permission of the camera to allow adding a profile picture to account.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

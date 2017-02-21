@@ -401,6 +401,8 @@ class EntryPageViewController: UIViewController {
     
     hideLeftContainerViewContents()
     hideRightContainerViewContents()
+    leftContainerIndicatorImageView.isHidden = true
+    rightContainerIndicatorImageView.isHidden = true
   }
   
   
@@ -408,6 +410,8 @@ class EntryPageViewController: UIViewController {
     let contentInset:UIEdgeInsets = UIEdgeInsets.zero
     self.scrollView.contentInset = contentInset
     
+    leftContainerIndicatorImageView.isHidden = false
+    rightContainerIndicatorImageView.isHidden = false
     hideShowKeyboardLogicLeftVsRight()
   }
   

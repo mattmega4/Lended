@@ -138,7 +138,7 @@
                                                             <action selector="questionMarkButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZTc-Sx-sOO"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoAlt" translatesAutoresizingMaskIntoConstraints="NO" id="Uh5-Lx-uhx">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoNormal" translatesAutoresizingMaskIntoConstraints="NO" id="Uh5-Lx-uhx">
                                                         <rect key="frame" x="86" y="67" width="242" height="242"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Uh5-Lx-uhx" secondAttribute="height" multiplier="1:1" id="Q0Q-Ad-ao9"/>
@@ -406,7 +406,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9X-Zb-Bs7">
-                                                <rect key="frame" x="161.66666666666666" y="35" width="91" height="91"/>
+                                                <rect key="frame" x="162" y="35" width="91" height="91"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7h-MD-CFC">
                                                         <rect key="frame" x="1" y="1" width="89" height="89"/>
@@ -435,34 +435,21 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbx-KN-fvS">
-                                                <rect key="frame" x="157" y="136" width="100" height="15"/>
+                                                <rect key="frame" x="132" y="136" width="150" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="UPE-JO-dyQ"/>
-                                                    <constraint firstAttribute="width" constant="100" id="ouV-lj-2Xm"/>
+                                                    <constraint firstAttribute="width" constant="150" id="ouV-lj-2Xm"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="10"/>
-                                                <state key="normal" title="CLEAR IMAGE">
+                                                <state key="normal" title="CLEAR ACCOUNT IMAGE">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="imageTopButtonTapped:" destination="Jus-Vw-Fd7" eventType="touchUpInside" id="KpA-C9-77z"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilc-Vg-1Jv">
-                                                <rect key="frame" x="128" y="176" width="158" height="15"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="15" id="3V3-a6-WCR"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                                <state key="normal" title="Choose Account Image">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="imageLeftButtonTapped:" destination="Jus-Vw-Fd7" eventType="touchUpInside" id="oIH-3R-Ztw"/>
-                                                </connections>
-                                            </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UMq-cB-4OC">
-                                                <rect key="frame" x="50" y="216.66666666666669" width="314" height="40.000000000000057"/>
+                                                <rect key="frame" x="50" y="216" width="314" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="L1R-6S-aGB"/>
@@ -475,21 +462,21 @@
                                                 </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hlx-4d-hwd">
-                                                <rect key="frame" x="379" y="226.66666666666666" width="20" height="20"/>
+                                                <rect key="frame" x="379" y="226" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="F9w-PD-B44"/>
                                                     <constraint firstAttribute="height" constant="20" id="qdT-uZ-o71"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4KE-HF-g4g">
-                                                <rect key="frame" x="50" y="256.66666666666669" width="314" height="1"/>
+                                                <rect key="frame" x="50" y="256" width="314" height="1"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="W9x-Cj-urD"/>
                                                 </constraints>
                                             </view>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="POb-Zt-sbd">
-                                                <rect key="frame" x="50" y="282.66666666666669" width="314" height="40"/>
+                                                <rect key="frame" x="50" y="282" width="314" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="2Ao-hb-aHx"/>
@@ -502,21 +489,21 @@
                                                 </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rN3-H2-rz7">
-                                                <rect key="frame" x="379" y="292.66666666666669" width="20" height="20"/>
+                                                <rect key="frame" x="379" y="292" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="XPi-cR-Xmb"/>
                                                     <constraint firstAttribute="width" constant="20" id="xJn-xr-yt2"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7E-lF-tgg">
-                                                <rect key="frame" x="50" y="322.66666666666669" width="314" height="1"/>
+                                                <rect key="frame" x="50" y="322" width="314" height="1"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="8ay-bD-NCO"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7o-c4-8PY">
-                                                <rect key="frame" x="50" y="373.66666666666669" width="314" height="45"/>
+                                                <rect key="frame" x="50" y="373" width="314" height="45"/>
                                                 <color key="backgroundColor" red="0.054901960784313725" green="0.71372549019607845" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="vRS-nG-Rh2"/>
@@ -529,13 +516,39 @@
                                                     <action selector="addAccountButtonTapped:" destination="Jus-Vw-Fd7" eventType="touchUpInside" id="6p6-YJ-s8y"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilc-Vg-1Jv">
+                                                <rect key="frame" x="74.999999999999986" y="176" width="119.66666666666664" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="3V3-a6-WCR"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <state key="normal" title="Choose Image">
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="imageLeftButtonTapped:" destination="Jus-Vw-Fd7" eventType="touchUpInside" id="oIH-3R-Ztw"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYM-sz-hW1">
+                                                <rect key="frame" x="219.66666666666663" y="176" width="119.33333333333337" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="2r9-Yb-k76"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <state key="normal" title="Take Photo">
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="imageLeftButtonTapped:" destination="Jus-Vw-Fd7" eventType="touchUpInside" id="oxg-ba-wCD"/>
+                                                    <action selector="imageRightButtonTapped:" destination="Jus-Vw-Fd7" eventType="touchUpInside" id="1bz-hU-1pY"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="hlx-4d-hwd" firstAttribute="leading" secondItem="UMq-cB-4OC" secondAttribute="trailing" constant="15" id="3ke-9y-KOZ"/>
                                             <constraint firstAttribute="trailing" secondItem="s7o-c4-8PY" secondAttribute="trailing" constant="50" id="59h-WD-BkM"/>
                                             <constraint firstItem="J9X-Zb-Bs7" firstAttribute="centerX" secondItem="mxQ-IB-mbo" secondAttribute="centerX" id="59j-RG-TAm"/>
-                                            <constraint firstItem="ilc-Vg-1Jv" firstAttribute="centerX" secondItem="mxQ-IB-mbo" secondAttribute="centerX" id="6bZ-cL-KFg"/>
                                             <constraint firstItem="UMq-cB-4OC" firstAttribute="top" secondItem="ilc-Vg-1Jv" secondAttribute="bottom" constant="25" id="7AI-cf-Z80"/>
                                             <constraint firstItem="POb-Zt-sbd" firstAttribute="top" secondItem="4KE-HF-g4g" secondAttribute="bottom" constant="25" id="7rc-XU-r3w"/>
                                             <constraint firstItem="Kbx-KN-fvS" firstAttribute="top" secondItem="J9X-Zb-Bs7" secondAttribute="bottom" constant="10" id="84v-gl-EHo"/>
@@ -544,6 +557,7 @@
                                             <constraint firstItem="ilc-Vg-1Jv" firstAttribute="top" secondItem="Kbx-KN-fvS" secondAttribute="bottom" constant="25" id="D5p-XS-zyR"/>
                                             <constraint firstItem="POb-Zt-sbd" firstAttribute="width" secondItem="UMq-cB-4OC" secondAttribute="width" id="F0K-1f-VDd"/>
                                             <constraint firstItem="rN3-H2-rz7" firstAttribute="centerY" secondItem="POb-Zt-sbd" secondAttribute="centerY" id="FIJ-ti-IqB"/>
+                                            <constraint firstItem="hYM-sz-hW1" firstAttribute="width" secondItem="ilc-Vg-1Jv" secondAttribute="width" id="G72-Tt-Tia"/>
                                             <constraint firstItem="hlx-4d-hwd" firstAttribute="centerY" secondItem="UMq-cB-4OC" secondAttribute="centerY" id="JAr-Rf-67Y"/>
                                             <constraint firstAttribute="trailing" secondItem="hlx-4d-hwd" secondAttribute="trailing" constant="15" id="Lbd-WX-U9D"/>
                                             <constraint firstItem="s7o-c4-8PY" firstAttribute="top" secondItem="I7E-lF-tgg" secondAttribute="bottom" constant="50" id="No4-I5-rbX"/>
@@ -554,7 +568,12 @@
                                             <constraint firstItem="s7o-c4-8PY" firstAttribute="leading" secondItem="mxQ-IB-mbo" secondAttribute="leading" constant="50" id="bJd-E7-HF9"/>
                                             <constraint firstItem="I7E-lF-tgg" firstAttribute="centerX" secondItem="UMq-cB-4OC" secondAttribute="centerX" id="dEh-AP-ycH"/>
                                             <constraint firstItem="s7o-c4-8PY" firstAttribute="centerX" secondItem="mxQ-IB-mbo" secondAttribute="centerX" id="fPL-02-eoL"/>
+                                            <constraint firstItem="hYM-sz-hW1" firstAttribute="height" secondItem="ilc-Vg-1Jv" secondAttribute="height" id="fU3-kn-mEV"/>
+                                            <constraint firstAttribute="trailing" secondItem="hYM-sz-hW1" secondAttribute="trailing" constant="75" id="hBS-O6-Z61"/>
                                             <constraint firstItem="I7E-lF-tgg" firstAttribute="width" secondItem="UMq-cB-4OC" secondAttribute="width" id="i5S-lN-J5T"/>
+                                            <constraint firstItem="hYM-sz-hW1" firstAttribute="centerY" secondItem="ilc-Vg-1Jv" secondAttribute="centerY" id="kz3-wS-ph1"/>
+                                            <constraint firstItem="ilc-Vg-1Jv" firstAttribute="leading" secondItem="mxQ-IB-mbo" secondAttribute="leading" constant="75" id="od9-ky-3tV"/>
+                                            <constraint firstItem="hYM-sz-hW1" firstAttribute="leading" secondItem="ilc-Vg-1Jv" secondAttribute="trailing" constant="25" id="pue-YN-RS5"/>
                                             <constraint firstItem="4KE-HF-g4g" firstAttribute="top" secondItem="UMq-cB-4OC" secondAttribute="bottom" id="rOC-Hr-LqL"/>
                                             <constraint firstItem="I7E-lF-tgg" firstAttribute="top" secondItem="POb-Zt-sbd" secondAttribute="bottom" id="suH-wg-XX1"/>
                                             <constraint firstItem="J9X-Zb-Bs7" firstAttribute="top" secondItem="mxQ-IB-mbo" secondAttribute="top" constant="35" id="zDE-f5-mpA"/>
@@ -598,6 +617,7 @@
                         <outlet property="firstTextField" destination="UMq-cB-4OC" id="HbV-j5-dWx"/>
                         <outlet property="firstUnderlineView" destination="4KE-HF-g4g" id="vef-24-kRo"/>
                         <outlet property="imageLeftButton" destination="ilc-Vg-1Jv" id="u3T-HB-TKP"/>
+                        <outlet property="imageRightButton" destination="hYM-sz-hW1" id="qpn-uN-pVd"/>
                         <outlet property="imageTopButton" destination="Kbx-KN-fvS" id="8Oa-9L-dah"/>
                         <outlet property="leftNavBarButton" destination="gjo-gl-WH4" id="oYE-y3-qcC"/>
                         <outlet property="scrollView" destination="e7H-3g-eVe" id="6hH-CF-04H"/>
@@ -650,8 +670,8 @@
     </scenes>
     <resources>
         <image name="Lock" width="125" height="125"/>
-        <image name="LogoAlt" width="300" height="300"/>
         <image name="Plus" width="125" height="125"/>
+        <image name="logoNormal" width="541" height="541"/>
         <image name="whiteQuestionMark" width="53" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
