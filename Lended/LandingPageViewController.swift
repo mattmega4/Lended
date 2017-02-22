@@ -18,12 +18,24 @@ class LandingPageViewController: UIViewController {
   let ref = FIRDatabase.database().reference()
   let user = FIRAuth.auth()?.currentUser
   
+  var selectedAccount: String?
+  var accountNameToTransfer = ""
+  var accountEmailToTransfer = ""
+  var accountUrlToTransfer = ""
+  var accountHasImage: Bool?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     self.collectionView.dataSource = self
     self.collectionView.delegate = self
     setNavBar()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    checkIfDataExits()
   }
   
   
@@ -45,7 +57,68 @@ class LandingPageViewController: UIViewController {
   
   
   
-   
+  
+  
+  
+  
+  
+  
+  // MARK: Firebase Methods
+  
+  func checkIfDataExits() {
+    DispatchQueue.main.async {
+      self.accountArray.removeAll()
+      self.ref.observeSingleEvent(of: .value, with: { snapshot in
+        if snapshot.hasChild("accounts") {
+          self.pullAllUsersCards()
+        } else {
+          self.collectionView.reloadData()
+        }
+      })
+    }
+  }
+  
+  
+  func pullAllUsersCards() {
+    accountArray.removeAll()
+    let userRef = ref.child("users").child((user?.uid)!).child("accounts")
+    userRef.observeSingleEvent(of: .value, with: { snapshot in
+      for usersAccount in snapshot.children {
+        let accountID = (usersAccount as AnyObject).key as String
+        let accountRef = self.ref.child("cards").child(accountID)
+        accountRef.observeSingleEvent(of: .value, with: { accountSnapShot in
+          let accountSnap = accountSnapShot as FIRDataSnapshot
+          let accountDict = accountSnap.value as! [String: AnyObject]
+          
+          let accountName = accountDict["accountName"]
+          let accountEmail = accountDict["accountEmail"]
+          let accountURL = accountDict["accountImage"]
+          let accountHasImage = accountDict["accountHasImage"]
+          
+          self.accountNameToTransfer = accountName as! String
+          self.accountEmailToTransfer = accountEmail as! String
+          self.accountUrlToTransfer = accountURL as! String
+          self.accountHasImage = accountHasImage as? Bool
+          
+          let aAccount = AccountClass()
+          aAccount.accID = accountID
+          aAccount.accName = accountName as! String
+          aAccount.accEmail = accountEmail as! String
+          aAccount.accUrl = accountURL as! String
+          aAccount.hasImg = accountHasImage as? Bool
+          
+          self.accountArray.append(aAccount)
+          
+          DispatchQueue.main.async {
+            self.collectionView.reloadData()
+          }
+        })
+      }
+    })
+  }
+  
+  
+  
   
   
   
@@ -86,7 +159,28 @@ extension LandingPageViewController: UICollectionViewDataSource {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "accountCell", for: indexPath as IndexPath) as! AccountCollectionViewCell
     let row = indexPath.row
     
-    //
+    cell.accountImageView.createRoundImageView()
+    
+    
+    
+    
+    
+    
+    if accountArray[row].hasImg == true {
+      
+      DispatchQueue.global(qos: .background).async {
+        let myURLString: String = self.accountArray[row].accUrl
+        DispatchQueue.main.async {
+          if let myURL = URL(string: myURLString), let myData = try? Data(contentsOf: myURL), let image = UIImage(data: myData) {
+            cell.accountImageView.image = image
+          }
+        }
+      }
+      
+    }else {
+      print("no image")
+    }
+    cell.accountNameLabel.text = accountArray[row].accName
     
     return cell
     
@@ -101,22 +195,22 @@ extension LandingPageViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     //
-  }
+      }
   
-}
+    }
 
 
-// MARK: UICollectionViewDelegateFlowLayout Methods
-
-extension LandingPageViewController: UICollectionViewDelegateFlowLayout {
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    // MARK: UICollectionViewDelegateFlowLayout Methods
     
-    let padding: CGFloat = 25
-    let collectionCellSize = collectionView.frame.size.width - padding
-    
-    return CGSize(width: collectionCellSize/2, height: collectionCellSize/2)
-    
-  }
-  
+    extension LandingPageViewController: UICollectionViewDelegateFlowLayout {
+      
+      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let padding: CGFloat = 25
+        let collectionCellSize = collectionView.frame.size.width - padding
+        
+        return CGSize(width: collectionCellSize/2, height: collectionCellSize/2)
+        
+      }
+      
 }

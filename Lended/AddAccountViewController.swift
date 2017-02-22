@@ -175,11 +175,12 @@ class AddAccountViewController: UIViewController {
           self.accountMetadata = metadata?.downloadURL()
           if let tAccountName = self.accountName,
             let tAccountEmail = self.accountEmail,
-            let profileImageUrl = metadata?.downloadURL()?.absoluteString {
+            let tProfileImageUrl = metadata?.downloadURL()?.absoluteString {
             
             account.setValue(["accountName": tAccountName,
                               "accountEmail": tAccountEmail,
-                              "accountImage": profileImageUrl])
+                              "accountImage": tProfileImageUrl,
+                              "accountHasImage": true])
           }
           print(metadata!)
         }
@@ -188,7 +189,8 @@ class AddAccountViewController: UIViewController {
       if let tAccountName = accountName,
         let tAccountEmail = accountEmail {
         account.setValue(["accountName": tAccountName,
-                          "accountEmail": tAccountEmail])
+                          "accountEmail": tAccountEmail,
+                          "accountHasImage": false])
       }
     }
     ref.child("users").child((user?.uid)!).child("accounts").child(account.key).setValue(true)

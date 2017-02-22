@@ -16,6 +16,13 @@ extension UIButton {
   }
 }
 
+extension UIImageView {
+  func createRoundImageView() {
+    layer.cornerRadius = frame.size.width/2
+    clipsToBounds = true
+  }
+}
+
 extension String {
   func validateEmail() -> Bool {
     let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"

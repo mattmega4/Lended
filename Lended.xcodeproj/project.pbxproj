@@ -12,9 +12,9 @@
 		1D17F2101E431645008B3216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D17F20F1E431645008B3216 /* Assets.xcassets */; };
 		1D17F2131E431645008B3216 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D17F2111E431645008B3216 /* LaunchScreen.storyboard */; };
 		1D1CF0D61E43DE340030B4BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D1CF0D51E43DE340030B4BB /* GoogleService-Info.plist */; };
+		1D2C3E311E5E1B4D002E307E /* AccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C3E301E5E1B4D002E307E /* AccountCollectionViewCell.swift */; };
 		1D7BAED91E51A63700A42859 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7BAED81E51A63700A42859 /* StoreKit.framework */; };
 		1D909FE61E566B93002F207D /* SpecificAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D909FE51E566B93002F207D /* SpecificAccountViewController.swift */; };
-		1D9965101E54D60600410CF0 /* AccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D99650F1E54D60600410CF0 /* AccountCollectionViewCell.swift */; };
 		1DD487121E513C03004E0172 /* EntryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD487111E513C03004E0172 /* EntryPageViewController.swift */; };
 		1DD487151E515172004E0172 /* General+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD487141E515172004E0172 /* General+Extensions.swift */; };
 		1DE843311E51A7D000D06ED9 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE843301E51A7D000D06ED9 /* LandingPageViewController.swift */; };
@@ -31,9 +31,9 @@
 		1D17F2121E431645008B3216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D17F2141E431645008B3216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D1CF0D51E43DE340030B4BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1D2C3E301E5E1B4D002E307E /* AccountCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		1D7BAED81E51A63700A42859 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1D909FE51E566B93002F207D /* SpecificAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecificAccountViewController.swift; sourceTree = "<group>"; };
-		1D99650F1E54D60600410CF0 /* AccountCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		1DD487111E513C03004E0172 /* EntryPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryPageViewController.swift; sourceTree = "<group>"; };
 		1DD487141E515172004E0172 /* General+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "General+Extensions.swift"; sourceTree = "<group>"; };
 		1DE843301E51A7D000D06ED9 /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		1DFE52E71E545F8200146456 /* Account Cell */ = {
 			isa = PBXGroup;
 			children = (
-				1D99650F1E54D60600410CF0 /* AccountCollectionViewCell.swift */,
+				1D2C3E301E5E1B4D002E307E /* AccountCollectionViewCell.swift */,
 			);
 			name = "Account Cell";
 			sourceTree = "<group>";
@@ -351,7 +351,7 @@
 				1D17F2091E431645008B3216 /* AppDelegate.swift in Sources */,
 				1DEF258A1E545B8500551BE9 /* AddAccountViewController.swift in Sources */,
 				1DD487151E515172004E0172 /* General+Extensions.swift in Sources */,
-				1D9965101E54D60600410CF0 /* AccountCollectionViewCell.swift in Sources */,
+				1D2C3E311E5E1B4D002E307E /* AccountCollectionViewCell.swift in Sources */,
 				1DE843311E51A7D000D06ED9 /* LandingPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

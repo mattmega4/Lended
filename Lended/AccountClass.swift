@@ -11,9 +11,10 @@ import Foundation
 
 class AccountClass {
   
-  var accountID = ""
-  var name = ""
-  var relationship = ""
-  /////// think on this
+  var accID = ""
+  var accName = ""
+  var accEmail = ""
+  var accUrl = ""
+  var hasImg: Bool?
   
 }
