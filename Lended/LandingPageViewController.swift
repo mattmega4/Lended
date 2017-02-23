@@ -55,14 +55,6 @@ class LandingPageViewController: UIViewController {
   }
   
   
-  
-  
-  
-  
-  
-  
-  
-  
   // MARK: Firebase Methods
   
   func checkIfDataExits() {
@@ -118,23 +110,11 @@ class LandingPageViewController: UIViewController {
   }
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
   // TODO: IB Actions
   
   @IBAction func rightNavBarButtonTapped(_ sender: UIBarButtonItem) {
     performSegue(withIdentifier: "fromLandingPageToAddCard", sender: self)
   }
-  
-  
-  
   
   
 } // End of LandingPageViewController Class
@@ -158,13 +138,6 @@ extension LandingPageViewController: UICollectionViewDataSource {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "accountCell", for: indexPath as IndexPath) as! AccountCollectionViewCell
     let row = indexPath.row
-    
-    cell.accountImageView.createRoundImageView()
-    
-    
-    
-    
-    
     
     if accountArray[row].hasImg == true {
       
@@ -195,22 +168,22 @@ extension LandingPageViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     //
-      }
+  }
   
-    }
+}
 
 
-    // MARK: UICollectionViewDelegateFlowLayout Methods
+// MARK: UICollectionViewDelegateFlowLayout Methods
+
+extension LandingPageViewController: UICollectionViewDelegateFlowLayout {
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     
-    extension LandingPageViewController: UICollectionViewDelegateFlowLayout {
-      
-      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let padding: CGFloat = 25
-        let collectionCellSize = collectionView.frame.size.width - padding
-        
-        return CGSize(width: collectionCellSize/2, height: collectionCellSize/2)
-        
-      }
-      
+    let padding: CGFloat = 25
+    let collectionCellSize = collectionView.frame.size.width - padding
+    
+    return CGSize(width: collectionCellSize/2, height: collectionCellSize/2)
+    
+  }
+  
 }

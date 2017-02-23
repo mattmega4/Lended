@@ -166,6 +166,7 @@ class AddAccountViewController: UIViewController {
     let imageName = NSUUID().uuidString
     let storageRef = storage.reference().child("users").child((user?.uid)!).child("accounts").child(account.key).child("\(imageName).png")
     if selectedImageFromPicker != nil {
+      
       if let tempData = UIImagePNGRepresentation(selectedImageFromPicker!) {
         storageRef.put(tempData, metadata: nil) { (metadata, error) in
           if error != nil {

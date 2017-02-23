@@ -13,4 +13,24 @@ class AccountCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var accountImageView: UIImageView!
   @IBOutlet weak var accountNameLabel: UILabel!
   
+  
+  
+  
+  
+  
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    
+    self.accountImageView.createRoundImageView()
+
+//    layer.cornerRadius = frame.size.width/2
+//    clipsToBounds = true
+  }
+
+  
+  
 }
+
+
+
