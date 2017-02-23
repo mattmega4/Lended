@@ -172,7 +172,9 @@ class AddAccountViewController: UIViewController {
             print(error!)
             return
           }
+          
           self.accountMetadata = metadata?.downloadURL()
+          
           if let tAccountName = self.accountName,
             let tAccountEmail = self.accountEmail,
             let tProfileImageUrl = metadata?.downloadURL()?.absoluteString {
@@ -186,16 +188,42 @@ class AddAccountViewController: UIViewController {
         }
       }
     } else {
+      
       if let tAccountName = accountName,
         let tAccountEmail = accountEmail {
         account.setValue(["accountName": tAccountName,
                           "accountEmail": tAccountEmail,
+                          "accountImage": "",
                           "accountHasImage": false])
       }
     }
     ref.child("users").child((user?.uid)!).child("accounts").child(account.key).setValue(true)
     performSegue(withIdentifier: "fromAddAccountToLandingPage", sender: self)
   }
+  
+  
+  // Disable Buttons for Keyboard
+  
+  func hideAndDisableButtonsForKeyboard() {
+    imageTopButton.isHidden = true
+    imageTopButton.isEnabled = false
+    imageLeftButton.isHidden = true
+    imageLeftButton.isEnabled = false
+    imageRightButton.isHidden = true
+    imageRightButton.isEnabled = false
+  }
+  
+  
+  // Enable Buttons for Keyboard
+  
+  func unhideAndEnableButtonsForKeyboard() {
+    imageTopButton.isHidden = false
+    imageTopButton.isEnabled = true
+    imageLeftButton.isHidden = false
+    imageLeftButton.isEnabled = true
+    imageRightButton.isHidden = false
+    imageRightButton.isEnabled = true
+  } 
   
 
   // MARK: IB Actions
@@ -230,16 +258,14 @@ class AddAccountViewController: UIViewController {
     var contentInset: UIEdgeInsets = self.scrollView.contentInset
     contentInset.bottom = keyboardFrame.size.height + 30
     self.scrollView.contentInset = contentInset
-    
-    // Hide stuff
+    hideAndDisableButtonsForKeyboard()
   }
   
   
   func keyboardWillHide(notification:NSNotification) {
     let contentInset:UIEdgeInsets = UIEdgeInsets.zero
     self.scrollView.contentInset = contentInset
-    
-    // Show stuff
+    unhideAndEnableButtonsForKeyboard()
   }
   
   

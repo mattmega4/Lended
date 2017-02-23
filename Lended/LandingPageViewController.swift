@@ -70,7 +70,7 @@ class LandingPageViewController: UIViewController {
       self.accountArray.removeAll()
       self.ref.observeSingleEvent(of: .value, with: { snapshot in
         if snapshot.hasChild("accounts") {
-          self.pullAllUsersCards()
+          self.pullAllUsersAccounts()
         } else {
           self.collectionView.reloadData()
         }
@@ -79,13 +79,13 @@ class LandingPageViewController: UIViewController {
   }
   
   
-  func pullAllUsersCards() {
+  func pullAllUsersAccounts() {
     accountArray.removeAll()
     let userRef = ref.child("users").child((user?.uid)!).child("accounts")
     userRef.observeSingleEvent(of: .value, with: { snapshot in
       for usersAccount in snapshot.children {
         let accountID = (usersAccount as AnyObject).key as String
-        let accountRef = self.ref.child("cards").child(accountID)
+        let accountRef = self.ref.child("accounts").child(accountID)
         accountRef.observeSingleEvent(of: .value, with: { accountSnapShot in
           let accountSnap = accountSnapShot as FIRDataSnapshot
           let accountDict = accountSnap.value as! [String: AnyObject]
