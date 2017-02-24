@@ -105,7 +105,7 @@
 				1DE8432E1E51A77000D06ED9 /* Entry */,
 				1DEF25881E545B6800551BE9 /* Add Account */,
 				1DE8432F1E51A78500D06ED9 /* Top Level */,
-				1D909FE41E566B61002F207D /* New Group */,
+				1D909FE41E566B61002F207D /* Specific Account */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -126,12 +126,12 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		1D909FE41E566B61002F207D /* New Group */ = {
+		1D909FE41E566B61002F207D /* Specific Account */ = {
 			isa = PBXGroup;
 			children = (
 				1D909FE51E566B93002F207D /* SpecificAccountViewController.swift */,
 			);
-			name = "New Group";
+			name = "Specific Account";
 			sourceTree = "<group>";
 		};
 		1DD487131E515152004E0172 /* Extensions */ = {

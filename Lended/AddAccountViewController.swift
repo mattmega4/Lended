@@ -165,6 +165,9 @@ class AddAccountViewController: UIViewController {
     let account = ref.child("accounts").childByAutoId()
     let imageName = NSUUID().uuidString
     let storageRef = storage.reference().child("users").child((user?.uid)!).child("accounts").child(account.key).child("\(imageName).png")
+    
+    
+    
     if selectedImageFromPicker != nil {
       
       if let tempData = UIImagePNGRepresentation(selectedImageFromPicker!) {
@@ -341,12 +344,10 @@ extension AddAccountViewController: UIImagePickerControllerDelegate {
   
   
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-    if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
-      print(editedImage)
-      selectedImageFromPicker = editedImage
-    } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-      print(originalImage)
+    if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
       selectedImageFromPicker = originalImage
+    } else if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+      selectedImageFromPicker = editedImage
     }
     if let selectedImage = selectedImageFromPicker {
       accountImageView.image = selectedImage
