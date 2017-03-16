@@ -21,11 +21,10 @@ class AccountCollectionViewCell: UICollectionViewCell {
   
   override func layoutSubviews() {
     super.layoutSubviews()
-    
-    self.accountImageView.createRoundImageView()
+    self.accountImageView.layoutIfNeeded()
+    self.accountImageView.layer.cornerRadius = accountImageView.frame.size.width/2
+    self.accountImageView.clipsToBounds = true
 
-//    layer.cornerRadius = frame.size.width/2
-//    clipsToBounds = true
   }
 
   

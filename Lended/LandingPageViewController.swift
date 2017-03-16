@@ -141,6 +141,7 @@ extension LandingPageViewController: UICollectionViewDataSource {
     
     if accountArray[row].hasImg == true {
       
+      
       DispatchQueue.global(qos: .background).async {
         let myURLString: String = self.accountArray[row].accUrl
         DispatchQueue.main.async {
@@ -153,6 +154,11 @@ extension LandingPageViewController: UICollectionViewDataSource {
     }else {
       print("no image")
     }
+    
+    
+
+    
+    
     cell.accountNameLabel.text = accountArray[row].accName
     
     return cell
@@ -186,4 +192,5 @@ extension LandingPageViewController: UICollectionViewDelegateFlowLayout {
     
   }
   
+
 }

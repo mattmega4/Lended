@@ -22,7 +22,7 @@ class AddAccountViewController: UIViewController {
   @IBOutlet weak var imageTopButton: UIButton!
   @IBOutlet weak var imageLeftButton: UIButton!
   @IBOutlet weak var imageRightButton: UIButton!
-
+  
   @IBOutlet weak var firstTextField: UITextField!
   @IBOutlet weak var secondTextField: UITextField!
   
@@ -130,6 +130,18 @@ class AddAccountViewController: UIViewController {
     }
   }
   
+  //
+//  func cropImage(screenshot: UIImage) -> UIImage {
+//    
+//    let crop = CGRect(x: 0, y: 0, width: 300, height: 300)
+//    
+//    let cgImage = screenshot.cgImage!.cropping(to: crop)
+//    let image: UIImage = UIImage(cgImage: cgImage!)
+//    
+//    return image
+//  }
+ //
+  
   
   // MARK: Call UIImagePickerController
   
@@ -141,7 +153,7 @@ class AddAccountViewController: UIViewController {
     present(picker, animated: true, completion: nil)
   }
   
- 
+  
   // Mark: Use Camera
   
   func useCamera() {
@@ -152,8 +164,8 @@ class AddAccountViewController: UIViewController {
       picker.sourceType = .camera
       present(picker, animated: true, completion: nil)
     }
-}
-
+  }
+  
   
   // MARK: Add to Firebase
   
@@ -165,8 +177,6 @@ class AddAccountViewController: UIViewController {
     let account = ref.child("accounts").childByAutoId()
     let imageName = NSUUID().uuidString
     let storageRef = storage.reference().child("users").child((user?.uid)!).child("accounts").child(account.key).child("\(imageName).png")
-    
-    
     
     if selectedImageFromPicker != nil {
       
@@ -187,21 +197,23 @@ class AddAccountViewController: UIViewController {
                               "accountEmail": tAccountEmail,
                               "accountImage": tProfileImageUrl,
                               "accountHasImage": true])
+            self.ref.child("users").child((self.user?.uid)!).child("accounts").child(account.key).setValue(true)
           }
           print(metadata!)
         }
       }
     } else {
-      
       if let tAccountName = accountName,
         let tAccountEmail = accountEmail {
+        
         account.setValue(["accountName": tAccountName,
                           "accountEmail": tAccountEmail,
                           "accountImage": "",
                           "accountHasImage": false])
+        ref.child("users").child((user?.uid)!).child("accounts").child(account.key).setValue(true)
       }
     }
-    ref.child("users").child((user?.uid)!).child("accounts").child(account.key).setValue(true)
+    
     performSegue(withIdentifier: "fromAddAccountToLandingPage", sender: self)
   }
   
@@ -227,11 +239,11 @@ class AddAccountViewController: UIViewController {
     imageLeftButton.isEnabled = true
     imageRightButton.isHidden = false
     imageRightButton.isEnabled = true
-  } 
+  }
   
-
+  
   // MARK: IB Actions
-
+  
   @IBAction func leftNavBarButtonTapped(_ sender: UIBarButtonItem) {
     performSegue(withIdentifier: "fromAddAccountToLandingPage", sender: self)
   }
@@ -243,7 +255,7 @@ class AddAccountViewController: UIViewController {
   @IBAction func imageLeftButtonTapped(_ sender: UIButton) {
     pickAccountImage()
   }
-
+  
   @IBAction func imageRightButtonTapped(_ sender: UIButton) {
     useCamera()
   }
@@ -336,7 +348,7 @@ extension AddAccountViewController: UITextFieldDelegate {
 // MARK: UIImagePickerControllerDelegate Methods
 
 extension AddAccountViewController: UIImagePickerControllerDelegate {
-
+  
   
   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
     dismiss(animated: true, completion: nil)
