@@ -9,8 +9,10 @@ target 'Lended' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-  pod 'Firebase/Crash'
   pod 'Firebase/Storage'
+  pod 'Firebase/Performance'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
 end
 

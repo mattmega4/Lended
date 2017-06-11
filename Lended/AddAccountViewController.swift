@@ -35,9 +35,9 @@ class AddAccountViewController: UIViewController {
   @IBOutlet weak var addAccountButton: UIButton!
   
   
-  let storage = FIRStorage.storage()
-  let ref = FIRDatabase.database().reference()
-  let user = FIRAuth.auth()?.currentUser
+  let storage = Storage.storage()
+  let ref = Database.database().reference()
+  let user = Auth.auth().currentUser
   
   var selectedImageFromPicker: UIImage?
   var accountMetadata: URL?
@@ -70,6 +70,7 @@ class AddAccountViewController: UIViewController {
   // MARK: Nav Bar & View Design
   
   func setNavBar() {
+    self.navigationController?.isNavigationBarHidden = false
     title = "Add Account"
     navigationController?.navigationBar.barTintColor = UIColor(red: 214.0/255.0,
                                                                green: 118.0/255.0,
@@ -94,7 +95,7 @@ class AddAccountViewController: UIViewController {
   // MARK: Add Keyboard Targets
   
   func keyboardMethods() {
-    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EntryPageViewController.dismissKeyboard))
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EntryViewController.dismissKeyboard))
     view.addGestureRecognizer(tap)
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -181,7 +182,8 @@ class AddAccountViewController: UIViewController {
     if selectedImageFromPicker != nil {
       
       if let tempData = UIImagePNGRepresentation(selectedImageFromPicker!) {
-        storageRef.put(tempData, metadata: nil) { (metadata, error) in
+        
+        storageRef.putData(tempData, metadata: nil) { (metadata, error) in
           if error != nil {
             print(error!)
             return
@@ -214,7 +216,10 @@ class AddAccountViewController: UIViewController {
       }
     }
     
-    performSegue(withIdentifier: "fromAddAccountToLandingPage", sender: self)
+    
+    if let landingVC = self.storyboard?.instantiateViewController(withIdentifier: "LandingVC") as? LandingPageViewController {
+        self.navigationController?.pushViewController(landingVC, animated: true)
+    }
   }
   
   
@@ -245,7 +250,10 @@ class AddAccountViewController: UIViewController {
   // MARK: IB Actions
   
   @IBAction func leftNavBarButtonTapped(_ sender: UIBarButtonItem) {
-    performSegue(withIdentifier: "fromAddAccountToLandingPage", sender: self)
+        
+    if let landingVC = self.storyboard?.instantiateViewController(withIdentifier: "LandingVC") as? LandingPageViewController {
+        self.navigationController?.pushViewController(landingVC, animated: true)
+    }
   }
   
   @IBAction func imageTopButtonTapped(_ sender: UIButton) {

@@ -15,7 +15,7 @@
 		1D2C3E311E5E1B4D002E307E /* AccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C3E301E5E1B4D002E307E /* AccountCollectionViewCell.swift */; };
 		1D7BAED91E51A63700A42859 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7BAED81E51A63700A42859 /* StoreKit.framework */; };
 		1D909FE61E566B93002F207D /* SpecificAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D909FE51E566B93002F207D /* SpecificAccountViewController.swift */; };
-		1DD487121E513C03004E0172 /* EntryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD487111E513C03004E0172 /* EntryPageViewController.swift */; };
+		1DD487121E513C03004E0172 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD487111E513C03004E0172 /* EntryViewController.swift */; };
 		1DD487151E515172004E0172 /* General+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD487141E515172004E0172 /* General+Extensions.swift */; };
 		1DE843311E51A7D000D06ED9 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE843301E51A7D000D06ED9 /* LandingPageViewController.swift */; };
 		1DEF258A1E545B8500551BE9 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEF25891E545B8500551BE9 /* AddAccountViewController.swift */; };
@@ -34,7 +34,7 @@
 		1D2C3E301E5E1B4D002E307E /* AccountCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		1D7BAED81E51A63700A42859 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1D909FE51E566B93002F207D /* SpecificAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecificAccountViewController.swift; sourceTree = "<group>"; };
-		1DD487111E513C03004E0172 /* EntryPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryPageViewController.swift; sourceTree = "<group>"; };
+		1DD487111E513C03004E0172 /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		1DD487141E515172004E0172 /* General+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "General+Extensions.swift"; sourceTree = "<group>"; };
 		1DE843301E51A7D000D06ED9 /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		1DEF25891E545B8500551BE9 /* AddAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		1DE8432E1E51A77000D06ED9 /* Entry */ = {
 			isa = PBXGroup;
 			children = (
-				1DD487111E513C03004E0172 /* EntryPageViewController.swift */,
+				1DD487111E513C03004E0172 /* EntryViewController.swift */,
 			);
 			name = Entry;
 			sourceTree = "<group>";
@@ -306,7 +306,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "GOOGLE_APP_ID= 1:430766201862:ios:9b2266c9fdd84c5e\n\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"${SRCROOT}\"/CrashReportingKey/ServiceAccount.json\n";
+			shellScript = "./Fabric.framework/run 3605c744e15ddf7d8ef099f0020dfcdd2e2abd5c 7bf7613729d303dcf6eda216f60fde4100191c032181ca9d63ffb7b2533bc45a";
 		};
 		8E9E4D86DA6F49376C8305B9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -320,7 +320,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B1F6E4508E0904792C78DB5E /* [CP] Copy Pods Resources */ = {
@@ -346,7 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D909FE61E566B93002F207D /* SpecificAccountViewController.swift in Sources */,
-				1DD487121E513C03004E0172 /* EntryPageViewController.swift in Sources */,
+				1DD487121E513C03004E0172 /* EntryViewController.swift in Sources */,
 				1DFE52EC1E54604600146456 /* AccountClass.swift in Sources */,
 				1D17F2091E431645008B3216 /* AppDelegate.swift in Sources */,
 				1DEF258A1E545B8500551BE9 /* AddAccountViewController.swift in Sources */,
