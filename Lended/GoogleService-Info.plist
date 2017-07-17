@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>430766201862-i2o0572o2839pjn585bvneoeo4nvv1du.apps.googleusercontent.com</string>
+	<string>50225330303-d0ch60brqqeuo3joed702m7mm6nd416u.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.430766201862-i2o0572o2839pjn585bvneoeo4nvv1du</string>
+	<string>com.googleusercontent.apps.50225330303-d0ch60brqqeuo3joed702m7mm6nd416u</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCvsuh33yLfs209jGXWNukdSfiZY0M-oQg</string>
+	<string>AIzaSyBDvcWPKT1fdpAjJF4O9MIbkdxMaA8KMVU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>430766201862</string>
+	<string>50225330303</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.matthewhsingleton.Lended</string>
 	<key>PROJECT_ID</key>
-	<string>lended-42e0c</string>
+	<string>lynked-f8055</string>
 	<key>STORAGE_BUCKET</key>
-	<string>lended-42e0c.appspot.com</string>
+	<string>lynked-f8055.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
 	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
 	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:430766201862:ios:9b2266c9fdd84c5e</string>
+	<string>1:50225330303:ios:9b2266c9fdd84c5e</string>
 	<key>DATABASE_URL</key>
-	<string>https://lended-42e0c.firebaseio.com</string>
+	<string>https://lynked-f8055.firebaseio.com</string>
 </dict>
 </plist>
