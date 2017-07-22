@@ -23,6 +23,7 @@ pod 'UITextView+Placeholder'
 pod 'DZNEmptyDataSet'
 #pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 pod 'MBProgressHUD'
+pod 'Alamofire'
 
 end
 
