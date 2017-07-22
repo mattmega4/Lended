@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="avP-Sy-hix">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ydu-Xk-oGl">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -124,7 +124,7 @@
                                                         </variation>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.34901960780000002" green="0.51764705879999995" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.41176470588235292" green="0.74901960784313726" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstItem="2JM-Od-3fx" firstAttribute="top" secondItem="N1T-HY-naf" secondAttribute="bottom" constant="5" id="3lF-vX-3XU"/>
                                                     <constraint firstItem="hP1-FI-6m4" firstAttribute="centerX" secondItem="4Wt-pv-ZSk" secondAttribute="centerX" id="D9d-to-pnI"/>
@@ -213,7 +213,7 @@
                                                         </variation>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.49741187689999999" green="0.59082520009999995" blue="0.66672968860000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.28235294117647058" green="0.62745098039215685" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="4GJ-lR-agf" secondAttribute="trailing" constant="25" id="5Pa-qJ-bxT"/>
                                                     <constraint firstAttribute="bottom" secondItem="NfY-WE-IGL" secondAttribute="bottom" id="HGH-9D-JXN"/>
@@ -266,7 +266,7 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbp-jQ-oeL">
                                                                 <rect key="frame" x="2" y="2" width="310" height="41.333333333333258"/>
-                                                                <color key="backgroundColor" red="0.36078431370000003" green="0.62745098040000002" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <color key="backgroundColor" red="0.41176470588235292" green="0.74901960784313726" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
                                                                 <state key="normal" title="SIGN IN">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -404,7 +404,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8o-1T-uit">
                                 <rect key="frame" x="182.66666666666666" y="661" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.31680542563094571" green="0.85486421130952372" blue="0.44418453776395467" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.41176470588235292" green="0.74901960784313726" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="38d-6k-m90"/>
                                     <constraint firstAttribute="width" constant="50" id="fdU-gk-a0Z"/>
@@ -582,7 +582,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lended" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mbL-CN-Cqb">
                                             <rect key="frame" x="94.666666666666686" y="25" width="225" height="62"/>
                                             <fontDescription key="fontDescription" name="GillSans-UltraBold" family="Gill Sans" pointSize="50"/>
-                                            <color key="textColor" red="0.42352941179999998" green="0.61960784310000006" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="textColor" red="0.41176470588235292" green="0.74901960784313726" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPS-2c-YMy">
@@ -679,6 +679,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="e8i-bZ-xSR">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="txO-pz-DsU">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="doneButtonTapped:" destination="PeY-Af-Q0c" id="S8U-P5-3S3"/>
                             </connections>

@@ -26,6 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // New Firebase/Fabric Crash Report Code
         Fabric.with([Crashlytics.self])
+        
+       TransactionUtility.shared.convert(amount: 200.0, from: "CAD", to: "USD", forDate: Date()) { (amount, error) in
+            print(amount)
+        }
 
         
         return true

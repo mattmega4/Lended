@@ -15,6 +15,6 @@ let ACKNOWLEDGMENTS_VC_STORYBOARD_IDENTIFIER = "acknowledgementVC"
 
 
 
-let BASE_CURRENCY_API_URL = "http://api.fixer.io/latest"
+let BASE_CURRENCY_API_URL = "https://api.fixer.io/"
 let BASE = "?base="
 let USD = "USD"
