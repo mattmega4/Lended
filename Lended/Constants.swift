@@ -11,6 +11,7 @@ import Foundation
 
 let ENTRY_VC_STORYBOARD_IDENTIFIER = "entryVC"
 let LANDING_VC_STORYBOARD_IDENTIFIER = "landingVC"
+let ACKNOWLEDGMENTS_VC_STORYBOARD_IDENTIFIER = "acknowledgementVC"
 
 
 
