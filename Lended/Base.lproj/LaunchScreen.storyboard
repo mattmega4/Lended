@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,12 +21,42 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LendedLogo" translatesAutoresizingMaskIntoConstraints="NO" id="EcG-Eg-fIH">
+                                <rect key="frame" x="75" y="170" width="225" height="225"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="EcG-Eg-fIH" secondAttribute="height" multiplier="1:1" id="ytW-V2-H4W"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lended" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fa-KA-uBq">
+                                <rect key="frame" x="46" y="410" width="283" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="jra-qx-TKb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="100"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.41176470588235292" green="0.74901960784313726" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EcG-Eg-fIH" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="75" id="0Tv-9S-6UL"/>
+                            <constraint firstItem="8fa-KA-uBq" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="46" id="I2c-15-L7T"/>
+                            <constraint firstAttribute="trailing" secondItem="EcG-Eg-fIH" secondAttribute="trailing" constant="75" id="Noj-il-Z5N"/>
+                            <constraint firstItem="EcG-Eg-fIH" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="150" id="ObQ-LX-JaQ"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="8fa-KA-uBq" secondAttribute="bottom" constant="194" id="cUi-MB-qoL"/>
+                            <constraint firstItem="8fa-KA-uBq" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hAs-RG-bMZ"/>
+                            <constraint firstItem="8fa-KA-uBq" firstAttribute="top" secondItem="EcG-Eg-fIH" secondAttribute="bottom" constant="15" id="iJS-nj-0rh"/>
+                            <constraint firstAttribute="trailing" secondItem="8fa-KA-uBq" secondAttribute="trailing" constant="46" id="m4S-SE-1e5"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LendedLogo" width="1024" height="1024"/>
+    </resources>
 </document>
