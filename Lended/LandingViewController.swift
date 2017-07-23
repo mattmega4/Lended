@@ -34,3 +34,36 @@ class LandingViewController: UIViewController {
     }
 
 }
+
+
+
+
+//extension LandingViewController: UISearchBarDelegate {
+//    
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if searchText.isEmpty {
+//            venues = allVenues
+//            self.collectionView.reloadData()
+//            return
+//        }
+//        let tempVenues = allVenues.filter({ (aVenue) -> Bool in
+//            if let venueName = aVenue.name {
+//                if venueName.lowercased().substring(to: min(venueName.endIndex, searchText.endIndex)) == searchText.lowercased() {
+//                    return true
+//                }
+//            }
+//            if let words = aVenue.name?.components(separatedBy: .whitespaces) {
+//                for aWord in words {
+//                    return aWord.lowercased().substring(to: min(searchText.endIndex, aWord.endIndex)) == searchText.lowercased()
+//                }
+//            }
+//            return false
+//        })
+//        venues = tempVenues
+//        self.collectionView.reloadData()
+//        
+//    }
+//    
+//    
+//    
+//}

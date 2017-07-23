@@ -35,21 +35,16 @@ class FirebaseUtility: NSObject {
             completion(nil, errMessage)
             return
         }
-        
         guard let thePassword = password else {
             let errMessage = "Please enter a password"
             completion(nil, errMessage)
             return
         }
-        
-        
         Auth.auth().signIn(withEmail: theEmail, password: thePassword, completion: { (user, error) in
             if let theError = error {
-                
                 var errMessage = "An unknown error occured."
                 if let errCode = AuthErrorCode(rawValue: (theError._code)) {
                     switch errCode {
-                        
                     case .invalidEmail:
                         errMessage = "The entered email does not meet requirements."
                     case .weakPassword:
@@ -62,18 +57,16 @@ class FirebaseUtility: NSObject {
                 }
                 completion(nil, errMessage)
             } else {
-                
                 Analytics.logEvent("Email_Login", parameters: ["success" : true])
-                
                 Answers.logLogin(withMethod: "Email Login",
                                  success: true,
                                  customAttributes: [:])
-                
                 self.user = user
                 completion(user, nil)
             }
         })
     }
+    
     
     func registerUserWith(email: String?, password: String?, confirmPassword: String?, completion: @escaping (_ user: User?, _ errorMessage: String?) -> Void) {
         

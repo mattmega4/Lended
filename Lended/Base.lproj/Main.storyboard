@@ -390,7 +390,7 @@
             </objects>
             <point key="canvasLocation" x="6105.7971014492759" y="-1277.4456521739132"/>
         </scene>
-        <!--Landing View Controller-->
+        <!--Empty Data Set Delegate-->
         <scene sceneID="hC2-lm-8Pr">
             <objects>
                 <viewController storyboardIdentifier="landingVC" id="HLL-fJ-xWb" customClass="LandingViewController" customModule="Lended" customModuleProvider="target" sceneMemberID="viewController">
@@ -402,20 +402,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8o-1T-uit">
-                                <rect key="frame" x="182.66666666666666" y="661" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.41176470588235292" green="0.74901960784313726" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="38d-6k-m90"/>
-                                    <constraint firstAttribute="width" constant="50" id="fdU-gk-a0Z"/>
-                                </constraints>
-                                <state key="normal" image="Plus"/>
+                            <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="FJs-hN-tNX">
+                                <rect key="frame" x="0.0" y="64" width="414" height="44"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                                 <connections>
-                                    <action selector="addButtonTapped:" destination="HLL-fJ-xWb" eventType="touchUpInside" id="wkO-E2-CAj"/>
+                                    <outlet property="delegate" destination="HLL-fJ-xWb" id="V4v-tE-NRG"/>
                                 </connections>
-                            </button>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="105" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R3O-16-ZWW">
-                                <rect key="frame" x="0.0" y="64" width="414" height="572"/>
+                                <rect key="frame" x="0.0" y="108" width="414" height="528"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -499,13 +494,34 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="HLL-fJ-xWb" id="MSH-9N-U5n"/>
+                                    <outlet property="delegate" destination="HLL-fJ-xWb" id="Faz-Jr-r0Z"/>
+                                    <outlet property="emptyDataSetDelegate" destination="HLL-fJ-xWb" id="W40-sa-D2I"/>
+                                    <outlet property="emptyDataSetSource" destination="HLL-fJ-xWb" id="QZb-Vx-y87"/>
+                                </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8o-1T-uit">
+                                <rect key="frame" x="182" y="661" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.41176470588235292" green="0.74901960784313726" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="38d-6k-m90"/>
+                                    <constraint firstAttribute="width" constant="50" id="fdU-gk-a0Z"/>
+                                </constraints>
+                                <state key="normal" image="Plus"/>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="HLL-fJ-xWb" eventType="touchUpInside" id="wkO-E2-CAj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="FJs-hN-tNX" firstAttribute="leading" secondItem="heA-St-Dsr" secondAttribute="leading" id="IDQ-9L-0ey"/>
                             <constraint firstAttribute="trailing" secondItem="R3O-16-ZWW" secondAttribute="trailing" id="Le7-Qc-1KB"/>
-                            <constraint firstItem="R3O-16-ZWW" firstAttribute="top" secondItem="Tyf-wF-sdZ" secondAttribute="bottom" id="NcE-rx-EAL"/>
+                            <constraint firstItem="FJs-hN-tNX" firstAttribute="top" secondItem="Tyf-wF-sdZ" secondAttribute="bottom" id="UK3-PO-Pa2"/>
+                            <constraint firstAttribute="trailing" secondItem="FJs-hN-tNX" secondAttribute="trailing" id="epP-C2-u1C"/>
                             <constraint firstItem="t8o-1T-uit" firstAttribute="centerX" secondItem="heA-St-Dsr" secondAttribute="centerX" id="gr9-gp-Sjx"/>
+                            <constraint firstItem="R3O-16-ZWW" firstAttribute="top" secondItem="FJs-hN-tNX" secondAttribute="bottom" id="odb-sg-ZOH"/>
                             <constraint firstItem="t8o-1T-uit" firstAttribute="top" secondItem="R3O-16-ZWW" secondAttribute="bottom" constant="25" id="qw4-vB-eyh"/>
                             <constraint firstItem="R3O-16-ZWW" firstAttribute="leading" secondItem="heA-St-Dsr" secondAttribute="leading" id="w2L-F9-H5f"/>
                             <constraint firstItem="6be-k3-wbe" firstAttribute="top" secondItem="t8o-1T-uit" secondAttribute="bottom" constant="25" id="y8A-ob-ZYo"/>
