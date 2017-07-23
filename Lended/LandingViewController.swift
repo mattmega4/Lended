@@ -12,7 +12,6 @@ import UIKit
 class LandingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var addButton: UIButton!
     
     
     let CELL_IDENTIFIER = "loanCell"
@@ -30,8 +29,6 @@ class LandingViewController: UIViewController {
     
 
 
-    @IBAction func addButtonTapped(_ sender: UIButton) {
-    }
 
 }
 
