@@ -19,7 +19,7 @@ class Message: NSObject {
         if let messageData = snapshot.value as? [String : Any] {
             senderProfilePicture = messageData["profilePicture"] as? String
             sender = messageData["sender"] as? String
-            message = messageData["text"]
+            message = messageData["text"] as? String
         }
     }
     

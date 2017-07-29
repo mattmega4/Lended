@@ -15,7 +15,9 @@
 		2939BB5E1F2C0EAC00FB5D5D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB5D1F2C0EAC00FB5D5D /* Message.swift */; };
 		2939BB601F2C0EC000FB5D5D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB5F1F2C0EC000FB5D5D /* Person.swift */; };
 		2939BB621F2C0F6100FB5D5D /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB611F2C0F6100FB5D5D /* ChatRoom.swift */; };
-		29712B7D1F244AF100356E35 /* EventClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712B7C1F244AF100356E35 /* EventClass.swift */; };
+		2939BB641F2C17F400FB5D5D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB631F2C17F400FB5D5D /* Event.swift */; };
+		2939BB671F2C1E0900FB5D5D /* ChatRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB661F2C1E0900FB5D5D /* ChatRoomTableViewCell.swift */; };
+		2939BB691F2C1E4000FB5D5D /* ChatRoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB681F2C1E4000FB5D5D /* ChatRoomTableViewController.swift */; };
 		297176A61F22ADD7006C527D /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176A51F22ADD7006C527D /* EntryViewController.swift */; };
 		297176A81F22ADE3006C527D /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176A71F22ADE3006C527D /* LandingViewController.swift */; };
 		297176AC1F22AE5D006C527D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176AB1F22AE5D006C527D /* UIView+Extensions.swift */; };
@@ -49,7 +51,9 @@
 		2939BB5D1F2C0EAC00FB5D5D /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2939BB5F1F2C0EC000FB5D5D /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		2939BB611F2C0F6100FB5D5D /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
-		29712B7C1F244AF100356E35 /* EventClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventClass.swift; sourceTree = "<group>"; };
+		2939BB631F2C17F400FB5D5D /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		2939BB661F2C1E0900FB5D5D /* ChatRoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomTableViewCell.swift; sourceTree = "<group>"; };
+		2939BB681F2C1E4000FB5D5D /* ChatRoomTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomTableViewController.swift; sourceTree = "<group>"; };
 		297176A51F22ADD7006C527D /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		297176A71F22ADE3006C527D /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		297176AB1F22AE5D006C527D /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 		1D17F21B1E4327F3008B3216 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2939BB681F2C1E4000FB5D5D /* ChatRoomTableViewController.swift */,
+				2939BB651F2C1DD000FB5D5D /* Chat Cells */,
 				297176A51F22ADD7006C527D /* EntryViewController.swift */,
 				297176A71F22ADE3006C527D /* LandingViewController.swift */,
 				29F8EE411F22B6D900DE0032 /* Landing Cells */,
@@ -158,7 +164,7 @@
 			children = (
 				29FD4DD11F22D99E00E2BEFF /* FirebaseUtility.swift */,
 				29FD4DD41F22E48A00E2BEFF /* TransactionUtility.swift */,
-				29712B7C1F244AF100356E35 /* EventClass.swift */,
+				2939BB631F2C17F400FB5D5D /* Event.swift */,
 				2939BB5D1F2C0EAC00FB5D5D /* Message.swift */,
 				2939BB611F2C0F6100FB5D5D /* ChatRoom.swift */,
 				2939BB5F1F2C0EC000FB5D5D /* Person.swift */,
@@ -178,6 +184,14 @@
 				297176BB1F22AF69006C527D /* UITextField+Extensions.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		2939BB651F2C1DD000FB5D5D /* Chat Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2939BB661F2C1E0900FB5D5D /* ChatRoomTableViewCell.swift */,
+			);
+			name = "Chat Cells";
 			sourceTree = "<group>";
 		};
 		297176BD1F22B034006C527D /* Constants */ = {
@@ -402,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2939BB691F2C1E4000FB5D5D /* ChatRoomTableViewController.swift in Sources */,
 				297176AC1F22AE5D006C527D /* UIView+Extensions.swift in Sources */,
 				29FD4DCA1F22D1DF00E2BEFF /* Library.swift in Sources */,
 				29F8EE431F22B6FA00DE0032 /* LandingTableViewCell.swift in Sources */,
@@ -410,6 +425,7 @@
 				297176B21F22AEA5006C527D /* UIImageView+Extensions.swift in Sources */,
 				2939BB5E1F2C0EAC00FB5D5D /* Message.swift in Sources */,
 				29FD4DD21F22D99E00E2BEFF /* FirebaseUtility.swift in Sources */,
+				2939BB641F2C17F400FB5D5D /* Event.swift in Sources */,
 				297176B61F22AEEB006C527D /* UIViewController+Extensions.swift in Sources */,
 				297176B81F22AF32006C527D /* NSObject+Extensions.swift in Sources */,
 				2939BB621F2C0F6100FB5D5D /* ChatRoom.swift in Sources */,
@@ -417,7 +433,7 @@
 				297176A61F22ADD7006C527D /* EntryViewController.swift in Sources */,
 				297176B01F22AE7C006C527D /* String+Extensions.swift in Sources */,
 				297176BC1F22AF69006C527D /* UITextField+Extensions.swift in Sources */,
-				29712B7D1F244AF100356E35 /* EventClass.swift in Sources */,
+				2939BB671F2C1E0900FB5D5D /* ChatRoomTableViewCell.swift in Sources */,
 				1D17F2091E431645008B3216 /* AppDelegate.swift in Sources */,
 				29FD4DD51F22E48A00E2BEFF /* TransactionUtility.swift in Sources */,
 				29FD4DCE1F22D22B00E2BEFF /* AcknowledgementsTableViewCell.swift in Sources */,
