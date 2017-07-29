@@ -17,17 +17,18 @@ class ChatRoom: NSObject {
     
     
     init(snapshot: DataSnapshot) {
-        if let chatRoomData = snapshot.value as? [String : Any] {
+        
+        if let chatRoomDict = snapshot.value as? [String : Any] {
             
-            if let people = chatRoomData["participants"] as? [DataSnapshot] {
+            if let people = chatRoomDict["participants"] as? [DataSnapshot] {
                 for aPerson in people {
                     let participant = Person(snapshot: aPerson)
                     participants.append(participant)
                 }
             }
             
-            latestMessage = chatRoomData["message"] as? String
-            if let senderSnapshot = chatRoomData["latestSender"] as? DataSnapshot {
+            latestMessage = chatRoomDict["message"] as? String
+            if let senderSnapshot = chatRoomDict["latestSender"] as? DataSnapshot {
                 latestSender = Person(snapshot: senderSnapshot)
             }
         }

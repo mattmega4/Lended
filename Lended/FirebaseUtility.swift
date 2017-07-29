@@ -14,19 +14,22 @@ import Fabric
 import Crashlytics
 
 class FirebaseUtility: NSObject {
-
+    
     static let shared = FirebaseUtility()
     
     let ref = Database.database().reference()
     var user = Auth.auth().currentUser
     let storage = Storage.storage()
-
     
     
+    // MARK: - Auth
     
+    func resetPasswordWith(email: String, completion: (_ error: String) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            print(error.debugDescription)
+        }
+    }
     
-    
-    // MARK: - Login/Signup
     
     func signUserInWith(email: String?, password: String?, completion: @escaping (_ user: User?, _ errorMessage: String?) -> Void) {
         
@@ -117,7 +120,32 @@ class FirebaseUtility: NSObject {
             }
         })
     }
-
+    
+    // MARK: - Events
+    
+    func getEvents(completion: @escaping (_ events: [Event]?, _ errorMessage: String?) -> Void) {
+        
+        guard let userID = user?.uid else {
+            let error = "Unknown error occured! User is not logged in."
+            completion(nil, error)
+            return
+        }
+        
+        let userEventRef = ref.child("events").child(userID)
+        userEventRef.observe(.value, with: { (snapshot) in
+            let enumerator = snapshot.children
+            var events = [Event]()
+            
+            while let eventSnapshot = enumerator.nextObject() as? DataSnapshot {
+                let event = Event(id: eventSnapshot.key, snapshot: eventSnapshot)
+                events.append(event)
+            }
+            
+            completion(events, nil)
+            
+        })
+    }
+    
     
     
 }

@@ -21,13 +21,13 @@ class Person: NSObject {
     
     
     init(snapshot: DataSnapshot) {
-        if let personData = snapshot.value as? [String : Any] {
-            profilePicture = personData["profilePicture"] as? String
-            personName = personData["name"] as? String
-            phoneNumber = personData["number"] as? Int
-            emailAdy = personData["email"] as? String
-            amount = personData["amount"] as? Double
-            chatRoomID = personData["chatRoomID"] as? String
+        if let personDict = snapshot.value as? [String : Any] {
+            profilePicture = personDict["profilePicture"] as? String
+            personName = personDict["name"] as? String
+            phoneNumber = personDict["number"] as? Int
+            emailAdy = personDict["email"] as? String
+            amount = personDict["amount"] as? Double
+            chatRoomID = personDict["chatRoomID"] as? String
         }
         personID = snapshot.key
     }

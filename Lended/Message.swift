@@ -16,10 +16,10 @@ class Message: NSObject {
     var message: String?
     
     init(snapshot: DataSnapshot) {
-        if let messageData = snapshot.value as? [String : Any] {
-            senderProfilePicture = messageData["profilePicture"] as? String
-            sender = messageData["sender"] as? String
-            message = messageData["text"] as? String
+        if let messageDict = snapshot.value as? [String : Any] {
+            senderProfilePicture = messageDict["profilePicture"] as? String
+            sender = messageDict["sender"] as? String
+            message = messageDict["text"] as? String
         }
     }
     
