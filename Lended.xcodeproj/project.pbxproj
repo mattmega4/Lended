@@ -12,8 +12,10 @@
 		1D17F2101E431645008B3216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D17F20F1E431645008B3216 /* Assets.xcassets */; };
 		1D17F2131E431645008B3216 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D17F2111E431645008B3216 /* LaunchScreen.storyboard */; };
 		1D7BAED91E51A63700A42859 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7BAED81E51A63700A42859 /* StoreKit.framework */; };
+		2939BB5E1F2C0EAC00FB5D5D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB5D1F2C0EAC00FB5D5D /* Message.swift */; };
+		2939BB601F2C0EC000FB5D5D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB5F1F2C0EC000FB5D5D /* Person.swift */; };
+		2939BB621F2C0F6100FB5D5D /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB611F2C0F6100FB5D5D /* ChatRoom.swift */; };
 		29712B7D1F244AF100356E35 /* EventClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712B7C1F244AF100356E35 /* EventClass.swift */; };
-		29712B7F1F244B0200356E35 /* PersonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712B7E1F244B0200356E35 /* PersonClass.swift */; };
 		297176A61F22ADD7006C527D /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176A51F22ADD7006C527D /* EntryViewController.swift */; };
 		297176A81F22ADE3006C527D /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176A71F22ADE3006C527D /* LandingViewController.swift */; };
 		297176AC1F22AE5D006C527D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176AB1F22AE5D006C527D /* UIView+Extensions.swift */; };
@@ -44,8 +46,10 @@
 		1D17F2121E431645008B3216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D17F2141E431645008B3216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D7BAED81E51A63700A42859 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		2939BB5D1F2C0EAC00FB5D5D /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		2939BB5F1F2C0EC000FB5D5D /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		2939BB611F2C0F6100FB5D5D /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		29712B7C1F244AF100356E35 /* EventClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventClass.swift; sourceTree = "<group>"; };
-		29712B7E1F244B0200356E35 /* PersonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonClass.swift; sourceTree = "<group>"; };
 		297176A51F22ADD7006C527D /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		297176A71F22ADE3006C527D /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		297176AB1F22AE5D006C527D /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -155,7 +159,9 @@
 				29FD4DD11F22D99E00E2BEFF /* FirebaseUtility.swift */,
 				29FD4DD41F22E48A00E2BEFF /* TransactionUtility.swift */,
 				29712B7C1F244AF100356E35 /* EventClass.swift */,
-				29712B7E1F244B0200356E35 /* PersonClass.swift */,
+				2939BB5D1F2C0EAC00FB5D5D /* Message.swift */,
+				2939BB611F2C0F6100FB5D5D /* ChatRoom.swift */,
+				2939BB5F1F2C0EC000FB5D5D /* Person.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -400,11 +406,13 @@
 				29FD4DCA1F22D1DF00E2BEFF /* Library.swift in Sources */,
 				29F8EE431F22B6FA00DE0032 /* LandingTableViewCell.swift in Sources */,
 				297176BA1F22AF4C006C527D /* Array+Extensions.swift in Sources */,
+				2939BB601F2C0EC000FB5D5D /* Person.swift in Sources */,
 				297176B21F22AEA5006C527D /* UIImageView+Extensions.swift in Sources */,
-				29712B7F1F244B0200356E35 /* PersonClass.swift in Sources */,
+				2939BB5E1F2C0EAC00FB5D5D /* Message.swift in Sources */,
 				29FD4DD21F22D99E00E2BEFF /* FirebaseUtility.swift in Sources */,
 				297176B61F22AEEB006C527D /* UIViewController+Extensions.swift in Sources */,
 				297176B81F22AF32006C527D /* NSObject+Extensions.swift in Sources */,
+				2939BB621F2C0F6100FB5D5D /* ChatRoom.swift in Sources */,
 				29FD4DCC1F22D20E00E2BEFF /* AcknowledgementsViewModel.swift in Sources */,
 				297176A61F22ADD7006C527D /* EntryViewController.swift in Sources */,
 				297176B01F22AE7C006C527D /* String+Extensions.swift in Sources */,
