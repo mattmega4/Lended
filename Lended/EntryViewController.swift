@@ -336,7 +336,7 @@ class EntryViewController: UIViewController {
                 alertController.addAction(OKAction)
             }
             else {
-                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -355,14 +355,8 @@ class EntryViewController: UIViewController {
                 alertController.addAction(OKAction)
             }
             else {
-                if let pinVC = SCPinViewController(scope: .create) {
-                    pinVC.createDelegate = self
-                    self.present(pinVC, animated: true, completion: nil)
-                    
-                }
-                else {
-                    self.dismiss(animated: true, completion: nil)
-                }
+                self.navigationController?.dismiss(animated: true, completion: nil)
+                
             }
         }
     }

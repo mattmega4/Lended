@@ -32,7 +32,9 @@ class LandingViewController: UIViewController {
             self.tableView.reloadData()
             if let loginVc = storyboard?.instantiateViewController(withIdentifier: ENTRY_VC_STORYBOARD_IDENTIFIER) as? EntryViewController {
                 let loginNavigation = UINavigationController(rootViewController: loginVc)
-                self.splitViewController?.present(loginNavigation, animated: true, completion: nil)
+                self.tabBarController?.present(loginNavigation, animated: true, completion: nil)
+                
+//                self.splitViewController?.present(loginNavigation, animated: true, completion: nil)
             }
         }
         else {
@@ -64,6 +66,14 @@ extension LandingViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: LOAN_CELL_IDENTIFIER, for: indexPath as IndexPath) as! LandingTableViewCell
 
+        let row = indexPath.row
+        
+        
+        cell.nameLabel.text = eventArray[row].eventName
+        
+//        cell.profileImageOne
+        
+        
         
         
 //        if let img = cardArray[row].image {

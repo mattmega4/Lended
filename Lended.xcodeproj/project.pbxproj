@@ -28,6 +28,9 @@
 		297176BA1F22AF4C006C527D /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176B91F22AF4C006C527D /* Array+Extensions.swift */; };
 		297176BC1F22AF69006C527D /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176BB1F22AF69006C527D /* UITextField+Extensions.swift */; };
 		297176BF1F22B045006C527D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176BE1F22B045006C527D /* Constants.swift */; };
+		29D47DF21F2D32EE003F9E36 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D47DF11F2D32EE003F9E36 /* MessageViewController.swift */; };
+		29D47DF51F2D3316003F9E36 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D47DF41F2D3316003F9E36 /* MessageTableViewCell.swift */; };
+		29D47DF91F2D3EC2003F9E36 /* InitialsImageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D47DF81F2D3EC2003F9E36 /* InitialsImageFactory.swift */; };
 		29D6E0BE1F1211EB0079EE55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29D6E0BD1F1211EB0079EE55 /* GoogleService-Info.plist */; };
 		29F8EE431F22B6FA00DE0032 /* LandingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F8EE421F22B6FA00DE0032 /* LandingTableViewCell.swift */; };
 		29FD4DC71F22D17900E2BEFF /* AcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FD4DC61F22D17900E2BEFF /* AcknowledgementsViewController.swift */; };
@@ -64,6 +67,9 @@
 		297176B91F22AF4C006C527D /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		297176BB1F22AF69006C527D /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		297176BE1F22B045006C527D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		29D47DF11F2D32EE003F9E36 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		29D47DF41F2D3316003F9E36 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		29D47DF81F2D3EC2003F9E36 /* InitialsImageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialsImageFactory.swift; sourceTree = "<group>"; };
 		29D6E0BD1F1211EB0079EE55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		29F8EE421F22B6FA00DE0032 /* LandingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingTableViewCell.swift; sourceTree = "<group>"; };
 		29FD4DC61F22D17900E2BEFF /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewController.swift; sourceTree = "<group>"; };
@@ -140,13 +146,15 @@
 		1D17F21B1E4327F3008B3216 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2939BB681F2C1E4000FB5D5D /* ChatRoomTableViewController.swift */,
-				2939BB651F2C1DD000FB5D5D /* Chat Cells */,
 				297176A51F22ADD7006C527D /* EntryViewController.swift */,
 				297176A71F22ADE3006C527D /* LandingViewController.swift */,
 				29F8EE411F22B6D900DE0032 /* Landing Cells */,
 				29FD4DC61F22D17900E2BEFF /* AcknowledgementsViewController.swift */,
+				2939BB681F2C1E4000FB5D5D /* ChatRoomTableViewController.swift */,
+				2939BB651F2C1DD000FB5D5D /* Chat Cells */,
 				29FD4DC81F22D1CE00E2BEFF /* Acknowledgements */,
+				29D47DF11F2D32EE003F9E36 /* MessageViewController.swift */,
+				29D47DF31F2D32F6003F9E36 /* Message Cells */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -168,6 +176,7 @@
 				2939BB5D1F2C0EAC00FB5D5D /* Message.swift */,
 				2939BB611F2C0F6100FB5D5D /* ChatRoom.swift */,
 				2939BB5F1F2C0EC000FB5D5D /* Person.swift */,
+				29D47DF81F2D3EC2003F9E36 /* InitialsImageFactory.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -200,6 +209,14 @@
 				297176BE1F22B045006C527D /* Constants.swift */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		29D47DF31F2D32F6003F9E36 /* Message Cells */ = {
+			isa = PBXGroup;
+			children = (
+				29D47DF41F2D3316003F9E36 /* MessageTableViewCell.swift */,
+			);
+			name = "Message Cells";
 			sourceTree = "<group>";
 		};
 		29F8EE411F22B6D900DE0032 /* Landing Cells */ = {
@@ -419,12 +436,15 @@
 				2939BB691F2C1E4000FB5D5D /* ChatRoomTableViewController.swift in Sources */,
 				297176AC1F22AE5D006C527D /* UIView+Extensions.swift in Sources */,
 				29FD4DCA1F22D1DF00E2BEFF /* Library.swift in Sources */,
+				29D47DF91F2D3EC2003F9E36 /* InitialsImageFactory.swift in Sources */,
 				29F8EE431F22B6FA00DE0032 /* LandingTableViewCell.swift in Sources */,
 				297176BA1F22AF4C006C527D /* Array+Extensions.swift in Sources */,
 				2939BB601F2C0EC000FB5D5D /* Person.swift in Sources */,
 				297176B21F22AEA5006C527D /* UIImageView+Extensions.swift in Sources */,
+				29D47DF51F2D3316003F9E36 /* MessageTableViewCell.swift in Sources */,
 				2939BB5E1F2C0EAC00FB5D5D /* Message.swift in Sources */,
 				29FD4DD21F22D99E00E2BEFF /* FirebaseUtility.swift in Sources */,
+				29D47DF21F2D32EE003F9E36 /* MessageViewController.swift in Sources */,
 				2939BB641F2C17F400FB5D5D /* Event.swift in Sources */,
 				297176B61F22AEEB006C527D /* UIViewController+Extensions.swift in Sources */,
 				297176B81F22AF32006C527D /* NSObject+Extensions.swift in Sources */,

@@ -15,4 +15,9 @@ class ChatRoomTableViewCell: UITableViewCell {
     @IBOutlet weak var latestMessageLabel: UILabel!
     
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        profileThumbView.createRoundImageView()
+    }
 }

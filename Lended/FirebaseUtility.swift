@@ -137,7 +137,7 @@ class FirebaseUtility: NSObject {
             var events = [Event]()
             
             while let eventSnapshot = enumerator.nextObject() as? DataSnapshot {
-                let event = Event(id: eventSnapshot.key, snapshot: eventSnapshot)
+                let event = Event(snapshot: eventSnapshot)
                 events.append(event)
             }
             
@@ -145,6 +145,11 @@ class FirebaseUtility: NSObject {
             
         })
     }
+    
+    
+    // MARK: - Message
+    
+    func getMessages
     
     
     

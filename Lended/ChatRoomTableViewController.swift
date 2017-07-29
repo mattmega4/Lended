@@ -14,24 +14,27 @@ class ChatRoomTableViewController: UITableViewController {
     
     let chatRoomCellIdentifier = "chatRoomCell"
     
-    let ref = Database.database().reference()
+    var ref: DatabaseReference!
     var chatRooms = [ChatRoom]()
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ref = Database.database().reference()
         // Uncomment the following line to preserve selection between presentations
          self.clearsSelectionOnViewWillAppear = false
-
-        loadFirebaseData()
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         ref.child("chatRooms").removeAllObservers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadFirebaseData()
     }
 
 

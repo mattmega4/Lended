@@ -16,7 +16,6 @@ extension UIView {
     @IBInspectable var materialDesign: Bool {
         
         get {
-            
             return materialKey
             
         } set {
