@@ -11,12 +11,14 @@ import Firebase
 
 class ChatRoom: NSObject {
     
+    var chatRoomID: String
     var participants = [Person]()
     var latestMessage: String?
     var latestSender: Person?
     
     
     init(snapshot: DataSnapshot) {
+        chatRoomID = snapshot.key
         let enumerator = snapshot.childSnapshot(forPath: "participants").children
         while let participantSnapshot = enumerator.nextObject() as? DataSnapshot {
             let participant = Person(snapshot: participantSnapshot)

@@ -149,7 +149,28 @@ class FirebaseUtility: NSObject {
     
     // MARK: - Message
     
-    func getMessages
+    func getMessagesFor(chatRoom: ChatRoom?, completion: @escaping (_ messages: [Message]?, _ errorMessage: String?) ->Void) {
+        
+        guard let chatRoomID = chatRoom?.chatRoomID else {
+            let error = "An unkown error occured, could not connect to chatroom"
+            completion(nil, error)
+            return
+        }
+        
+        let chatRef = ref.child("messages").child(chatRoomID)
+        chatRef.observe(.value, with: { (snapshot) in
+            let enumerator = snapshot.children
+            var chats = [Message]()
+            
+            while let chatSnapShot = enumerator.nextObject() as? DataSnapshot {
+                let chat = Message(snapshot: chatSnapShot)
+                chats.append(chat)
+            }
+            completion(chats, nil)
+        })
+        
+        
+    }
     
     
     

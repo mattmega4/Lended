@@ -514,7 +514,7 @@
         <!--Chat-->
         <scene sceneID="e28-As-u2a">
             <objects>
-                <viewController id="87c-ks-hNa" customClass="MessageViewController" customModule="Lended" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="messagesVC" id="87c-ks-hNa" customClass="MessageViewController" customModule="Lended" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ok3-KB-9DX"/>
                         <viewControllerLayoutGuide type="bottom" id="VLP-3d-UL0"/>
@@ -568,6 +568,9 @@
                                                         <constraint firstAttribute="bottom" secondItem="XhE-so-8fh" secondAttribute="bottom" constant="5" id="k31-aW-aQ6"/>
                                                         <constraint firstItem="XhE-so-8fh" firstAttribute="top" secondItem="1M6-Mq-fGr" secondAttribute="top" constant="5" id="ukb-JV-uc9"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -582,9 +585,6 @@
                                                 <constraint firstItem="1M6-Mq-fGr" firstAttribute="leading" secondItem="WoL-9o-hsi" secondAttribute="trailing" constant="5" id="zHP-fv-OtE"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="chatBubbleView" destination="1M6-Mq-fGr" id="gHv-5X-h3R"/>
                                             <outlet property="chatTextLabel" destination="XhE-so-8fh" id="s82-Nx-MfN"/>
@@ -618,6 +618,9 @@
                                                         <constraint firstAttribute="trailing" secondItem="1jA-ko-aTi" secondAttribute="trailing" constant="5" id="b3W-LJ-50o"/>
                                                         <constraint firstItem="1jA-ko-aTi" firstAttribute="top" secondItem="Ktj-0Y-HZA" secondAttribute="top" constant="5" id="esJ-J3-pmk"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -627,9 +630,6 @@
                                                 <constraint firstItem="Ktj-0Y-HZA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ITF-8r-JXs" secondAttribute="leading" constant="100" id="myc-rx-CI8"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="chatBubbleView" destination="Ktj-0Y-HZA" id="eCS-sa-LCX"/>
                                             <outlet property="chatTextLabel" destination="1jA-ko-aTi" id="4Xt-C2-Fxt"/>
