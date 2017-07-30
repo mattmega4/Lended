@@ -9,15 +9,15 @@
 import UIKit
 
 class ChatRoomTableViewCell: UITableViewCell {
+  
+  @IBOutlet weak var profileThumbView: UIImageView!
+  @IBOutlet weak var senderName: UILabel!
+  @IBOutlet weak var latestMessageLabel: UILabel!
+  
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
     
-    @IBOutlet weak var profileThumbView: UIImageView!
-    @IBOutlet weak var senderName: UILabel!
-    @IBOutlet weak var latestMessageLabel: UILabel!
-    
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        profileThumbView.createRoundImageView()
-    }
+    profileThumbView.createRoundImageView()
+  }
 }

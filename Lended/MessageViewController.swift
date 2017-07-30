@@ -11,178 +11,178 @@ import Firebase
 import Kingfisher
 
 class MessageViewController: UIViewController {
+  
+  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var contentView: UIView!
+  
+  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var sendMessageContainerView: UIView!
+  @IBOutlet weak var sendMessageTextField: UITextField!
+  @IBOutlet weak var sendMessageButton: UIButton!
+  
+  let YOU_CELL_IDENTIFIER = "youMessageCell"
+  let ME_CELL_IDENTIFIER = "meMessageCell"
+  
+  var messageArray = [Message]()
+  var chatRoom: ChatRoom?
+  
+  var ref: DatabaseReference!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var contentView: UIView!
+    ref = Database.database().reference()
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var sendMessageContainerView: UIView!
-    @IBOutlet weak var sendMessageTextField: UITextField!
-    @IBOutlet weak var sendMessageButton: UIButton!
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 500
     
-    let YOU_CELL_IDENTIFIER = "youMessageCell"
-    let ME_CELL_IDENTIFIER = "meMessageCell"
+    self.tableView.delegate = self
+    self.tableView.dataSource = self
+    self.sendMessageTextField.delegate = self
     
-    var messageArray = [Message]()
-    var chatRoom: ChatRoom?
+    setNavBar()
+    updateTitleView()
+    sendMessageTextField.createRoundedTextFieldCorners()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     
-    var ref: DatabaseReference!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        ref = Database.database().reference()
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 500
-        
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.sendMessageTextField.delegate = self
-        
-        setNavBar()
-        updateTitleView()
-        sendMessageTextField.createRoundedTextFieldCorners()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    loadMessages()
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    if let chatRoomID = chatRoom?.chatRoomID {
+      ref.child("messages").child(chatRoomID).removeAllObservers()
     }
+  }
+  
+  func updateTitleView() {
+    let containerView = UIView()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        loadMessages()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        if let chatRoomID = chatRoom?.chatRoomID {
-            ref.child("messages").child(chatRoomID).removeAllObservers()
-        }
-    }
-    
-    func updateTitleView() {
-        let containerView = UIView()
-        
-        let imageView = UIImageView(frame: CGRect(x: (containerView.frame.width - 30) / 2, y: (containerView.frame.height - 30) / 2, width: 30, height: 30))
-        imageView.backgroundColor = .lightGray
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.createRoundImageView()
-        if let participants = chatRoom?.participants {
-            if participants.count == 2 {
-                for aPerson in participants {
-                    if aPerson.personID != Auth.auth().currentUser?.uid {
-                        if let imageString = aPerson.profilePicture {
-                            let imageURL = URL(string: imageString)
-                            imageView.kf.setImage(with: imageURL)
-                        }
-                        else {
-                            imageView.image = InitialsImageFactory.imageWith(name: aPerson.personName)
-                        }
-                    }
-                }
+    let imageView = UIImageView(frame: CGRect(x: (containerView.frame.width - 30) / 2, y: (containerView.frame.height - 30) / 2, width: 30, height: 30))
+    imageView.backgroundColor = .lightGray
+    imageView.contentMode = .scaleAspectFill
+    imageView.clipsToBounds = true
+    imageView.createRoundImageView()
+    if let participants = chatRoom?.participants {
+      if participants.count == 2 {
+        for aPerson in participants {
+          if aPerson.personID != Auth.auth().currentUser?.uid {
+            if let imageString = aPerson.profilePicture {
+              let imageURL = URL(string: imageString)
+              imageView.kf.setImage(with: imageURL)
             }
-        }
-        containerView.addSubview(imageView)
-        navigationItem.titleView = containerView
-    }
-    
-    func loadMessages() {
-        
-        FirebaseUtility.shared.getMessagesFor(chatRoom: chatRoom) { (messages, error) in
-            
-            if let theMessages = messages {
-                self.messageArray = theMessages
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    let lastIndexPath = IndexPath(row: self.messageArray.count - 1, section: 0)
-                    self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: false)
-                }
+            else {
+              imageView.image = InitialsImageFactory.imageWith(name: aPerson.personName)
             }
+          }
         }
-        
+      }
+    }
+    containerView.addSubview(imageView)
+    navigationItem.titleView = containerView
+  }
+  
+  func loadMessages() {
+    
+    FirebaseUtility.shared.getMessagesFor(chatRoom: chatRoom) { (messages, error) in
+      
+      if let theMessages = messages {
+        self.messageArray = theMessages
+        DispatchQueue.main.async {
+          self.tableView.reloadData()
+          let lastIndexPath = IndexPath(row: self.messageArray.count - 1, section: 0)
+          self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: false)
+        }
+      }
     }
     
-    
-    // MARK: - Keyboard Methods
-    
-    func keyboardWillShow(notification:NSNotification) {
-        var userInfo = notification.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        var contentInset: UIEdgeInsets = self.scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height + 60
-        self.scrollView.contentInset = contentInset
-    }
-    
-    
-    func keyboardWillHide(notification:NSNotification) {
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-        self.scrollView.contentInset = contentInset
-    }
-    
+  }
+  
+  
+  // MARK: - Keyboard Methods
+  
+  func keyboardWillShow(notification:NSNotification) {
+    var userInfo = notification.userInfo!
+    var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+    keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+    var contentInset: UIEdgeInsets = self.scrollView.contentInset
+    contentInset.bottom = keyboardFrame.size.height + 60
+    self.scrollView.contentInset = contentInset
+  }
+  
+  
+  func keyboardWillHide(notification:NSNotification) {
+    let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+    self.scrollView.contentInset = contentInset
+  }
+  
 }
 
 
 extension MessageViewController: UITextFieldDelegate {
-    
+  
 }
 
 extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
+  
+  
+  
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return messageArray.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
+    let row = indexPath.row
     
+    let message = messageArray[row]
     
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messageArray.count
+    if message.senderId == Auth.auth().currentUser?.uid {
+      
+      let cell = tableView.dequeueReusableCell(withIdentifier: ME_CELL_IDENTIFIER, for: indexPath) as! MessageTableViewCell
+      
+      cell.chatTextLabel.text = message.message
+      
+      return cell
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: YOU_CELL_IDENTIFIER, for: indexPath) as! MessageTableViewCell
+    
+    
+    
+    cell.chatTextLabel.text = message.message
+    
+    if let participantCount = chatRoom?.participants.count {
+      if participantCount > 2 {
+        cell.profileImageViewHeightConstraint?.constant = 30
+        cell.senderNameLabelHeightConstraint?.constant = 20
+        cell.senderNameLabel?.text = message.sender
         
-        let row = indexPath.row
-        
-        let message = messageArray[row]
-        
-        if message.senderId == Auth.auth().currentUser?.uid {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: ME_CELL_IDENTIFIER, for: indexPath) as! MessageTableViewCell
-            
-            cell.chatTextLabel.text = message.message
-            
-            return cell
+        if let profileURLString = message.senderProfilePicture {
+          let profileURL = URL(string: profileURLString)
+          let placeholder = InitialsImageFactory.imageWith(name: message.sender)
+          cell.senderProfileImageView?.kf.setImage(with: profileURL, placeholder: placeholder, options: nil, progressBlock: nil, completionHandler: nil)
         }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: YOU_CELL_IDENTIFIER, for: indexPath) as! MessageTableViewCell
-        
-        
-        
-        cell.chatTextLabel.text = message.message
-        
-        if let participantCount = chatRoom?.participants.count {
-            if participantCount > 2 {
-                cell.profileImageViewHeightConstraint?.constant = 30
-                cell.senderNameLabelHeightConstraint?.constant = 20
-                cell.senderNameLabel?.text = message.sender
-                
-                if let profileURLString = message.senderProfilePicture {
-                    let profileURL = URL(string: profileURLString)
-                    let placeholder = InitialsImageFactory.imageWith(name: message.sender)
-                    cell.senderProfileImageView?.kf.setImage(with: profileURL, placeholder: placeholder, options: nil, progressBlock: nil, completionHandler: nil)
-                }
-            }
-            else {
-                cell.profileImageViewHeightConstraint?.constant = 0
-                cell.senderNameLabelHeightConstraint?.constant = 0
-            }
-        }
-        
-        
-        
-        
-        return cell
+      }
+      else {
+        cell.profileImageViewHeightConstraint?.constant = 0
+        cell.senderNameLabelHeightConstraint?.constant = 0
+      }
     }
     
     
+    
+    
+    return cell
+  }
+  
+  
 }

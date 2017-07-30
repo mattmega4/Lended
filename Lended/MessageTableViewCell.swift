@@ -9,22 +9,20 @@
 import UIKit
 
 class MessageTableViewCell: UITableViewCell {
+  
+  @IBOutlet weak var senderNameLabel: UILabel?
+  @IBOutlet weak var senderProfileImageView: UIImageView?
+  @IBOutlet weak var chatBubbleView: UIView!
+  @IBOutlet weak var chatTextLabel: UILabel!
+  @IBOutlet weak var profileImageViewHeightConstraint: NSLayoutConstraint?
+  @IBOutlet weak var senderNameLabelHeightConstraint: NSLayoutConstraint?
+  
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
     
-    @IBOutlet weak var senderNameLabel: UILabel?
-    @IBOutlet weak var senderProfileImageView: UIImageView?
-    @IBOutlet weak var chatBubbleView: UIView!
-    @IBOutlet weak var chatTextLabel: UILabel!
-    
-    @IBOutlet weak var profileImageViewHeightConstraint: NSLayoutConstraint?
-    
-    @IBOutlet weak var senderNameLabelHeightConstraint: NSLayoutConstraint?
-    
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        senderProfileImageView?.createRoundImageView()
-        chatBubbleView.createRoundedCorners()
-    }
-
+    senderProfileImageView?.createRoundImageView()
+    chatBubbleView.createRoundedCorners()
+  }
+  
 }

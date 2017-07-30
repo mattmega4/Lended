@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    func createRoundImageView() {
-        layer.cornerRadius = frame.size.width/2
-        clipsToBounds = true
-    }
+  func createRoundImageView() {
+    layer.cornerRadius = frame.size.width/2
+    clipsToBounds = true
+  }
 }

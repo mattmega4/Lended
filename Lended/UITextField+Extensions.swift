@@ -10,19 +10,19 @@ import Foundation
 import UIKit
 
 extension UITextField {
-    
-    func createRoundedTextFieldCorners() {
-        layer.cornerRadius = 7
-        clipsToBounds = true
+  
+  func createRoundedTextFieldCorners() {
+    layer.cornerRadius = 7
+    clipsToBounds = true
+  }
+  
+  @IBInspectable var placeHolderTextColor: UIColor? {
+    set {
+      let placeholderText = self.placeholder != nil ? self.placeholder! : ""
+      attributedPlaceholder = NSAttributedString(string:placeholderText, attributes:[NSForegroundColorAttributeName: newValue!])
     }
-    
-    @IBInspectable var placeHolderTextColor: UIColor? {
-        set {
-            let placeholderText = self.placeholder != nil ? self.placeholder! : ""
-            attributedPlaceholder = NSAttributedString(string:placeholderText, attributes:[NSForegroundColorAttributeName: newValue!])
-        }
-        get{
-            return self.placeHolderTextColor
-        }
+    get{
+      return self.placeHolderTextColor
     }
+  }
 }
