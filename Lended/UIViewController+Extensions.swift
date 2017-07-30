@@ -23,12 +23,12 @@ extension UIViewController {
         navigationController?.navigationBar.barTintColor = UIColor(red: 105.0/255.0,
                                                                    green: 191.0/255.0,
                                                                    blue: 111.0/255.0,
-                                                                   alpha: 1.0)
+                                                                   alpha: 0.9)
         
         UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white,
-                                                                   NSFontAttributeName: UIFont(name: "GillSans-Bold",
+                                                                   NSFontAttributeName: UIFont(name: "Verdana-Bold",
                                                                                                size: 18)!]
     }
     

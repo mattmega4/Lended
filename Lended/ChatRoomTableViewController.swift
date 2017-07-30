@@ -25,7 +25,8 @@ class ChatRoomTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 500
         self.clearsSelectionOnViewWillAppear = false
-        
+        setNavBar()
+        title = "Messaging"
     }
     
     override func viewWillDisappear(_ animated: Bool) {

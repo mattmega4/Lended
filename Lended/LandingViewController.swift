@@ -21,7 +21,8 @@ class LandingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+            setNavBar()
+        title = "Lended"
     }
     
     override func viewDidAppear(_ animated: Bool) {

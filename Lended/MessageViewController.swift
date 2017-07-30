@@ -12,6 +12,9 @@ import Kingfisher
 
 class MessageViewController: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendMessageContainerView: UIView!
     @IBOutlet weak var sendMessageTextField: UITextField!
@@ -37,8 +40,9 @@ class MessageViewController: UIViewController {
         self.tableView.dataSource = self
         self.sendMessageTextField.delegate = self
         
+        setNavBar()
         updateTitleView()
-    
+        sendMessageTextField.createRoundedTextFieldCorners()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,7 +105,24 @@ class MessageViewController: UIViewController {
         
     }
     
-
+    
+    // MARK: - Keyboard Methods
+    
+    func keyboardWillShow(notification:NSNotification) {
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        var contentInset: UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 60
+        self.scrollView.contentInset = contentInset
+    }
+    
+    
+    func keyboardWillHide(notification:NSNotification) {
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        self.scrollView.contentInset = contentInset
+    }
+    
 }
 
 
@@ -110,8 +131,8 @@ extension MessageViewController: UITextFieldDelegate {
 }
 
 extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
-   
-
+    
+    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -157,7 +178,7 @@ extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
-      
+        
         
         
         return cell

@@ -9,7 +9,13 @@
 import Foundation
 import UIKit
 
-extension UITextField{
+extension UITextField {
+    
+    func createRoundedTextFieldCorners() {
+        layer.cornerRadius = 7
+        clipsToBounds = true
+    }
+    
     @IBInspectable var placeHolderTextColor: UIColor? {
         set {
             let placeholderText = self.placeholder != nil ? self.placeholder! : ""
