@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Kingfisher
+import MBProgressHUD
 
 class MessageViewController: UIViewController {
   
@@ -43,6 +44,7 @@ class MessageViewController: UIViewController {
     setNavBar()
     updateTitleView()
     sendMessageTextField.createRoundedTextFieldCorners()
+
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -93,6 +95,7 @@ class MessageViewController: UIViewController {
     
     FirebaseUtility.shared.getMessagesFor(chatRoom: chatRoom) { (messages, error) in
       
+      MBProgressHUD.showAdded(to: self.view, animated: true)
       if let theMessages = messages {
         self.messageArray = theMessages
         DispatchQueue.main.async {
@@ -101,6 +104,7 @@ class MessageViewController: UIViewController {
           self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: false)
         }
       }
+      MBProgressHUD.hide(for: self.view, animated: true)
     }
     
   }

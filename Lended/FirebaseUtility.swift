@@ -147,9 +147,36 @@ class FirebaseUtility: NSObject {
   }
   
   
-  // MARK: - Message
+  // TODO: - Chatroom
   
-  func getMessagesFor(chatRoom: ChatRoom?, completion: @escaping (_ messages: [Message]?, _ errorMessage: String?) ->Void) {
+  func getChatsFor(person: Person?, completion: @escaping ( _ chats: [ChatRoom]?, _ errorMessage: String?) -> Void) {
+    
+    guard let userID = user?.uid else {
+      let error = "Unknown error occured! User is not logged in."
+      completion(nil, error)
+      return
+    }
+    
+  }
+  
+  
+  // TODO: - Messages
+  
+  func addMessageFor(chatRoom: ChatRoom?, completion: @escaping (_ message: [Message]?, _ errorMessage: String?) -> Void) {
+    
+    guard let chatRoomID = chatRoom?.chatRoomID else {
+      let error = "An unkown error occured, could not connect to chatroom"
+      completion(nil, error)
+      return
+    }
+    
+    let chatRef = ref.child("messages").child(chatRoomID).childByAutoId()
+    
+  
+  }
+  
+  
+  func getMessagesFor(chatRoom: ChatRoom?, completion: @escaping (_ messages: [Message]?, _ errorMessage: String?) -> Void) {
     
     guard let chatRoomID = chatRoom?.chatRoomID else {
       let error = "An unkown error occured, could not connect to chatroom"
@@ -158,6 +185,7 @@ class FirebaseUtility: NSObject {
     }
     
     let chatRef = ref.child("messages").child(chatRoomID)
+    
     chatRef.observe(.value, with: { (snapshot) in
       let enumerator = snapshot.children
       var chats = [Message]()

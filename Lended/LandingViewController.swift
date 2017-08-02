@@ -48,18 +48,16 @@ class LandingViewController: UIViewController {
   func pullAllEvents() {
     
     FirebaseUtility.shared.getEvents { (events, errMessage) in
+      MBProgressHUD.showAdded(to: self.view, animated: true)
       if let theEvents = events {
-        MBProgressHUD.showAdded(to: self.view, animated: true)
         self.eventArray = theEvents
         self.tableView.reloadData()
-        
-        MBProgressHUD.hide(for: self.view, animated: true)
-        
       }
+      MBProgressHUD.hide(for: self.view, animated: true)
     }
-    
   }
 }
+
 
 extension LandingViewController: UITableViewDelegate, UITableViewDataSource {
   

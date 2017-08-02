@@ -542,7 +542,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGh-1f-bLP">
-                                                                    <rect key="frame" x="44.999999999999986" y="10" width="208.66666666666663" height="15"/>
+                                                                    <rect key="frame" x="45" y="10" width="269" height="15"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="15" id="IOC-kt-6hZ"/>
                                                                     </constraints>
@@ -558,11 +558,11 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCr-Uv-Mff">
-                                                                    <rect key="frame" x="44.999999999999986" y="25" width="208.66666666666663" height="129"/>
+                                                                    <rect key="frame" x="45" y="25" width="269" height="129"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="j lkfjadsklgj lkdjsalkgj klgajdslg jlka" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okG-g7-hCa">
-                                                                            <rect key="frame" x="8" y="8" width="192.66666666666666" height="113"/>
-                                                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                                                            <rect key="frame" x="8" y="8" width="253" height="113"/>
+                                                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
                                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -608,11 +608,11 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="un6-yX-zCG">
-                                                                    <rect key="frame" x="342.66666666666674" y="10" width="61.333333333333314" height="112"/>
+                                                                    <rect key="frame" x="345.33333333333326" y="10" width="58.666666666666686" height="112"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiI-rv-RCS">
-                                                                            <rect key="frame" x="8" y="8" width="45.333333333333314" height="96"/>
-                                                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                                                            <rect key="frame" x="8" y="8" width="42.666666666666686" height="96"/>
+                                                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -646,30 +646,30 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PoF-nC-UkV">
                                                 <rect key="frame" x="0.0" y="568" width="414" height="55"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rgh-vo-1rP">
-                                                        <rect key="frame" x="8" y="10" width="328" height="35"/>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type Message Here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rgh-vo-1rP">
+                                                        <rect key="frame" x="10" y="10" width="349" height="35"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghS-VN-4gb">
-                                                        <rect key="frame" x="346" y="0.0" width="60" height="55"/>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghS-VN-4gb">
+                                                        <rect key="frame" x="369" y="10" width="35" height="35"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="Sws-n4-cYH"/>
+                                                            <constraint firstAttribute="width" secondItem="ghS-VN-4gb" secondAttribute="height" multiplier="1:1" id="yih-lR-UAf"/>
                                                         </constraints>
-                                                        <state key="normal" title="Send"/>
+                                                        <state key="normal" image="sendArrow"/>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.94057849702380936" green="0.94057849702380936" blue="0.94057849702380936" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="ghS-VN-4gb" firstAttribute="leading" secondItem="Rgh-vo-1rP" secondAttribute="trailing" constant="10" id="E5h-MW-JZm"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ghS-VN-4gb" secondAttribute="trailing" constant="8" id="E8E-Qv-GUy"/>
-                                                    <constraint firstAttribute="bottom" secondItem="ghS-VN-4gb" secondAttribute="bottom" id="Eua-js-YWB"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ghS-VN-4gb" secondAttribute="trailing" constant="10" id="E8E-Qv-GUy"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ghS-VN-4gb" secondAttribute="bottom" constant="10" id="Eua-js-YWB"/>
                                                     <constraint firstAttribute="bottom" secondItem="Rgh-vo-1rP" secondAttribute="bottom" constant="10" id="V6b-zG-sEU"/>
                                                     <constraint firstAttribute="height" constant="55" id="dve-DC-bFY"/>
                                                     <constraint firstItem="Rgh-vo-1rP" firstAttribute="top" secondItem="PoF-nC-UkV" secondAttribute="top" constant="10" id="mA0-Mw-cAq"/>
-                                                    <constraint firstItem="Rgh-vo-1rP" firstAttribute="leading" secondItem="PoF-nC-UkV" secondAttribute="leading" constant="8" id="yod-p7-o3U"/>
-                                                    <constraint firstItem="ghS-VN-4gb" firstAttribute="top" secondItem="PoF-nC-UkV" secondAttribute="top" id="zxq-hE-2y7"/>
+                                                    <constraint firstItem="Rgh-vo-1rP" firstAttribute="leading" secondItem="PoF-nC-UkV" secondAttribute="leading" constant="10" id="oPg-sr-nsG"/>
+                                                    <constraint firstItem="ghS-VN-4gb" firstAttribute="top" secondItem="PoF-nC-UkV" secondAttribute="top" constant="10" id="zxq-hE-2y7"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -890,7 +890,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONI-k3-fjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12323.188405797102" y="1923.913043478261"/>
+            <point key="canvasLocation" x="11416" y="1909"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uXj-uS-pQM">
@@ -1148,7 +1148,7 @@ If you have any questions about these Terms, please contact us.
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M93-2p-yTE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11573.913043478262" y="1923.913043478261"/>
+            <point key="canvasLocation" x="10668" y="1910"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="j79-pH-XXg">
@@ -1248,5 +1248,6 @@ If you have any questions about these Terms, please contact us.
         <image name="LendedLogoInverted" width="1024" height="1024"/>
         <image name="Lock" width="125" height="125"/>
         <image name="Plus" width="125" height="125"/>
+        <image name="sendArrow" width="300" height="300"/>
     </resources>
 </document>

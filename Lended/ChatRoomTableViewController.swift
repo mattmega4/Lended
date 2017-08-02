@@ -40,6 +40,7 @@ class ChatRoomTableViewController: UITableViewController {
   }
   
   
+  // bad
   
   func loadFirebaseData() {
     

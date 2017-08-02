@@ -13,8 +13,10 @@ class Message: NSObject {
   
   var senderProfilePicture: String?
   var sender: String?
-  var message: String?
   var senderId: String?
+  var message: String?
+  var messageID: String? // confirm later
+  
   
   init(snapshot: DataSnapshot) {
     if let messageDict = snapshot.value as? [String : Any] {
@@ -22,6 +24,7 @@ class Message: NSObject {
       sender = messageDict["sender"] as? String
       senderId = messageDict["senderId"] as? String
       message = messageDict["text"] as? String
+      messageID = messageDict["textID"] as? String // confirm later
     }
   }
   
