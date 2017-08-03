@@ -88,8 +88,7 @@ class ChatRoomTableViewController: UITableViewController {
           }
         }
       }
-    }
-    else if chatRoom.participants.count > 2 {
+    } else if chatRoom.participants.count > 2 {
       cell.senderName.text = "Group"
     }
     cell.latestMessageLabel.text = chatRoom.latestMessage

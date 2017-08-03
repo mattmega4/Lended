@@ -80,8 +80,7 @@ class MessageViewController: UIViewController {
             if let imageString = aPerson.profilePicture {
               let imageURL = URL(string: imageString)
               imageView.kf.setImage(with: imageURL)
-            }
-            else {
+            } else {
               imageView.image = InitialsImageFactory.imageWith(name: aPerson.personName)
             }
           }
@@ -176,16 +175,12 @@ extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
           let placeholder = InitialsImageFactory.imageWith(name: message.sender)
           cell.senderProfileImageView?.kf.setImage(with: profileURL, placeholder: placeholder, options: nil, progressBlock: nil, completionHandler: nil)
         }
-      }
-      else {
+      } else {
         cell.profileImageViewHeightConstraint?.constant = 0
         cell.senderNameLabelHeightConstraint?.constant = 0
       }
     }
-    
-    
-    
-    
+
     return cell
   }
   

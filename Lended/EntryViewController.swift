@@ -448,8 +448,7 @@ extension EntryViewController: UITextFieldDelegate {
       if textField == textFieldOne {
         textFieldOne.returnKeyType = .next
         textFieldTwo.becomeFirstResponder()
-      }
-      else {
+      } else {
         textFieldTwo.returnKeyType = .done
         bottomContainerStateSwitcher()
       }
