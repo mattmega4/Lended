@@ -22,12 +22,12 @@ class Person: NSObject {
   
   init(snapshot: DataSnapshot) {
     if let personDict = snapshot.value as? [String : Any] {
-      profilePicture = personDict["profilePicture"] as? String
-      personName = personDict["name"] as? String
-      phoneNumber = personDict["number"] as? Int
-      emailAdy = personDict["email"] as? String
-      amount = personDict["amount"] as? Double
-      chatRoomID = personDict["chatRoomID"] as? String
+      profilePicture = personDict[FirebaseKeys.profilePicture] as? String
+      personName = personDict[FirebaseKeys.personName] as? String
+      phoneNumber = personDict[FirebaseKeys.personPhone] as? Int
+      emailAdy = personDict[FirebaseKeys.personEmail] as? String
+      amount = personDict[FirebaseKeys.personAmount] as? Double
+      chatRoomID = personDict[FirebaseKeys.chatRoomID] as? String // ?
     }
     personID = snapshot.key
   }

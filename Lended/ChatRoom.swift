@@ -19,15 +19,15 @@ class ChatRoom: NSObject {
   
   init(snapshot: DataSnapshot) {
     chatRoomID = snapshot.key
-    let enumerator = snapshot.childSnapshot(forPath: "participants").children
+    let enumerator = snapshot.childSnapshot(forPath: FirebaseKeys.chatParticipants).children
     while let participantSnapshot = enumerator.nextObject() as? DataSnapshot {
       let participant = Person(snapshot: participantSnapshot)
       participants.append(participant)
     }
     
     if let chatRoomDict = snapshot.value as? [String : Any] {
-      latestMessage = chatRoomDict["message"] as? String
-      if let senderSnapshot = chatRoomDict["latestSender"] as? DataSnapshot {
+      latestMessage = chatRoomDict[FirebaseKeys.latestMessage] as? String
+      if let senderSnapshot = chatRoomDict[FirebaseKeys.latestSender] as? DataSnapshot {
         latestSender = Person(snapshot: senderSnapshot)
       }
     }

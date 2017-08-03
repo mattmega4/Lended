@@ -59,8 +59,9 @@ class MessageViewController: UIViewController {
   
   override func viewDidDisappear(_ animated: Bool) {
     super.viewDidDisappear(animated)
+    
     if let chatRoomID = chatRoom?.chatRoomID {
-      ref.child("messages").child(chatRoomID).removeAllObservers()
+      ref.child(FirebaseKeys.messages).child(chatRoomID).removeAllObservers()
     }
   }
   

@@ -85,7 +85,6 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - Protobuf (3.3.0)
-  - SCPinViewController (1.0.2)
   - UITextView+Placeholder (1.2.0)
 
 DEPENDENCIES:
@@ -103,7 +102,6 @@ DEPENDENCIES:
   - Kingfisher
   - mailgun
   - MBProgressHUD
-  - SCPinViewController
   - UITextView+Placeholder
 
 SPEC CHECKSUMS:
@@ -129,9 +127,8 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
-  SCPinViewController: 753d6cccdd15612e9633f0637d8da1e87d368fa8
   UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
 
-PODFILE CHECKSUM: 796a6819047084f14c0d90c0f76fb13c5fcdb265
+PODFILE CHECKSUM: 85910edc46f3b6324906e06037e13aa1698b775a
 
 COCOAPODS: 1.3.0.beta.2

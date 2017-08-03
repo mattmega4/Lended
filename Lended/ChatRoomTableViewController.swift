@@ -31,7 +31,7 @@ class ChatRoomTableViewController: UITableViewController {
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewDidDisappear(animated)
-    ref.child("chatRooms").removeAllObservers()
+    ref.child(FirebaseKeys.chatRooms).removeAllObservers()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -40,11 +40,11 @@ class ChatRoomTableViewController: UITableViewController {
   }
   
   
-  // bad
+  // duno
   
   func loadFirebaseData() {
     
-    ref.child("chatRooms").observe(.value, with: { (snapshot) in
+    ref.child(FirebaseKeys.chatRooms).observe(.value, with: { (snapshot) in
       if snapshot.hasChildren() {
         self.chatRooms.removeAll()
         if let children = snapshot.children.allObjects as? [DataSnapshot] {

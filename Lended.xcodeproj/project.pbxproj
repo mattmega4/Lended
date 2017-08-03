@@ -18,6 +18,8 @@
 		2939BB641F2C17F400FB5D5D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB631F2C17F400FB5D5D /* Event.swift */; };
 		2939BB671F2C1E0900FB5D5D /* ChatRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB661F2C1E0900FB5D5D /* ChatRoomTableViewCell.swift */; };
 		2939BB691F2C1E4000FB5D5D /* ChatRoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB681F2C1E4000FB5D5D /* ChatRoomTableViewController.swift */; };
+		295498341F32FC2800093C4D /* FirebaseKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295498331F32FC2800093C4D /* FirebaseKeys.swift */; };
+		295498361F3300A600093C4D /* AnalyticsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295498351F3300A600093C4D /* AnalyticsKeys.swift */; };
 		297176A61F22ADD7006C527D /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176A51F22ADD7006C527D /* EntryViewController.swift */; };
 		297176A81F22ADE3006C527D /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176A71F22ADE3006C527D /* LandingViewController.swift */; };
 		297176AC1F22AE5D006C527D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176AB1F22AE5D006C527D /* UIView+Extensions.swift */; };
@@ -57,6 +59,8 @@
 		2939BB631F2C17F400FB5D5D /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		2939BB661F2C1E0900FB5D5D /* ChatRoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomTableViewCell.swift; sourceTree = "<group>"; };
 		2939BB681F2C1E4000FB5D5D /* ChatRoomTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomTableViewController.swift; sourceTree = "<group>"; };
+		295498331F32FC2800093C4D /* FirebaseKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseKeys.swift; sourceTree = "<group>"; };
+		295498351F3300A600093C4D /* AnalyticsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsKeys.swift; sourceTree = "<group>"; };
 		297176A51F22ADD7006C527D /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		297176A71F22ADE3006C527D /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		297176AB1F22AE5D006C527D /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -152,9 +156,9 @@
 				29F8EE411F22B6D900DE0032 /* Landing Cells */,
 				2939BB681F2C1E4000FB5D5D /* ChatRoomTableViewController.swift */,
 				2939BB651F2C1DD000FB5D5D /* Chat Cells */,
-				29FD4DC81F22D1CE00E2BEFF /* Acknowledgements */,
 				29D47DF11F2D32EE003F9E36 /* MessageViewController.swift */,
 				29D47DF31F2D32F6003F9E36 /* Message Cells */,
+				29FD4DC81F22D1CE00E2BEFF /* Acknowledgements */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -170,6 +174,7 @@
 		1D17F21D1E4327FC008B3216 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				295498321F32FC0A00093C4D /* Structs */,
 				29F228EE1F31A5E0000C3C40 /* Classes */,
 				29F228EF1F31A5F6000C3C40 /* Utilities */,
 			);
@@ -196,6 +201,15 @@
 				2939BB661F2C1E0900FB5D5D /* ChatRoomTableViewCell.swift */,
 			);
 			name = "Chat Cells";
+			sourceTree = "<group>";
+		};
+		295498321F32FC0A00093C4D /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				295498331F32FC2800093C4D /* FirebaseKeys.swift */,
+				295498351F3300A600093C4D /* AnalyticsKeys.swift */,
+			);
+			name = Structs;
 			sourceTree = "<group>";
 		};
 		297176BD1F22B034006C527D /* Constants */ = {
@@ -370,7 +384,6 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SCPinViewController/SCPinViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
 				"${BUILT_PRODUCTS_DIR}/mailgun/mailgun.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -386,7 +399,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCPinViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/mailgun.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -452,10 +464,12 @@
 				2939BB691F2C1E4000FB5D5D /* ChatRoomTableViewController.swift in Sources */,
 				297176AC1F22AE5D006C527D /* UIView+Extensions.swift in Sources */,
 				29FD4DCA1F22D1DF00E2BEFF /* Library.swift in Sources */,
+				295498341F32FC2800093C4D /* FirebaseKeys.swift in Sources */,
 				29D47DF91F2D3EC2003F9E36 /* InitialsImageFactory.swift in Sources */,
 				29F8EE431F22B6FA00DE0032 /* LandingTableViewCell.swift in Sources */,
 				297176BA1F22AF4C006C527D /* Array+Extensions.swift in Sources */,
 				2939BB601F2C0EC000FB5D5D /* Person.swift in Sources */,
+				295498361F3300A600093C4D /* AnalyticsKeys.swift in Sources */,
 				297176B21F22AEA5006C527D /* UIImageView+Extensions.swift in Sources */,
 				29D47DF51F2D3316003F9E36 /* MessageTableViewCell.swift in Sources */,
 				2939BB5E1F2C0EAC00FB5D5D /* Message.swift in Sources */,

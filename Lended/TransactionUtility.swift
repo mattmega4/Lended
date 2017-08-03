@@ -23,7 +23,7 @@ class TransactionUtility: NSObject {
     if let url = URL(string: apiString) {
       let request = Alamofire.request(url)
       request.responseJSON(completionHandler: { (response) in
-        if let rateDict = (response.value as? [String : Any])?["rates"] as? [String : Double] {
+        if let rateDict = (response.value as? [String : Any])?[FirebaseKeys.eventRates] as? [String : Double] {
           if let convertedAmount = rateDict[toCurrency] {
             completion(convertedAmount * amount, nil)
           }

@@ -60,10 +60,12 @@ class FirebaseUtility: NSObject {
         }
         completion(nil, errMessage)
       } else {
-        Analytics.logEvent("Email_Login", parameters: ["success" : true])
-        Answers.logLogin(withMethod: "Email Login",
+        Analytics.logEvent(AnalyticsKeys.lendedEmailLogin, parameters: [AnalyticsKeys.success : true])
+        
+        Answers.logLogin(withMethod: AnalyticsKeys.lendedEmailLogin,
                          success: true,
                          customAttributes: [:])
+        
         self.user = user
         completion(user, nil)
       }
@@ -110,9 +112,9 @@ class FirebaseUtility: NSObject {
         }
         completion(nil, errMessage)
       } else {
-        Analytics.logEvent("Email_Register", parameters: ["success" : true])
+        Analytics.logEvent(AnalyticsKeys.lendedEmailRegistered, parameters: [AnalyticsKeys.success : true])
         
-        Answers.logSignUp(withMethod: "Email Register",
+        Answers.logSignUp(withMethod: AnalyticsKeys.lendedEmailRegistered,
                           success: true,
                           customAttributes: [:])
         self.user = user
@@ -131,7 +133,7 @@ class FirebaseUtility: NSObject {
       return
     }
     
-    let userEventRef = ref.child("events").child(userID)
+    let userEventRef = ref.child(FirebaseKeys.events).child(userID)
     userEventRef.observe(.value, with: { (snapshot) in
       let enumerator = snapshot.children
       var events = [Event]()
@@ -170,7 +172,7 @@ class FirebaseUtility: NSObject {
       return
     }
     
-    let chatRef = ref.child("messages").child(chatRoomID).childByAutoId()
+    let chatRef = ref.child(FirebaseKeys.messages).child(chatRoomID).childByAutoId()
     
   
   }
@@ -184,7 +186,7 @@ class FirebaseUtility: NSObject {
       return
     }
     
-    let chatRef = ref.child("messages").child(chatRoomID)
+    let chatRef = ref.child(FirebaseKeys.messages).child(chatRoomID)
     
     chatRef.observe(.value, with: { (snapshot) in
       let enumerator = snapshot.children
