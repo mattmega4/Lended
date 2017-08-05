@@ -15,7 +15,7 @@ class ChatRoomTableViewController: UITableViewController {
   let chatRoomCellIdentifier = "chatRoomCell"
   
   var ref: DatabaseReference!
-  var chatRooms = [ChatRoom]()
+  var chatRoomIDs = [String]()
   
   
   
@@ -39,28 +39,25 @@ class ChatRoomTableViewController: UITableViewController {
     loadFirebaseData()
   }
   
-  
-  // duno
-  
-  func loadFirebaseData() {
-    
-    ref.child(FirebaseKeys.chatRooms).observe(.value, with: { (snapshot) in
-      if snapshot.hasChildren() {
-        self.chatRooms.removeAll()
-        if let children = snapshot.children.allObjects as? [DataSnapshot] {
-          for childSnapshot in children {
-            let chatRoom = ChatRoom(snapshot: childSnapshot)
-            self.chatRooms.append(chatRoom)
-          }
-          DispatchQueue.main.async {
-            self.tableView.reloadData()
-          }
-        }
-        
-      }
-    })
+  override func viewDidDisappear(_ animated: Bool) {
+    if let currentUserId  = Auth.auth().currentUser?.uid {
+      ref.child(FirebaseKeys.users).child(currentUserId).child(FirebaseKeys.chatRooms).removeAllObservers()
+    }
+    ref.child(FirebaseKeys.chatRooms).removeAllObservers()
   }
   
+  
+  // MARK: - Firebase Methods
+  
+  func loadFirebaseData() {
+    FirebaseUtility.shared.getChatRoomIDs { (chatRoomIds, errMessage) in
+      if let theChatRoomIds = chatRoomIds {
+        self.chatRoomIDs = theChatRoomIds
+        self.tableView.reloadData()
+      }
+      
+    }
+  }
   
   
   // MARK: - Table view data source
@@ -70,29 +67,30 @@ class ChatRoomTableViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return chatRooms.count
+    return chatRoomIDs.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: chatRoomCellIdentifier, for: indexPath) as! ChatRoomTableViewCell
-    let chatRoom = chatRooms[indexPath.row]
+    let chatRoomId = chatRoomIDs[indexPath.row]
     
-    // Configure the cell...
-    if chatRoom.participants.count == 2 {
-      for aPerson in chatRoom.participants {
-        if aPerson.personID != Auth.auth().currentUser?.uid {
-          cell.senderName.text = aPerson.personName
-          if let imageString = aPerson.profilePicture {
-            let imageURL = URL(string: imageString)
-            cell.profileThumbView.kf.setImage(with: imageURL)
+    FirebaseUtility.shared.getChatRoomWith(chatRoomId: chatRoomId) { (chatRoom, errMessage) in
+      cell.chatRoom = chatRoom
+        if chatRoom.participants.count == 2 {
+          for aPerson in chatRoom.participants {
+            if aPerson.personID != Auth.auth().currentUser?.uid {
+              cell.senderName.text = aPerson.personName
+              if let imageString = aPerson.profilePicture {
+                let imageURL = URL(string: imageString)
+                cell.profileThumbView.kf.setImage(with: imageURL)
+              }
+            }
           }
+        } else if chatRoom.participants.count > 2 {
+          cell.senderName.text = "Group"
         }
-      }
-    } else if chatRoom.participants.count > 2 {
-      cell.senderName.text = "Group"
+        cell.latestMessageLabel.text = chatRoom.latestMessage
     }
-    cell.latestMessageLabel.text = chatRoom.latestMessage
-    
     
     return cell
   }
@@ -100,11 +98,15 @@ class ChatRoomTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-    let chatRoom = chatRooms[indexPath.row]
-    
-    if let messageVC = storyboard?.instantiateViewController(withIdentifier: MESSAGE_VC_STORYBOARD_IDENTIFIER) as? MessageViewController {
-      messageVC.chatRoom = chatRoom
-      self.navigationController?.pushViewController(messageVC, animated: true)
+    // let chatRoomId = chatRoomIDs[indexPath.row]
+    if let cell = tableView.cellForRow(at: indexPath) as? ChatRoomTableViewCell {
+      if let chatRoom = cell.chatRoom {
+        if let messageVC = storyboard?.instantiateViewController(withIdentifier: MESSAGE_VC_STORYBOARD_IDENTIFIER) as? MessageViewController {
+          messageVC.chatRoom = chatRoom
+          self.navigationController?.pushViewController(messageVC, animated: true)
+        }
+        
+      }
     }
   }
 }

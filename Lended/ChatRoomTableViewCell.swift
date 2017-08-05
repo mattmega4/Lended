@@ -14,6 +14,7 @@ class ChatRoomTableViewCell: UITableViewCell {
   @IBOutlet weak var senderName: UILabel!
   @IBOutlet weak var latestMessageLabel: UILabel!
   
+  var chatRoom: ChatRoom?
   
   override func layoutSubviews() {
     super.layoutSubviews()

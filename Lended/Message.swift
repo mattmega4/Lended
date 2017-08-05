@@ -15,17 +15,18 @@ class Message: NSObject {
   var sender: String?
   var senderId: String?
   var message: String?
-  var messageID: String? // confirm later
+  var messageID: String
   
   
   init(snapshot: DataSnapshot) {
     if let messageDict = snapshot.value as? [String : Any] {
       senderProfilePicture = messageDict[FirebaseKeys.profilePicture] as? String
       sender = messageDict[FirebaseKeys.messageSender] as? String
-      senderId = messageDict[FirebaseKeys.senderID] as? String
+      senderId = messageDict[FirebaseKeys.messageSenderID] as? String
       message = messageDict[FirebaseKeys.messageText] as? String
-      messageID = messageDict[FirebaseKeys.textID] as? String // confirm later
+      
     }
+    messageID = snapshot.key
   }
 }
 

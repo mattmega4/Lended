@@ -27,7 +27,6 @@ class Person: NSObject {
       phoneNumber = personDict[FirebaseKeys.personPhone] as? Int
       emailAdy = personDict[FirebaseKeys.personEmail] as? String
       amount = personDict[FirebaseKeys.personAmount] as? Double
-      chatRoomID = personDict[FirebaseKeys.chatRoomID] as? String // ?
     }
     personID = snapshot.key
   }

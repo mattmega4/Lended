@@ -149,15 +149,39 @@ class FirebaseUtility: NSObject {
   }
   
   
-  // TODO: - Chatroom
+  // MARK: - Chatroom
   
-  func getChatsFor(person: Person?, completion: @escaping ( _ chats: [ChatRoom]?, _ errorMessage: String?) -> Void) {
+  func getChatRoomIDs(completion: @escaping ( _ chatIDs: [String]?, _ errorMessage: String?) -> Void) {
     
     guard let userID = user?.uid else {
       let error = "Unknown error occured! User is not logged in."
       completion(nil, error)
       return
     }
+    
+    ref.child(FirebaseKeys.users).child(userID).child(FirebaseKeys.chatRooms).observe(.value, with: { (snapshot) in
+      
+      var chatRoomIDs = [String]()
+      let enumerator = snapshot.children
+      while let child = enumerator.nextObject() as? DataSnapshot {
+        chatRoomIDs.append(child.key)
+      }
+      DispatchQueue.main.async {
+        completion(chatRoomIDs, nil)
+      }
+    })
+  }
+  
+  func getChatRoomWith(chatRoomId: String, completion: @escaping ( _ chatRoom: ChatRoom, _ errorMessage: String?) -> Void) {
+    
+    ref.child(FirebaseKeys.chatRooms).child(chatRoomId).observe(.value, with: { (snapshot) in
+      let chatRoom = ChatRoom(snapshot: snapshot)
+      
+      DispatchQueue.main.async {
+
+        completion(chatRoom, nil)
+      }
+    })
     
   }
   
@@ -172,7 +196,7 @@ class FirebaseUtility: NSObject {
       return
     }
     
-    let chatRef = ref.child(FirebaseKeys.messages).child(chatRoomID).childByAutoId()
+    
     
   
   }

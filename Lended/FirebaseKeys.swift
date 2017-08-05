@@ -10,6 +10,8 @@ import Foundation
 
 struct FirebaseKeys {
   
+  static let users = "users"
+  
   // MARK: - Event
   
   static let events = "events"
@@ -26,7 +28,7 @@ struct FirebaseKeys {
   
   static let messages = "messages"
   static let messageSender = "messageSender"
-  static let senderID = "messageSenderID"
+  static let messageSenderID = "messageSenderID"
   static let messageText = "messageText"
   static let textID = "textID"
   
@@ -44,7 +46,7 @@ struct FirebaseKeys {
   static let personPhone = "personPhone"
   static let personEmail = "personEmail"
   static let personAmount = "personAmount"
-  static let chatRoomID = "chatRoomID" // why is this on person?
+
 }
 
 
