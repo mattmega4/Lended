@@ -20,11 +20,13 @@ class MessageViewController: UIViewController {
   @IBOutlet weak var sendMessageButton: UIButton!
   
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  
   let YOU_CELL_IDENTIFIER = "youMessageCell"
   let ME_CELL_IDENTIFIER = "meMessageCell"
   
   var messageArray = [Message]()
   var chatRoom: ChatRoom?
+  var person: Person?
   
   var ref: DatabaseReference!
   
@@ -56,7 +58,7 @@ class MessageViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    loadMessages()
+    loadMessagesFor(chatRoomId: chatRoom?.chatRoomID)
   }
   
   override func viewDidDisappear(_ animated: Bool) {
@@ -93,9 +95,9 @@ class MessageViewController: UIViewController {
     navigationItem.titleView = containerView
   }
   
-  func loadMessages() {
+  func loadMessagesFor(chatRoomId: String?) {
     
-    FirebaseUtility.shared.getMessagesFor(chatRoom: chatRoom) { (messages, error) in
+    FirebaseUtility.shared.getMessagesFor(chatRoomID: chatRoomId) { (messages, error) in
       
       MBProgressHUD.showAdded(to: self.view, animated: true)
       if let theMessages = messages {
@@ -115,14 +117,30 @@ class MessageViewController: UIViewController {
   // MARK: - IBActions
   
   @IBAction func sendMessageTapped(_ sender: UIButton) {
-
-    if let messageText = sendMessageTextField.text, let chatRoomID = chatRoom?.chatRoomID, let currentUserID = Auth.auth().currentUser?.uid {
-      
-      ref.child(FirebaseKeys.chatRooms).child(chatRoomID).child(FirebaseKeys.latestMessage).setValue(messageText)
+    
+    if let messageText = sendMessageTextField.text, let currentUserID = Auth.auth().currentUser?.uid {
       
       let userName = Auth.auth().currentUser?.displayName ?? ""
       
-      ref.child(FirebaseKeys.messages).child(chatRoomID).childByAutoId().setValue([FirebaseKeys.messageSender : userName, FirebaseKeys.messageSenderID : currentUserID, FirebaseKeys.messageText: messageText])
+      if let chatRoomID = chatRoom?.chatRoomID {
+        ref.child(FirebaseKeys.chatRooms).child(chatRoomID).child(FirebaseKeys.latestMessage).setValue(messageText)
+        
+        
+        
+        ref.child(FirebaseKeys.messages).child(chatRoomID).childByAutoId().setValue([FirebaseKeys.messageSender : userName, FirebaseKeys.messageSenderID : currentUserID, FirebaseKeys.messageText: messageText])
+      }
+      else if let personId = person?.personID {
+        let UID = ref.child(FirebaseKeys.chatRooms).childByAutoId().key
+        loadMessagesFor(chatRoomId: UID)
+        ref.child(FirebaseKeys.chatRooms).child(UID).setValue([FirebaseKeys.latestMessage : messageText, FirebaseKeys.chatParticipants : [currentUserID : [FirebaseKeys.personName : userName, FirebaseKeys.profilePicture : "https://booki.flossmanuals.net/summary-of-firefox/_booki/summary-of-firefox/static/HTTPSE_06_1.png"], personId : [FirebaseKeys.personName : person?.personName ?? "", FirebaseKeys.profilePicture : "https://booki.flossmanuals.net/summary-of-firefox/_booki/summary-of-firefox/static/HTTPSE_06_1.png"]]], withCompletionBlock: { (error, reference) in
+            reference.observeSingleEvent(of: .value, with: { (snapshot) in
+              self.chatRoom = ChatRoom(snapshot: snapshot)
+            })
+        })
+        ref.child(FirebaseKeys.messages).child(UID).childByAutoId().setValue([FirebaseKeys.messageSender : userName, FirebaseKeys.messageSenderID : currentUserID, FirebaseKeys.messageText: messageText])
+        ref.child(FirebaseKeys.users).child(personId).child(FirebaseKeys.chatRooms).child(UID).setValue(currentUserID)
+        ref.child(FirebaseKeys.users).child(currentUserID).child(FirebaseKeys.chatRooms).child(UID).setValue(personId)
+      }
     }
     sendMessageTextField.text = nil
     

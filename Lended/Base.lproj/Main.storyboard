@@ -514,7 +514,7 @@
         <!--Profile View Controller-->
         <scene sceneID="ZFj-56-veP">
             <objects>
-                <viewController id="kx3-hg-cCZ" customClass="ProfileViewController" customModule="Lended" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileVC" id="kx3-hg-cCZ" customClass="ProfileViewController" customModule="Lended" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="czw-fN-rFP"/>
                         <viewControllerLayoutGuide type="bottom" id="Q0R-kZ-RKr"/>
@@ -727,7 +727,7 @@
         <!--Contacts View Controller-->
         <scene sceneID="k2K-aq-1ct">
             <objects>
-                <viewController id="ITD-vD-dld" customClass="ContactsViewController" customModule="Lended" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="contactVC" id="ITD-vD-dld" customClass="ContactsViewController" customModule="Lended" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zel-cF-IwE"/>
                         <viewControllerLayoutGuide type="bottom" id="PFv-pa-ffH"/>

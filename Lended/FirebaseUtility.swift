@@ -202,9 +202,9 @@ class FirebaseUtility: NSObject {
   }
   
   
-  func getMessagesFor(chatRoom: ChatRoom?, completion: @escaping (_ messages: [Message]?, _ errorMessage: String?) -> Void) {
+  func getMessagesFor(chatRoomID: String?, completion: @escaping (_ messages: [Message]?, _ errorMessage: String?) -> Void) {
     
-    guard let chatRoomID = chatRoom?.chatRoomID else {
+    guard let chatRoomID = chatRoomID else {
       let error = "An unkown error occured, could not connect to chatroom"
       completion(nil, error)
       return
