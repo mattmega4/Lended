@@ -37,6 +37,9 @@ class EntryViewController: UIViewController {
   @IBOutlet weak var signInOrUpButtonContainerView: UIView!
   @IBOutlet weak var signInOrUpButton: UIButton!
   
+  @IBOutlet weak var resetPasswordButton: UIButton!
+  
+  
   var leftOn: Bool?
   var rightOn: Bool?
   
@@ -359,7 +362,7 @@ class EntryViewController: UIViewController {
   }
   
   
-  // TODO: - Reset Password
+  // MARK: - Reset Password
   
   func resetPassword() {
     
@@ -405,6 +408,9 @@ class EntryViewController: UIViewController {
     bottomContainerStateSwitcher()
   }
   
+  @IBAction func resetPasswordButtonTapped(_ sender: UIButton) {
+    
+  }
   
   // MARK: - Keyboard Methods
   

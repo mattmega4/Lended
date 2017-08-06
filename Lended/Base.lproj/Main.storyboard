@@ -218,7 +218,7 @@
                                                 <rect key="frame" x="0.0" y="482.33333333333343" width="414" height="209.66666666666657"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wMp-Vb-9d3">
-                                                        <rect key="frame" x="50" y="25" width="314" height="44.666666666666629"/>
+                                                        <rect key="frame" x="50" y="25" width="314" height="33.666666666666629"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="450" id="mXS-EF-1RL"/>
@@ -241,7 +241,7 @@
                                                         </connections>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pGI-hh-3pg">
-                                                        <rect key="frame" x="50" y="79.666666666666629" width="314" height="45"/>
+                                                        <rect key="frame" x="50" y="68.666666666666629" width="314" height="33.666666666666629"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
@@ -251,10 +251,10 @@
                                                         </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVS-tI-f9V">
-                                                        <rect key="frame" x="50" y="139.66666666666663" width="314" height="45"/>
+                                                        <rect key="frame" x="50" y="117.33333333333326" width="314" height="34"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbp-jQ-oeL">
-                                                                <rect key="frame" x="2" y="2" width="310" height="41.666666666666629"/>
+                                                                <rect key="frame" x="2" y="2" width="310" height="30"/>
                                                                 <color key="backgroundColor" red="0.41176470588235292" green="0.74901960784313726" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="17"/>
                                                                 <state key="normal" title="SIGN IN">
@@ -273,21 +273,35 @@
                                                             <constraint firstAttribute="bottom" secondItem="pbp-jQ-oeL" secondAttribute="bottom" constant="2" id="nvo-Kr-lcS"/>
                                                         </constraints>
                                                     </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Liv-RI-Vyq">
+                                                        <rect key="frame" x="50" y="161.33333333333326" width="314" height="33.333333333333371"/>
+                                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="15"/>
+                                                        <state key="normal" title="Reset Password">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="resetPasswordButtonTapped:" destination="01U-ui-4bQ" eventType="touchUpInside" id="nc1-eF-BXO"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="NVS-tI-f9V" secondAttribute="bottom" constant="25" id="27m-cu-hgC"/>
+                                                    <constraint firstItem="Liv-RI-Vyq" firstAttribute="trailing" secondItem="NVS-tI-f9V" secondAttribute="trailing" id="2OD-aR-gVd"/>
                                                     <constraint firstItem="pGI-hh-3pg" firstAttribute="width" secondItem="wMp-Vb-9d3" secondAttribute="width" id="72h-FV-Ylx"/>
                                                     <constraint firstItem="NVS-tI-f9V" firstAttribute="top" secondItem="pGI-hh-3pg" secondAttribute="bottom" constant="15" id="7rV-9r-UfS"/>
                                                     <constraint firstAttribute="bottom" secondItem="NVS-tI-f9V" secondAttribute="bottom" constant="40" id="DFQ-e1-l2Y"/>
                                                     <constraint firstItem="pGI-hh-3pg" firstAttribute="centerX" secondItem="wMp-Vb-9d3" secondAttribute="centerX" id="F2u-7F-j4Q"/>
                                                     <constraint firstItem="pGI-hh-3pg" firstAttribute="top" secondItem="wMp-Vb-9d3" secondAttribute="bottom" constant="10" id="Fzs-uS-VcU"/>
                                                     <constraint firstAttribute="width" secondItem="0jq-WJ-6jA" secondAttribute="height" multiplier="75:38" id="M1D-Md-rJR"/>
+                                                    <constraint firstItem="Liv-RI-Vyq" firstAttribute="leading" secondItem="NVS-tI-f9V" secondAttribute="leading" id="Mia-GT-EeR"/>
                                                     <constraint firstItem="wMp-Vb-9d3" firstAttribute="top" secondItem="0jq-WJ-6jA" secondAttribute="top" constant="25" id="NbK-4n-8Yo"/>
                                                     <constraint firstItem="NVS-tI-f9V" firstAttribute="height" secondItem="wMp-Vb-9d3" secondAttribute="height" id="Paz-er-zTt"/>
+                                                    <constraint firstItem="Liv-RI-Vyq" firstAttribute="top" secondItem="NVS-tI-f9V" secondAttribute="bottom" constant="10" id="QF4-hz-Yqf"/>
+                                                    <constraint firstItem="Liv-RI-Vyq" firstAttribute="height" secondItem="wMp-Vb-9d3" secondAttribute="height" id="QXV-mb-x3o"/>
                                                     <constraint firstAttribute="trailing" secondItem="wMp-Vb-9d3" secondAttribute="trailing" constant="50" id="WKd-Vx-dxB"/>
                                                     <constraint firstItem="pGI-hh-3pg" firstAttribute="leading" secondItem="NVS-tI-f9V" secondAttribute="leading" id="XUX-jr-hRk"/>
                                                     <constraint firstItem="NVS-tI-f9V" firstAttribute="width" secondItem="wMp-Vb-9d3" secondAttribute="width" id="jsK-TG-aqZ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Liv-RI-Vyq" secondAttribute="bottom" constant="15" id="jud-GE-M8x"/>
                                                     <constraint firstItem="pGI-hh-3pg" firstAttribute="height" secondItem="wMp-Vb-9d3" secondAttribute="height" id="kAH-aE-Fih"/>
                                                     <constraint firstItem="wMp-Vb-9d3" firstAttribute="centerX" secondItem="0jq-WJ-6jA" secondAttribute="centerX" id="oBO-TW-cty"/>
                                                     <constraint firstItem="wMp-Vb-9d3" firstAttribute="top" secondItem="0jq-WJ-6jA" secondAttribute="top" constant="40" id="qfT-hV-wPP"/>
@@ -311,7 +325,6 @@
                                                         <include reference="oBO-TW-cty"/>
                                                         <include reference="qfT-hV-wPP"/>
                                                         <exclude reference="wvw-jI-25u"/>
-                                                        <exclude reference="27m-cu-hgC"/>
                                                         <include reference="DFQ-e1-l2Y"/>
                                                     </mask>
                                                 </variation>
@@ -363,6 +376,7 @@
                         <outlet property="leftContainerLabel" destination="N1T-HY-naf" id="ZF0-1R-B9j"/>
                         <outlet property="leftContainerView" destination="4Wt-pv-ZSk" id="NAq-1v-FZN"/>
                         <outlet property="mainLogoImageView" destination="sL5-wY-GMU" id="IkN-hy-fXr"/>
+                        <outlet property="resetPasswordButton" destination="Liv-RI-Vyq" id="bKA-3E-7co"/>
                         <outlet property="rightContainerButton" destination="hlK-eN-2zr" id="2dg-tU-wua"/>
                         <outlet property="rightContainerIndicatorImageView" destination="NfY-WE-IGL" id="DG0-G7-W5O"/>
                         <outlet property="rightContainerLabel" destination="4GJ-lR-agf" id="0qS-uQ-auH"/>
@@ -377,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jlO-Lx-vWt" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5199" y="-570"/>
+            <point key="canvasLocation" x="5198.5507246376819" y="-570.6521739130435"/>
         </scene>
         <!--Empty Data Set Delegate-->
         <scene sceneID="hC2-lm-8Pr">
