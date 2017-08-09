@@ -28,7 +28,7 @@ class ContactsViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    loadData()
+    loadFirebaseData()
   }
   
   override func viewDidDisappear(_ animated: Bool) {
@@ -41,28 +41,21 @@ class ContactsViewController: UIViewController {
   
   // MARK: - Firebase Method
   
-  func loadData() {
-    
+  
+  func loadFirebaseData() {
     if let userID = Auth.auth().currentUser?.uid {
-      ref.child("friends").child(userID).observe(.value, with: { (snapshot) in
-        
+      ref.child(FirebaseKeys.friends).child(userID).observe(.value, with: { (snapshot) in
         let enumerator = snapshot.children
         self.friends.removeAll()
         while let child = enumerator.nextObject() as? DataSnapshot {
-          
           let aPerson = Person(snapshot: child)
           self.friends.append(aPerson)
-          
-          
         }
-        
         DispatchQueue.main.async {
           self.tableView.reloadData()
         }
-        
       })
     }
-    
   }
   
   

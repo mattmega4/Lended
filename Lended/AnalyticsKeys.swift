@@ -1,8 +1,8 @@
 //
-//  AnalyticsStrings.swift
+//  AnalyticsKeys.swift
 //  Lended
 //
-//  Created by Matthew Howes Singleton on 8/2/17.
+//  Created by Matthew Howes Singleton on 8/8/17.
 //  Copyright © 2017 Matthew Singleton. All rights reserved.
 //
 
@@ -13,4 +13,5 @@ struct AnalyticsKeys {
   static let lendedEmailRegistered = "lendedEmailRegistered"
   static let lendedEmailLogin = "lendedEmailLogin"
   static let success = "success"
+  
 }

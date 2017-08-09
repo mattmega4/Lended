@@ -967,7 +967,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONI-k3-fjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11416" y="1909"/>
+            <point key="canvasLocation" x="13230" y="1865"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uXj-uS-pQM">
@@ -1001,9 +1001,9 @@
                     <connections>
                         <segue destination="Cir-yJ-BgZ" kind="relationship" relationship="viewControllers" id="fH7-at-nFe"/>
                         <segue destination="bsK-Hc-NNA" kind="relationship" relationship="viewControllers" id="kwf-I3-fSw"/>
+                        <segue destination="dQ1-fm-Hyt" kind="relationship" relationship="viewControllers" id="zYX-Jy-mL8"/>
                         <segue destination="ecp-RM-AHO" kind="relationship" relationship="viewControllers" id="1co-Hi-b3Z"/>
                         <segue destination="M1S-tR-1Um" kind="relationship" relationship="viewControllers" id="brN-9g-a2P"/>
-                        <segue destination="dQ1-fm-Hyt" kind="relationship" relationship="viewControllers" id="zYX-Jy-mL8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RAf-g5-AIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1229,7 +1229,7 @@ If you have any questions about these Terms, please contact us.
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M93-2p-yTE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10668" y="1910"/>
+            <point key="canvasLocation" x="12483" y="1864"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="j79-pH-XXg">
@@ -1272,7 +1272,7 @@ If you have any questions about these Terms, please contact us.
         <scene sceneID="vUl-m9-twa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ecp-RM-AHO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Messaging" id="DcQ-rn-WFh"/>
+                    <tabBarItem key="tabBarItem" title="Messaging" image="chat" id="DcQ-rn-WFh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IYP-5K-DWm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1328,7 +1328,7 @@ If you have any questions about these Terms, please contact us.
         <scene sceneID="IMA-aN-I6Z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cir-yJ-BgZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Events" id="JvF-dB-Zif"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="events" id="JvF-dB-Zif"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qkr-w7-kSh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1347,7 +1347,7 @@ If you have any questions about these Terms, please contact us.
         <scene sceneID="8p8-Lg-qRE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bsK-Hc-NNA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Contacts" id="jNk-gQ-Qm5"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="contacts" id="jNk-gQ-Qm5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QYy-DS-Cb2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1366,7 +1366,7 @@ If you have any questions about these Terms, please contact us.
         <scene sceneID="Bkt-AB-xCn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M1S-tR-1Um" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="WbB-xC-j5X"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="WbB-xC-j5X"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xXg-8r-Y8E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1385,7 +1385,7 @@ If you have any questions about these Terms, please contact us.
         <scene sceneID="lml-fk-FnI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dQ1-fm-Hyt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Add Event" id="uR5-Qu-8Y6"/>
+                    <tabBarItem key="tabBarItem" title="Add Event" image="add" id="uR5-Qu-8Y6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RiS-vL-VEi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1405,6 +1405,11 @@ If you have any questions about these Terms, please contact us.
         <image name="LendedLogoInverted" width="1024" height="1024"/>
         <image name="Lock" width="125" height="125"/>
         <image name="Plus" width="125" height="125"/>
+        <image name="add" width="25" height="25"/>
+        <image name="chat" width="25" height="25"/>
+        <image name="contacts" width="25" height="25"/>
+        <image name="events" width="25" height="25"/>
         <image name="sendArrow" width="300" height="300"/>
+        <image name="settings" width="25" height="25"/>
     </resources>
 </document>

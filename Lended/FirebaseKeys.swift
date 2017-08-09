@@ -1,8 +1,8 @@
 //
-//  FirebaseStrings.swift
+//  FirebaseKeys.swift
 //  Lended
 //
-//  Created by Matthew Howes Singleton on 8/2/17.
+//  Created by Matthew Howes Singleton on 8/8/17.
 //  Copyright © 2017 Matthew Singleton. All rights reserved.
 //
 
@@ -41,12 +41,13 @@ struct FirebaseKeys {
   
   // MARK: - Person
   
+  static let friends = "friends"
   static let profilePicture = "profilePicture"
   static let personName = "personName"
   static let personPhone = "personPhone"
   static let personEmail = "personEmail"
   static let personAmount = "personAmount"
-
+  
 }
 
 
