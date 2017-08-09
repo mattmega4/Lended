@@ -14,15 +14,20 @@
 		1D7BAED91E51A63700A42859 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7BAED81E51A63700A42859 /* StoreKit.framework */; };
 		290BF5431F3A65BF003FA8B9 /* FirebaseKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290BF5421F3A65BF003FA8B9 /* FirebaseKeys.swift */; };
 		290BF5451F3A65D9003FA8B9 /* AnalyticsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290BF5441F3A65D9003FA8B9 /* AnalyticsKeys.swift */; };
-		29133C771F367620000F94DD /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29133C761F367620000F94DD /* ContactsViewController.swift */; };
 		29133C7A1F367640000F94DD /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29133C791F367640000F94DD /* ContactsTableViewCell.swift */; };
-		29133C7C1F367842000F94DD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29133C7B1F367842000F94DD /* ProfileViewController.swift */; };
 		2939BB5E1F2C0EAC00FB5D5D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB5D1F2C0EAC00FB5D5D /* Message.swift */; };
 		2939BB601F2C0EC000FB5D5D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB5F1F2C0EC000FB5D5D /* Person.swift */; };
 		2939BB621F2C0F6100FB5D5D /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB611F2C0F6100FB5D5D /* ChatRoom.swift */; };
 		2939BB641F2C17F400FB5D5D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB631F2C17F400FB5D5D /* Event.swift */; };
 		2939BB671F2C1E0900FB5D5D /* ChatRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB661F2C1E0900FB5D5D /* ChatRoomTableViewCell.swift */; };
 		2939BB691F2C1E4000FB5D5D /* ChatRoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939BB681F2C1E4000FB5D5D /* ChatRoomTableViewController.swift */; };
+		294E16671F3BB6940096C2C3 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294E16661F3BB6940096C2C3 /* ProfileTableViewController.swift */; };
+		294E16691F3BB7B70096C2C3 /* ContactProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294E16681F3BB7B70096C2C3 /* ContactProfileViewController.swift */; };
+		294E166B1F3BB7FD0096C2C3 /* AllContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294E166A1F3BB7FD0096C2C3 /* AllContactsViewController.swift */; };
+		294E166D1F3BBAB30096C2C3 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294E166C1F3BBAB30096C2C3 /* FeedbackViewController.swift */; };
+		294E166F1F3BBBAC0096C2C3 /* BranchUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294E166E1F3BBBAC0096C2C3 /* BranchUtility.swift */; };
+		294E16711F3BBBBC0096C2C3 /* BranchKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294E16701F3BBBBC0096C2C3 /* BranchKeys.swift */; };
+		294E16741F3BBC2E0096C2C3 /* LegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294E16731F3BBC2E0096C2C3 /* LegalViewController.swift */; };
 		297176A61F22ADD7006C527D /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176A51F22ADD7006C527D /* EntryViewController.swift */; };
 		297176A81F22ADE3006C527D /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176A71F22ADE3006C527D /* LandingViewController.swift */; };
 		297176AC1F22AE5D006C527D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176AB1F22AE5D006C527D /* UIView+Extensions.swift */; };
@@ -58,15 +63,20 @@
 		1D7BAED81E51A63700A42859 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		290BF5421F3A65BF003FA8B9 /* FirebaseKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseKeys.swift; sourceTree = "<group>"; };
 		290BF5441F3A65D9003FA8B9 /* AnalyticsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsKeys.swift; sourceTree = "<group>"; };
-		29133C761F367620000F94DD /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		29133C791F367640000F94DD /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
-		29133C7B1F367842000F94DD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2939BB5D1F2C0EAC00FB5D5D /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2939BB5F1F2C0EC000FB5D5D /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		2939BB611F2C0F6100FB5D5D /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		2939BB631F2C17F400FB5D5D /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		2939BB661F2C1E0900FB5D5D /* ChatRoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomTableViewCell.swift; sourceTree = "<group>"; };
 		2939BB681F2C1E4000FB5D5D /* ChatRoomTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomTableViewController.swift; sourceTree = "<group>"; };
+		294E16661F3BB6940096C2C3 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		294E16681F3BB7B70096C2C3 /* ContactProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactProfileViewController.swift; sourceTree = "<group>"; };
+		294E166A1F3BB7FD0096C2C3 /* AllContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllContactsViewController.swift; sourceTree = "<group>"; };
+		294E166C1F3BBAB30096C2C3 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		294E166E1F3BBBAC0096C2C3 /* BranchUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchUtility.swift; sourceTree = "<group>"; };
+		294E16701F3BBBBC0096C2C3 /* BranchKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchKeys.swift; sourceTree = "<group>"; };
+		294E16731F3BBC2E0096C2C3 /* LegalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegalViewController.swift; sourceTree = "<group>"; };
 		297176A51F22ADD7006C527D /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		297176A71F22ADE3006C527D /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		297176AB1F22AE5D006C527D /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -133,7 +143,6 @@
 				1D17F21D1E4327FC008B3216 /* Model */,
 				1D17F21C1E4327F6008B3216 /* View */,
 				1D17F21B1E4327F3008B3216 /* Controller */,
-				29FD4DC61F22D17900E2BEFF /* AcknowledgementsViewController.swift */,
 				1DD487131E515152004E0172 /* Extensions */,
 				297176BD1F22B034006C527D /* Constants */,
 				1D17F21A1E4327F1008B3216 /* Additional Files */,
@@ -160,14 +169,14 @@
 				297176A51F22ADD7006C527D /* EntryViewController.swift */,
 				297176A71F22ADE3006C527D /* LandingViewController.swift */,
 				29F8EE411F22B6D900DE0032 /* Landing Cells */,
-				29133C761F367620000F94DD /* ContactsViewController.swift */,
-				29133C781F367626000F94DD /* Contacts Cells */,
-				29133C7B1F367842000F94DD /* ProfileViewController.swift */,
+				294E166A1F3BB7FD0096C2C3 /* AllContactsViewController.swift */,
+				29133C781F367626000F94DD /* All Contacts Cells */,
+				294E16681F3BB7B70096C2C3 /* ContactProfileViewController.swift */,
 				2939BB681F2C1E4000FB5D5D /* ChatRoomTableViewController.swift */,
 				2939BB651F2C1DD000FB5D5D /* Chat Cells */,
 				29D47DF11F2D32EE003F9E36 /* MessageViewController.swift */,
 				29D47DF31F2D32F6003F9E36 /* Message Cells */,
-				29FD4DC81F22D1CE00E2BEFF /* Acknowledgements */,
+				294E16721F3BBBFA0096C2C3 /* Settings */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -204,12 +213,12 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		29133C781F367626000F94DD /* Contacts Cells */ = {
+		29133C781F367626000F94DD /* All Contacts Cells */ = {
 			isa = PBXGroup;
 			children = (
 				29133C791F367640000F94DD /* ContactsTableViewCell.swift */,
 			);
-			name = "Contacts Cells";
+			name = "All Contacts Cells";
 			sourceTree = "<group>";
 		};
 		2939BB651F2C1DD000FB5D5D /* Chat Cells */ = {
@@ -220,11 +229,24 @@
 			name = "Chat Cells";
 			sourceTree = "<group>";
 		};
+		294E16721F3BBBFA0096C2C3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				294E16661F3BB6940096C2C3 /* ProfileTableViewController.swift */,
+				294E16731F3BBC2E0096C2C3 /* LegalViewController.swift */,
+				29FD4DC61F22D17900E2BEFF /* AcknowledgementsViewController.swift */,
+				29FD4DC81F22D1CE00E2BEFF /* Acknowledgements */,
+				294E166C1F3BBAB30096C2C3 /* FeedbackViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		295498321F32FC0A00093C4D /* Structs */ = {
 			isa = PBXGroup;
 			children = (
 				290BF5421F3A65BF003FA8B9 /* FirebaseKeys.swift */,
 				290BF5441F3A65D9003FA8B9 /* AnalyticsKeys.swift */,
+				294E16701F3BBBBC0096C2C3 /* BranchKeys.swift */,
 			);
 			name = Structs;
 			sourceTree = "<group>";
@@ -262,6 +284,7 @@
 				29FD4DD11F22D99E00E2BEFF /* FirebaseUtility.swift */,
 				29FD4DD41F22E48A00E2BEFF /* TransactionUtility.swift */,
 				29D47DF81F2D3EC2003F9E36 /* InitialsImageFactory.swift */,
+				294E166E1F3BBBAC0096C2C3 /* BranchUtility.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -483,33 +506,38 @@
 				29FD4DCA1F22D1DF00E2BEFF /* Library.swift in Sources */,
 				29D47DF91F2D3EC2003F9E36 /* InitialsImageFactory.swift in Sources */,
 				29F8EE431F22B6FA00DE0032 /* LandingTableViewCell.swift in Sources */,
-				29133C7C1F367842000F94DD /* ProfileViewController.swift in Sources */,
 				297176BA1F22AF4C006C527D /* Array+Extensions.swift in Sources */,
 				2939BB601F2C0EC000FB5D5D /* Person.swift in Sources */,
 				297176B21F22AEA5006C527D /* UIImageView+Extensions.swift in Sources */,
+				294E16671F3BB6940096C2C3 /* ProfileTableViewController.swift in Sources */,
 				290BF5431F3A65BF003FA8B9 /* FirebaseKeys.swift in Sources */,
 				29D47DF51F2D3316003F9E36 /* MessageTableViewCell.swift in Sources */,
 				2939BB5E1F2C0EAC00FB5D5D /* Message.swift in Sources */,
 				29FD4DD21F22D99E00E2BEFF /* FirebaseUtility.swift in Sources */,
 				29D47DF21F2D32EE003F9E36 /* MessageViewController.swift in Sources */,
+				294E16691F3BB7B70096C2C3 /* ContactProfileViewController.swift in Sources */,
 				2939BB641F2C17F400FB5D5D /* Event.swift in Sources */,
 				297176B61F22AEEB006C527D /* UIViewController+Extensions.swift in Sources */,
 				297176B81F22AF32006C527D /* NSObject+Extensions.swift in Sources */,
 				2939BB621F2C0F6100FB5D5D /* ChatRoom.swift in Sources */,
+				294E166D1F3BBAB30096C2C3 /* FeedbackViewController.swift in Sources */,
 				290BF5451F3A65D9003FA8B9 /* AnalyticsKeys.swift in Sources */,
 				29FD4DCC1F22D20E00E2BEFF /* AcknowledgementsViewModel.swift in Sources */,
 				297176A61F22ADD7006C527D /* EntryViewController.swift in Sources */,
 				297176B01F22AE7C006C527D /* String+Extensions.swift in Sources */,
+				294E16741F3BBC2E0096C2C3 /* LegalViewController.swift in Sources */,
+				294E166B1F3BB7FD0096C2C3 /* AllContactsViewController.swift in Sources */,
 				297176BC1F22AF69006C527D /* UITextField+Extensions.swift in Sources */,
 				2939BB671F2C1E0900FB5D5D /* ChatRoomTableViewCell.swift in Sources */,
 				1D17F2091E431645008B3216 /* AppDelegate.swift in Sources */,
 				29FD4DD51F22E48A00E2BEFF /* TransactionUtility.swift in Sources */,
+				294E16711F3BBBBC0096C2C3 /* BranchKeys.swift in Sources */,
 				29133C7A1F367640000F94DD /* ContactsTableViewCell.swift in Sources */,
 				29FD4DCE1F22D22B00E2BEFF /* AcknowledgementsTableViewCell.swift in Sources */,
 				297176A81F22ADE3006C527D /* LandingViewController.swift in Sources */,
 				29FD4DC71F22D17900E2BEFF /* AcknowledgementsViewController.swift in Sources */,
+				294E166F1F3BBBAC0096C2C3 /* BranchUtility.swift in Sources */,
 				297176BF1F22B045006C527D /* Constants.swift in Sources */,
-				29133C771F367620000F94DD /* ContactsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

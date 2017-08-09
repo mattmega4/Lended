@@ -227,5 +227,60 @@ class FirebaseUtility: NSObject {
   }
   
   
+  // MARK: - User Information
+  
+  func pullUserData(completion: @escaping (_ userInfo: [String : String]?, _ errorMessage: String?) -> Void) {
+    
+    if let userID = user?.uid {
+      let userRef = ref.child(FirebaseKeys.users).child(userID)
+      
+      userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+        
+        if let info = snapshot.value as? [String: String] {
+          completion(info, nil)
+        } else {
+          completion(nil, "We could not get userinfo from firebase")
+        }
+      })
+    } else {
+      completion(nil, "You are not authorized to get this information")
+    }
+  }
+  
+  func saveUserName(name: String) {
+    if let userID = user?.uid {
+      let userRef = ref.child(FirebaseKeys.users).child(userID)
+      userRef.updateChildValues([FirebaseKeys.userName: name])
+    }
+    
+    if let user = Auth.auth().currentUser {
+      let changeRequest = user.createProfileChangeRequest()
+      changeRequest.displayName = name
+      changeRequest.commitChanges(completion: nil)
+    }
+  }
+  
+  func saveUserPicture(image: UIImage) {
+    if let userId = user?.uid, let imageData = UIImageJPEGRepresentation(image, 1.0) {
+      let storageRef = storage.reference().child(FirebaseKeys.profilePicture).child(userId)
+      storageRef.putData(imageData, metadata: nil, completion: { (storageMetaData, error) in
+        if let profilePictureLink = storageMetaData?.downloadURL()?.absoluteString {
+          let userProfileRef = self.ref.child(FirebaseKeys.users).child(userId)
+          userProfileRef.updateChildValues([FirebaseKeys.profilePicture : profilePictureLink])
+        }
+      })
+    }
+  }
+  
+  func deleteAccount(completion: (_ success: Bool, _ error: Error?) -> Void) {
+    user?.delete(completion: { (error) in
+      Analytics.logEvent(AnalyticsKeys.userDeleted, parameters: [AnalyticsKeys.success : true])
+      Answers.logCustomEvent(withName: AnalyticsKeys.userDeleted,
+                             customAttributes: nil)
+    })
+  }
+
+
+  
   
 }

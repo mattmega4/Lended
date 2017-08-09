@@ -1,8 +1,8 @@
 //
-//  ContactsViewController.swift
+//  AllContactsViewController.swift
 //  Lended
 //
-//  Created by Matthew Howes Singleton on 8/5/17.
+//  Created by Matthew Howes Singleton on 8/9/17.
 //  Copyright © 2017 Matthew Singleton. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import Kingfisher
 
-class ContactsViewController: UIViewController {
+class AllContactsViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -61,7 +61,7 @@ class ContactsViewController: UIViewController {
   
 }
 
-extension ContactsViewController: UITableViewDelegate, UITableViewDataSource {
+extension AllContactsViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return friends.count
@@ -71,7 +71,7 @@ extension ContactsViewController: UITableViewDelegate, UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as! ContactsTableViewCell
     
     let aPerson = friends[indexPath.row]
-
+    
     if let profilePictureURLString = aPerson.profilePicture {
       if let profilePictureURL = URL(string: profilePictureURLString) {
         cell.contactImageView.kf.setImage(with: profilePictureURL)
@@ -87,18 +87,10 @@ extension ContactsViewController: UITableViewDelegate, UITableViewDataSource {
     
     let aPerson = friends[indexPath.row]
     
-    if let profileVC = storyboard?.instantiateViewController(withIdentifier: PROFILE_VC_STORYBOARD_IDENTIFIER) as? ProfileViewController {
+    if let profileVC = storyboard?.instantiateViewController(withIdentifier: CONTACT_PROFILE_VC_STORYBOARD_IDENTIFIER) as? ContactProfileViewController {
       profileVC.person = aPerson
       navigationController?.pushViewController(profileVC, animated: true)
     }
     
   }
 }
-
-
-
-
-
-
-
-

@@ -1,15 +1,15 @@
 //
-//  ProfileViewController.swift
+//  ContactProfileViewController.swift
 //  Lended
 //
-//  Created by Matthew Howes Singleton on 8/5/17.
+//  Created by Matthew Howes Singleton on 8/9/17.
 //  Copyright © 2017 Matthew Singleton. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class ProfileViewController: UIViewController {
+class ContactProfileViewController: UIViewController {
   
   var ref: DatabaseReference!
   var person: Person?
@@ -43,14 +43,14 @@ class ProfileViewController: UIViewController {
         }
       }
       if isNewChat {
-      if let messageVC = self.storyboard?.instantiateViewController(withIdentifier: MESSAGE_VC_STORYBOARD_IDENTIFIER) as? MessageViewController {
+        if let messageVC = self.storyboard?.instantiateViewController(withIdentifier: MESSAGE_VC_STORYBOARD_IDENTIFIER) as? MessageViewController {
           messageVC.person = self.person
           self.navigationController?.pushViewController(messageVC, animated: true)
         }
       }
     })
     
-
+    
     
   }
   

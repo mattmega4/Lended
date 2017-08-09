@@ -11,7 +11,9 @@ import Foundation
 struct FirebaseKeys {
   
   static let users = "users"
-  
+  static let userName = "userName"
+  static let profilePicture = "profilePicture"
+
   // MARK: - Event
   
   static let events = "events"
@@ -42,7 +44,6 @@ struct FirebaseKeys {
   // MARK: - Person
   
   static let friends = "friends"
-  static let profilePicture = "profilePicture"
   static let personName = "personName"
   static let personPhone = "personPhone"
   static let personEmail = "personEmail"

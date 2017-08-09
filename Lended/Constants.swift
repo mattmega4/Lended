@@ -8,16 +8,30 @@
 
 import Foundation
 
+// MARK: - Entry
 
 let ENTRY_VC_STORYBOARD_IDENTIFIER = "entryVC"
+
+// MARK: - Main Navigation
+
 let LANDING_VC_STORYBOARD_IDENTIFIER = "landingVC"
-let ACKNOWLEDGMENTS_VC_STORYBOARD_IDENTIFIER = "acknowledgementVC"
 let CHAT_ROOM_VC_STORYBOARD_IDENTIFIER = "chatRoomVC"
+let ALL_CONTACT_VC_STORYBOARD_IDENTIFIER = "allContactVC"
+
+
+// MARK: - Sub Navigation
+
+let CONTACT_PROFILE_VC_STORYBOARD_IDENTIFIER = "contactProfileVC"
 let MESSAGE_VC_STORYBOARD_IDENTIFIER = "messagesVC"
-let CONTACT_VC_STORYBOARD_IDENTIFIER = "contactVC"
-let PROFILE_VC_STORYBOARD_IDENTIFIER = "profileVC"
+
+// MARK: - Settings
+let MY_PROFILE_VC_STORYBOARD_IDENTIFIER = "myProfileVC"
+let FEEDBACK_VC_STORYBOARD_IDENTIFIER = "feedbackVC"
+let ACKNOWLEDGMENTS_VC_STORYBOARD_IDENTIFIER = "acknowledgementVC"
+let LEGAL_VC_STORYBOARD_IDENTIFIER = "legalVC"
 
 
+// MARK: - Other
 
 let BASE_CURRENCY_API_URL = "https://api.fixer.io/"
 let BASE = "?base="
