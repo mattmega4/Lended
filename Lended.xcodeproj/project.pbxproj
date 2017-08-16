@@ -38,6 +38,7 @@
 		297176BA1F22AF4C006C527D /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176B91F22AF4C006C527D /* Array+Extensions.swift */; };
 		297176BC1F22AF69006C527D /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176BB1F22AF69006C527D /* UITextField+Extensions.swift */; };
 		297176BF1F22B045006C527D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176BE1F22B045006C527D /* Constants.swift */; };
+		299A90EE1F3CFC1500EF5E20 /* StoryboardKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299A90ED1F3CFC1500EF5E20 /* StoryboardKeys.swift */; };
 		29D47DF21F2D32EE003F9E36 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D47DF11F2D32EE003F9E36 /* MessageViewController.swift */; };
 		29D47DF51F2D3316003F9E36 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D47DF41F2D3316003F9E36 /* MessageTableViewCell.swift */; };
 		29D47DF91F2D3EC2003F9E36 /* InitialsImageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D47DF81F2D3EC2003F9E36 /* InitialsImageFactory.swift */; };
@@ -87,6 +88,7 @@
 		297176B91F22AF4C006C527D /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		297176BB1F22AF69006C527D /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		297176BE1F22B045006C527D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		299A90ED1F3CFC1500EF5E20 /* StoryboardKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardKeys.swift; sourceTree = "<group>"; };
 		29D47DF11F2D32EE003F9E36 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		29D47DF41F2D3316003F9E36 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		29D47DF81F2D3EC2003F9E36 /* InitialsImageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialsImageFactory.swift; sourceTree = "<group>"; };
@@ -192,7 +194,6 @@
 		1D17F21D1E4327FC008B3216 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				295498321F32FC0A00093C4D /* Structs */,
 				29F228EE1F31A5E0000C3C40 /* Classes */,
 				29F228EF1F31A5F6000C3C40 /* Utilities */,
 			);
@@ -247,6 +248,7 @@
 				290BF5421F3A65BF003FA8B9 /* FirebaseKeys.swift */,
 				290BF5441F3A65D9003FA8B9 /* AnalyticsKeys.swift */,
 				294E16701F3BBBBC0096C2C3 /* BranchKeys.swift */,
+				299A90ED1F3CFC1500EF5E20 /* StoryboardKeys.swift */,
 			);
 			name = Structs;
 			sourceTree = "<group>";
@@ -254,6 +256,7 @@
 		297176BD1F22B034006C527D /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				295498321F32FC0A00093C4D /* Structs */,
 				297176BE1F22B045006C527D /* Constants.swift */,
 			);
 			name = Constants;
@@ -425,6 +428,7 @@
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/mailgun/mailgun.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -440,6 +444,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/mailgun.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -511,6 +516,7 @@
 				297176B21F22AEA5006C527D /* UIImageView+Extensions.swift in Sources */,
 				294E16671F3BB6940096C2C3 /* ProfileTableViewController.swift in Sources */,
 				290BF5431F3A65BF003FA8B9 /* FirebaseKeys.swift in Sources */,
+				299A90EE1F3CFC1500EF5E20 /* StoryboardKeys.swift in Sources */,
 				29D47DF51F2D3316003F9E36 /* MessageTableViewCell.swift in Sources */,
 				2939BB5E1F2C0EAC00FB5D5D /* Message.swift in Sources */,
 				29FD4DD21F22D99E00E2BEFF /* FirebaseUtility.swift in Sources */,

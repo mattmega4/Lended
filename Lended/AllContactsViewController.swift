@@ -87,7 +87,7 @@ extension AllContactsViewController: UITableViewDelegate, UITableViewDataSource 
     
     let aPerson = friends[indexPath.row]
     
-    if let profileVC = storyboard?.instantiateViewController(withIdentifier: CONTACT_PROFILE_VC_STORYBOARD_IDENTIFIER) as? ContactProfileViewController {
+    if let profileVC = storyboard?.instantiateViewController(withIdentifier: StoryboardKeys.contactProfileViewControllerStoryboardID) as? ContactProfileViewController {
       profileVC.person = aPerson
       navigationController?.pushViewController(profileVC, animated: true)
     }

@@ -31,7 +31,7 @@ class LandingViewController: UIViewController {
     if Auth.auth().currentUser == nil {
       eventArray.removeAll()
       self.tableView.reloadData()
-      if let loginVc = storyboard?.instantiateViewController(withIdentifier: ENTRY_VC_STORYBOARD_IDENTIFIER) as? EntryViewController {
+      if let loginVc = storyboard?.instantiateViewController(withIdentifier: StoryboardKeys.entryViewControllerStoryboardID) as? EntryViewController {
         let loginNavigation = UINavigationController(rootViewController: loginVc)
         self.tabBarController?.present(loginNavigation, animated: true, completion: nil)
         

@@ -185,7 +185,7 @@ class ProfileViewController: UITableViewController {
   
   @IBAction func feedbackButtonTapped(_ sender: UIButton) {
     
-    if let feedbackVC = self.storyboard?.instantiateViewController(withIdentifier: FEEDBACK_VC_STORYBOARD_IDENTIFIER) as? FeedbackViewController {
+    if let feedbackVC = self.storyboard?.instantiateViewController(withIdentifier: StoryboardKeys.feedbackViewControllerStoryboardID) as? FeedbackViewController {
       self.navigationController?.pushViewController(feedbackVC, animated: true)
     }
     
@@ -206,14 +206,14 @@ class ProfileViewController: UITableViewController {
   
   
   @IBAction func acknowledgementsButtonTapped(_ sender: UIButton) {
-    if let ackVC = self.storyboard?.instantiateViewController(withIdentifier: ACKNOWLEDGMENTS_VC_STORYBOARD_IDENTIFIER) as? AcknowledgementsViewController {
+    if let ackVC = self.storyboard?.instantiateViewController(withIdentifier: StoryboardKeys.acknowledgementsViewControllerStoryboardID) as? AcknowledgementsViewController {
       self.navigationController?.pushViewController(ackVC, animated: true)
     }
   }
   
   
   @IBAction func legalButtonTapped(_ sender: UIButton) {
-    if let legalVC = self.storyboard?.instantiateViewController(withIdentifier: LEGAL_VC_STORYBOARD_IDENTIFIER) as? LegalViewController {
+    if let legalVC = self.storyboard?.instantiateViewController(withIdentifier: StoryboardKeys.legalViewControllerStoryboardID) as? LegalViewController {
       self.navigationController?.pushViewController(legalVC, animated: true)
     }
   }
@@ -222,10 +222,10 @@ class ProfileViewController: UITableViewController {
     do {
       try Auth.auth().signOut()
       
-      if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: ENTRY_VC_STORYBOARD_IDENTIFIER) as? EntryViewController {
-        //self.navigationController?.pushViewController(loginVC, animated: true)
-        dismiss(animated: true, completion: nil)
-      }
+      //      if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: ENTRY_VC_STORYBOARD_IDENTIFIER) as? EntryViewController {
+      //self.navigationController?.pushViewController(loginVC, animated: true)
+      dismiss(animated: true, completion: nil)
+      //      }
     }
     catch {
       debugPrint(error)
@@ -240,7 +240,7 @@ class ProfileViewController: UITableViewController {
         if let error = error {
           debugPrint(error)
         } else {
-          if let landingVC = self.storyboard?.instantiateViewController(withIdentifier: LANDING_VC_STORYBOARD_IDENTIFIER) as? LandingViewController {
+          if let landingVC = self.storyboard?.instantiateViewController(withIdentifier: StoryboardKeys.landingViewControllerStoryboardID) as? LandingViewController {
             self.navigationController?.pushViewController(landingVC, animated: true)
           }
         }

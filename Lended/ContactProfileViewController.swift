@@ -33,7 +33,7 @@ class ContactProfileViewController: UIViewController {
         if chatRoomSnapshot.value as? String == userId {
           self.ref.child(FirebaseKeys.chatRooms).child(chatRoomSnapshot.key).observeSingleEvent(of: .value, with: { (crsn) in
             let chatRoom = ChatRoom(snapshot: crsn)
-            if let messageVC = self.storyboard?.instantiateViewController(withIdentifier: MESSAGE_VC_STORYBOARD_IDENTIFIER) as? MessageViewController {
+            if let messageVC = self.storyboard?.instantiateViewController(withIdentifier: StoryboardKeys.messageViewControllerStoryboardID) as? MessageViewController {
               messageVC.chatRoom = chatRoom
               self.navigationController?.pushViewController(messageVC, animated: true)
             }
@@ -43,7 +43,7 @@ class ContactProfileViewController: UIViewController {
         }
       }
       if isNewChat {
-        if let messageVC = self.storyboard?.instantiateViewController(withIdentifier: MESSAGE_VC_STORYBOARD_IDENTIFIER) as? MessageViewController {
+        if let messageVC = self.storyboard?.instantiateViewController(withIdentifier: StoryboardKeys.messageViewControllerStoryboardID) as? MessageViewController {
           messageVC.person = self.person
           self.navigationController?.pushViewController(messageVC, animated: true)
         }

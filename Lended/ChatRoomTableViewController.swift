@@ -101,7 +101,7 @@ class ChatRoomTableViewController: UITableViewController {
     // let chatRoomId = chatRoomIDs[indexPath.row]
     if let cell = tableView.cellForRow(at: indexPath) as? ChatRoomTableViewCell {
       if let chatRoom = cell.chatRoom {
-        if let messageVC = storyboard?.instantiateViewController(withIdentifier: MESSAGE_VC_STORYBOARD_IDENTIFIER) as? MessageViewController {
+        if let messageVC = storyboard?.instantiateViewController(withIdentifier: StoryboardKeys.messageViewControllerStoryboardID) as? MessageViewController {
           messageVC.chatRoom = chatRoom
           self.navigationController?.pushViewController(messageVC, animated: true)
         }
