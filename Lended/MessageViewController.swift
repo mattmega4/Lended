@@ -154,7 +154,7 @@ class MessageViewController: UIViewController {
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideForResizing), name: Notification.Name.UIKeyboardWillHide, object: nil)
   }
   
-  func keyboardWillShowForResizing(notification: Notification) {
+  @objc func keyboardWillShowForResizing(notification: Notification) {
     if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
       // We're not just minusing the kb height from the view height because
       // the view could already have been resized for the keyboard before
@@ -164,7 +164,7 @@ class MessageViewController: UIViewController {
     }
   }
   
-  func keyboardWillHideForResizing(notification: Notification) {
+  @objc func keyboardWillHideForResizing(notification: Notification) {
     bottomConstraint.constant = 0
   }
   
