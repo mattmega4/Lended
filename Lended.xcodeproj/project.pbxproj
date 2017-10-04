@@ -42,7 +42,6 @@
 		29D47DF21F2D32EE003F9E36 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D47DF11F2D32EE003F9E36 /* MessageViewController.swift */; };
 		29D47DF51F2D3316003F9E36 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D47DF41F2D3316003F9E36 /* MessageTableViewCell.swift */; };
 		29D47DF91F2D3EC2003F9E36 /* InitialsImageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D47DF81F2D3EC2003F9E36 /* InitialsImageFactory.swift */; };
-		29D6E0BE1F1211EB0079EE55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29D6E0BD1F1211EB0079EE55 /* GoogleService-Info.plist */; };
 		29F8EE431F22B6FA00DE0032 /* LandingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F8EE421F22B6FA00DE0032 /* LandingTableViewCell.swift */; };
 		29FD4DC71F22D17900E2BEFF /* AcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FD4DC61F22D17900E2BEFF /* AcknowledgementsViewController.swift */; };
 		29FD4DCA1F22D1DF00E2BEFF /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FD4DC91F22D1DF00E2BEFF /* Library.swift */; };
@@ -89,10 +88,10 @@
 		297176BB1F22AF69006C527D /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		297176BE1F22B045006C527D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		299A90ED1F3CFC1500EF5E20 /* StoryboardKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardKeys.swift; sourceTree = "<group>"; };
+		29BD68761F84B1E900FF6839 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		29D47DF11F2D32EE003F9E36 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		29D47DF41F2D3316003F9E36 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		29D47DF81F2D3EC2003F9E36 /* InitialsImageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialsImageFactory.swift; sourceTree = "<group>"; };
-		29D6E0BD1F1211EB0079EE55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		29F8EE421F22B6FA00DE0032 /* LandingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingTableViewCell.swift; sourceTree = "<group>"; };
 		29FD4DC61F22D17900E2BEFF /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewController.swift; sourceTree = "<group>"; };
 		29FD4DC91F22D1DF00E2BEFF /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
@@ -159,8 +158,8 @@
 				1D17F2081E431645008B3216 /* AppDelegate.swift */,
 				1D17F20F1E431645008B3216 /* Assets.xcassets */,
 				1D17F2141E431645008B3216 /* Info.plist */,
+				29BD68761F84B1E900FF6839 /* GoogleService-Info.plist */,
 				29FD4DCF1F22D62A00E2BEFF /* Pods-Lended-acknowledgements.plist */,
-				29D6E0BD1F1211EB0079EE55 /* GoogleService-Info.plist */,
 			);
 			name = "Additional Files";
 			sourceTree = "<group>";
@@ -402,7 +401,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D17F2131E431645008B3216 /* LaunchScreen.storyboard in Resources */,
-				29D6E0BE1F1211EB0079EE55 /* GoogleService-Info.plist in Resources */,
 				29FD4DD01F22D62A00E2BEFF /* Pods-Lended-acknowledgements.plist in Resources */,
 				1D17F2101E431645008B3216 /* Assets.xcassets in Resources */,
 				1D17F20E1E431645008B3216 /* Main.storyboard in Resources */,
