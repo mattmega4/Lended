@@ -65,5 +65,5 @@ fastlane/screenshots
 fastlane/test_output
 
 
-
+Lended/GoogleService-Info.plist
 CrashReportingKey/ServiceAccount.json
