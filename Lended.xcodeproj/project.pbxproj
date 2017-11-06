@@ -88,7 +88,6 @@
 		297176BB1F22AF69006C527D /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		297176BE1F22B045006C527D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		299A90ED1F3CFC1500EF5E20 /* StoryboardKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardKeys.swift; sourceTree = "<group>"; };
-		29BD68761F84B1E900FF6839 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		29D47DF11F2D32EE003F9E36 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		29D47DF41F2D3316003F9E36 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		29D47DF81F2D3EC2003F9E36 /* InitialsImageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialsImageFactory.swift; sourceTree = "<group>"; };
@@ -146,22 +145,21 @@
 				1D17F21B1E4327F3008B3216 /* Controller */,
 				1DD487131E515152004E0172 /* Extensions */,
 				297176BD1F22B034006C527D /* Constants */,
-				1D17F21A1E4327F1008B3216 /* Additional Files */,
+				1D17F21A1E4327F1008B3216 /* SupportingFiles */,
 			);
 			path = Lended;
 			sourceTree = "<group>";
 		};
-		1D17F21A1E4327F1008B3216 /* Additional Files */ = {
+		1D17F21A1E4327F1008B3216 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
 				1D17F2111E431645008B3216 /* LaunchScreen.storyboard */,
 				1D17F2081E431645008B3216 /* AppDelegate.swift */,
 				1D17F20F1E431645008B3216 /* Assets.xcassets */,
 				1D17F2141E431645008B3216 /* Info.plist */,
-				29BD68761F84B1E900FF6839 /* GoogleService-Info.plist */,
 				29FD4DCF1F22D62A00E2BEFF /* Pods-Lended-acknowledgements.plist */,
 			);
-			name = "Additional Files";
+			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		1D17F21B1E4327F3008B3216 /* Controller */ = {
