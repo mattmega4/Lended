@@ -28,6 +28,7 @@
 		294E166F1F3BBBAC0096C2C3 /* BranchUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294E166E1F3BBBAC0096C2C3 /* BranchUtility.swift */; };
 		294E16711F3BBBBC0096C2C3 /* BranchKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294E16701F3BBBBC0096C2C3 /* BranchKeys.swift */; };
 		294E16741F3BBC2E0096C2C3 /* LegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294E16731F3BBC2E0096C2C3 /* LegalViewController.swift */; };
+		297026F61FB0577E00EA606C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 297026F51FB0577E00EA606C /* GoogleService-Info.plist */; };
 		297176A61F22ADD7006C527D /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176A51F22ADD7006C527D /* EntryViewController.swift */; };
 		297176A81F22ADE3006C527D /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176A71F22ADE3006C527D /* LandingViewController.swift */; };
 		297176AC1F22AE5D006C527D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297176AB1F22AE5D006C527D /* UIView+Extensions.swift */; };
@@ -77,6 +78,7 @@
 		294E166E1F3BBBAC0096C2C3 /* BranchUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchUtility.swift; sourceTree = "<group>"; };
 		294E16701F3BBBBC0096C2C3 /* BranchKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchKeys.swift; sourceTree = "<group>"; };
 		294E16731F3BBC2E0096C2C3 /* LegalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegalViewController.swift; sourceTree = "<group>"; };
+		297026F51FB0577E00EA606C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		297176A51F22ADD7006C527D /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		297176A71F22ADE3006C527D /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		297176AB1F22AE5D006C527D /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				1D17F2081E431645008B3216 /* AppDelegate.swift */,
 				1D17F20F1E431645008B3216 /* Assets.xcassets */,
 				1D17F2141E431645008B3216 /* Info.plist */,
+				297026F51FB0577E00EA606C /* GoogleService-Info.plist */,
 				29FD4DCF1F22D62A00E2BEFF /* Pods-Lended-acknowledgements.plist */,
 			);
 			name = SupportingFiles;
@@ -400,6 +403,7 @@
 			files = (
 				1D17F2131E431645008B3216 /* LaunchScreen.storyboard in Resources */,
 				29FD4DD01F22D62A00E2BEFF /* Pods-Lended-acknowledgements.plist in Resources */,
+				297026F61FB0577E00EA606C /* GoogleService-Info.plist in Resources */,
 				1D17F2101E431645008B3216 /* Assets.xcassets in Resources */,
 				1D17F20E1E431645008B3216 /* Main.storyboard in Resources */,
 			);
@@ -677,7 +681,7 @@
 				CODE_SIGN_ENTITLEMENTS = Lended/Lended.entitlements;
 				DEVELOPMENT_TEAM = K8YZSQZRNW;
 				INFOPLIST_FILE = Lended/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matthewhsingleton.Lended;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -695,7 +699,7 @@
 				CODE_SIGN_ENTITLEMENTS = Lended/Lended.entitlements;
 				DEVELOPMENT_TEAM = K8YZSQZRNW;
 				INFOPLIST_FILE = Lended/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matthewhsingleton.Lended;
 				PRODUCT_NAME = "$(TARGET_NAME)";

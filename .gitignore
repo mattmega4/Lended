@@ -64,6 +64,9 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 
+Lended/SupportingFiles/GoogleService-Info.plist
+Lended/SupportingFiles/Info.plist
+Lended/SupportingFiles/Keys.plist
 
 Lended/GoogleService-Info.plist
 CrashReportingKey/ServiceAccount.json
