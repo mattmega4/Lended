@@ -21,7 +21,15 @@ class BranchUtility: NSObject {
     let branchUniversalObject: BranchUniversalObject = BranchUniversalObject(canonicalIdentifier: BranchKeys.promoCodeSlashOne)
     branchUniversalObject.title = BranchKeys.promoCode
     branchUniversalObject.contentDescription = BranchKeys.downloadLynked
-    branchUniversalObject.addMetadataKey(BranchKeys.code, value: promoCode)
+    branchUniversalObject.contentMetadata.customMetadata[BranchKeys.code] = promoCode
+    // test that ^
+    
+    
+//    branchUniversalObject.addMetadataKey(BranchKeys.code, value: promoCode)
+    
+    // Old depricated ^
+    
+    
     //branchUniversalObject.addMetadataKey("property2", value: "red")
     
     let linkProperties: BranchLinkProperties = BranchLinkProperties()
